@@ -1,0 +1,8 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <utility
+      name="collective.casestudy.vocabulary.industries"
+      component=".industries.industries_vocabulary"
+      />
+
+</configure>

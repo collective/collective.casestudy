@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-12-06 17:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: collective/case_study/profiles/default/registry/querystring.xml
+#: collective/case_study/profiles/default/types/CaseStudy.xml
+msgid "Case Study"
+msgstr ""
+
+#: collective/case_study/browser/controlpanel.py:16
+msgid "Case Study Settings"
+msgstr ""
+
+#: collective/case_study/profiles.zcml:13
+msgid "Case Study: Install"
+msgstr ""
+
+#: collective/case_study/profiles.zcml:21
+msgid "Case Study: Uninstall"
+msgstr ""
+
+#: collective/case_study/profiles/default/types/CaseStudy.xml
+msgid "Edit"
+msgstr ""
+
+#: collective/case_study/vocabularies/industries.py:11
+msgid "Education"
+msgstr ""
+
+#: collective/case_study/vocabularies/industries.py:9
+msgid "Government"
+msgstr ""
+
+#: collective/case_study/interfaces.py:15
+msgid "Industries."
+msgstr ""
+
+#: collective/case_study/profiles.zcml:13
+msgid "Install Case Study content type in a Plone Site"
+msgstr ""
+
+#: collective/case_study/vocabularies/industries.py:10
+msgid "NGO"
+msgstr ""
+
+#: collective/case_study/profiles.zcml:21
+msgid "Uninstall Case Study content type in a Plone Site"
+msgstr ""
+
+#: collective/case_study/profiles/default/types/CaseStudy.xml
+msgid "View"
+msgstr ""
+
+#. Default: "Categorization by Industry."
+#: collective/case_study/profiles/default/registry/querystring.xml
+msgid "description_industry"
+msgstr ""
+
+#. Default: "List of industries available for Case Studies"
+#: collective/case_study/interfaces.py:16
+msgid "help_industries"
+msgstr ""
+
+#. Default: "Industry"
+#: collective/case_study/content/case_study.py:13
+#: collective/case_study/profiles/default/registry/querystring.xml
+msgid "label_industry"
+msgstr ""
+
+#. Default: "URL"
+#: collective/case_study/content/case_study.py:19
+msgid "label_url"
+msgstr ""

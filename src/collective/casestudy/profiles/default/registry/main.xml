@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="collective.casestudy"
+>
+
+  <records interface="collective.casestudy.interfaces.ICaseStudySettings"
+           prefix="casestudy"
+  >
+    <value key="industries">
+      <element>Government</element>
+      <element>Education</element>
+      <element>NGO</element>
+      <element>Corporate</element>
+      <element>News</element>
+    </value>
+  </records>
+
+</registry>
