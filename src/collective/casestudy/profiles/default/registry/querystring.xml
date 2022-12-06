@@ -24,4 +24,46 @@
     <value key="vocabulary">collective.casestudy.vocabulary.industries</value>
   </records>
 
+  <!-- Add options to search by usages -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.usage"
+  >
+    <value key="title"
+           i18n:translate="label_usage"
+    >Usage</value>
+    <value key="description"
+           i18n:translate="description_usage"
+    >Categorization by Usage.</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="group"
+           i18n:translate=""
+    >Case Study</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+    </value>
+    <value key="vocabulary">collective.casestudy.vocabulary.usages</value>
+  </records>
+
+  <!-- Add options to search by versions -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.version"
+  >
+    <value key="title"
+           i18n:translate="label_version"
+    >Version</value>
+    <value key="description"
+           i18n:translate="description_version"
+    >Categorization by Plone Version.</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="group"
+           i18n:translate=""
+    >Case Study</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+    </value>
+    <value key="vocabulary">collective.casestudy.vocabulary.versions</value>
+  </records>
+
 </registry>

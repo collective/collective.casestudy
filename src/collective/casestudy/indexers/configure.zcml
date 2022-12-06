@@ -2,6 +2,10 @@
 
   <!-- Indexers/Metadata -->
   <adapter
+      factory=".case_study.versions_indexer"
+      name="versions"
+      />
+  <adapter
       factory=".case_study.industry_indexer"
       name="industry"
       />

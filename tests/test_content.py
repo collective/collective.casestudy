@@ -20,6 +20,12 @@ def payload() -> dict:
         "description": "An explanation about the new Plone.org",
         "subject": ["Tag 1", "Tag 2"],
         "industry": "NGO",
+        "versions": [
+            "6.0",
+        ],
+        "usages": [
+            "Portal",
+        ],
         "remoteUrl": "https://plone.org",
         "id": "plone-org",
     }

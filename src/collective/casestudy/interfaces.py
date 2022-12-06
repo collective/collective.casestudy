@@ -19,3 +19,17 @@ class ICaseStudySettings(Interface):
         value_type=schema.TextLine(),
         default=[],
     )
+
+    usages = schema.List(
+        title=_("Usage."),
+        description=_("help_usages", default="Categories of Plone usage"),
+        value_type=schema.TextLine(),
+        default=[],
+    )
+
+    versions = schema.List(
+        title=_("Plone Versions."),
+        description=_("help_versions", default="List of Plone Versions"),
+        value_type=schema.TextLine(),
+        default=[],
+    )

@@ -7,6 +7,20 @@
     <indexed_attr value="industry" />
   </index>
 
+  <index meta_type="KeywordIndex"
+         name="usages"
+  >
+    <indexed_attr value="usages" />
+  </index>
+
+  <index meta_type="KeywordIndex"
+         name="versions"
+  >
+    <indexed_attr value="versions" />
+  </index>
+
   <column value="industry" />
+  <column value="usages" />
+  <column value="versions" />
 
 </object>
