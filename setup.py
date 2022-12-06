@@ -57,7 +57,7 @@ setup(
             "plone.app.testing>=7.0.0a3",
             "plone.restapi[test]",
             "pytest",
-            "pytest-cov"
+            "pytest-cov",
         ],
     },
     entry_points="""
