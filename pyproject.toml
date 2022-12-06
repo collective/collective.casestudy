@@ -1,4 +1,5 @@
 [tool.pytest.ini_options]
+addopts = "--cov-report term --cov=collective.casestudy"
 testpaths = [
     "tests",
 ]
