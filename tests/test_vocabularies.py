@@ -24,7 +24,7 @@ class TestVocabIndustries:
             "Government",
             "Education",
             "Corporate",
-            "News",
+            "Media",
             "NGO",
         ],
     )
