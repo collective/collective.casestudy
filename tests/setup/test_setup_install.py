@@ -1,5 +1,4 @@
 from collective.casestudy import PACKAGE_NAME
-from plone import api
 
 
 class TestSetupInstall:
@@ -12,7 +11,6 @@ class TestSetupInstall:
 
         assert ICaseStudyLayer in browser_layers
 
-    def test_latest_version(self, integration):
+    def test_latest_version(self, profile_last_version):
         """Test latest version of default profile."""
-        setup = api.portal.get_tool("portal_setup")
-        assert setup.getLastVersionForProfile(f"{PACKAGE_NAME}:default")[0] == "1000"
+        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1000"

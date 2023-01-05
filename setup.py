@@ -57,7 +57,7 @@ setup(
             "plone.restapi[test]",
             "pytest",
             "pytest-cov",
-            "pytest-plone",
+            "pytest-plone>=0.2.0",
         ],
     },
     entry_points="""
