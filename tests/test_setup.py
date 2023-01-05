@@ -1,13 +1,7 @@
 from collective.casestudy import PACKAGE_NAME
 from plone import api
-from Products.CMFPlone.utils import get_installer
 
 import pytest
-
-
-@pytest.fixture
-def installer(portal, http_request):
-    return get_installer(portal, http_request)
 
 
 @pytest.fixture
@@ -20,12 +14,11 @@ def test_addon_installed(installer):
     assert installer.is_product_installed(PACKAGE_NAME) is True
 
 
-def test_browserlayer(integration):
+def test_browserlayer(browser_layers):
     """Test that ICaseStudyLayer is registered."""
     from collective.casestudy.interfaces import ICaseStudyLayer
-    from plone.browserlayer import utils
 
-    assert ICaseStudyLayer in utils.registered_layers()
+    assert ICaseStudyLayer in browser_layers
 
 
 def test_latest_version(integration):
@@ -39,9 +32,8 @@ def test_product_uninstalled(uninstalled):
     assert uninstalled.is_product_installed(PACKAGE_NAME) is False
 
 
-def test_browserlayer_removed(uninstalled):
+def test_browserlayer_removed(uninstalled, browser_layers):
     """Test that ICaseStudyLayer is removed."""
     from collective.casestudy.interfaces import ICaseStudyLayer
-    from plone.browserlayer import utils
 
-    assert ICaseStudyLayer not in utils.registered_layers()
+    assert ICaseStudyLayer not in browser_layers

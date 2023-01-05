@@ -52,12 +52,12 @@ setup(
     ],
     extras_require={
         "test": [
-            "gocept.pytestlayer",
             "zest.releaser[recommended]",
             "plone.app.testing>=7.0.0a3",
             "plone.restapi[test]",
             "pytest",
             "pytest-cov",
+            "pytest-plone",
         ],
     },
     entry_points="""
