@@ -32,6 +32,7 @@ def payload() -> dict:
 
 
 class TestCaseStudy:
+
     @pytest.fixture(autouse=True)
     def _fti(self, integration):
         self.fti = queryUtility(IDexterityFTI, name=CONTENT_TYPE)
