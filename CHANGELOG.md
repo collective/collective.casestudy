@@ -2,7 +2,8 @@
 
 ## 1.0.0a2 (unreleased)
 
-- Nothing changed yet.
+- Use `pytest-plone` for testing.
+  [ericof]
 
 
 ## 1.0.0a1 (2022-12-06)

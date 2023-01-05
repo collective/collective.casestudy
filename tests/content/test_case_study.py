@@ -1,9 +1,7 @@
 from collective.casestudy.content.case_study import CaseStudy
 from plone import api
 from plone.dexterity.fti import DexterityFTI
-from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import createObject
-from zope.component import queryUtility
 
 import pytest
 
@@ -33,8 +31,8 @@ def payload() -> dict:
 
 class TestCaseStudy:
     @pytest.fixture(autouse=True)
-    def _fti(self, integration):
-        self.fti = queryUtility(IDexterityFTI, name=CONTENT_TYPE)
+    def _fti(self, get_fti, integration):
+        self.fti = get_fti(CONTENT_TYPE)
 
     def test_fti(self):
         assert isinstance(self.fti, DexterityFTI)
@@ -60,8 +58,8 @@ class TestCaseStudy:
             "volto.head_title",
         ],
     )
-    def test_has_behavior(self, behavior):
-        assert behavior in list(self.fti.behaviors)
+    def test_has_behavior(self, get_behaviors, behavior):
+        assert behavior in get_behaviors(CONTENT_TYPE)
 
     def test_create(self, portal, payload):
         with api.env.adopt_roles(["Manager"]):

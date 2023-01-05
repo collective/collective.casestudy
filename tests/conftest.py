@@ -1,24 +1,8 @@
 from collective.casestudy.testing import CASESTUDY_INTEGRATION_TESTING
-
-import gocept.pytestlayer.fixture
-import pytest
+from pytest_plone import fixtures_factory
 
 
-globals().update(
-    gocept.pytestlayer.fixture.create(
-        CASESTUDY_INTEGRATION_TESTING,
-        session_fixture_name="integration_session",
-        class_fixture_name="integration_class",
-        function_fixture_name="integration",
-    )
-)
+pytest_plugins = ["pytest_plone"]
 
 
-@pytest.fixture
-def portal(integration):
-    return integration["portal"]
-
-
-@pytest.fixture
-def http_request(integration):
-    return integration["request"]
+globals().update(fixtures_factory(((CASESTUDY_INTEGRATION_TESTING, "integration"),)))
