@@ -28,6 +28,14 @@
         title="Add the providers index"
         import_steps="catalog"
         />
+    <genericsetup:upgradeDepends
+        title="Add CaseStudy and Provider settings to diff_tool"
+        import_steps="difftool"
+        />
+    <genericsetup:upgradeDepends
+        title="Add CaseStudy and Provider settings to repositorytool"
+        import_steps="repositorytool"
+        />
     <upgradeStep
         title="Adjusts industry and usages values according to the new settings"
         handler=".vocabulary.upgrade_case_study_vocabs"
