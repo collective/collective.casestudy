@@ -28,6 +28,14 @@
         title="Add the providers index"
         import_steps="catalog"
         />
+    <upgradeStep
+        title="Adjusts industry and usages values according to the new settings"
+        handler=".vocabulary.upgrade_case_study_vocabs"
+        />
+    <upgradeStep
+        title="Remove old vocabulary terms from registru"
+        handler=".vocabulary.remove_old_values_from_registry"
+        />
   </genericsetup:upgradeSteps>
 
 </configure>
