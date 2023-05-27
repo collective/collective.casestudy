@@ -41,6 +41,7 @@
     <element value="plone.categorization" />
     <element value="collective.casestudy.contact_info" />
     <element value="collective.casestudy.address_info" />
+    <element value="volto.blocks" />
     <element value="plone.namefromtitle" />
     <element value="plone.shortname" />
     <element value="plone.excludefromnavigation" />

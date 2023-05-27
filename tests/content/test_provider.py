@@ -30,6 +30,7 @@ class TestProvider:
             "plone.categorization",
             "collective.casestudy.address_info",
             "collective.casestudy.contact_info",
+            "volto.blocks",
             "plone.namefromtitle",
             "plone.shortname",
             "plone.excludefromnavigation",
