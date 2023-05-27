@@ -15,7 +15,7 @@
   <plone:behavior
       name="collective.casestudy.providers"
       title="Providers"
-      description="Add a relation between a content and one or more Providers"
+      description="Add a relation between a content item and one or more Providers"
       provides=".providers.IProviders"
       />
 

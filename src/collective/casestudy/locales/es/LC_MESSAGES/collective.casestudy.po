@@ -24,7 +24,7 @@ msgid "5 to 30 employees"
 msgstr ""
 
 #: collective/casestudy/behaviors/configure.zcml:20
-msgid "Add a relation between a content and one or more Providers"
+msgid "Add a relation between a content item and one or more Providers"
 msgstr ""
 
 #: collective/casestudy/behaviors/configure.zcml:28
@@ -86,7 +86,7 @@ msgid "Plone Versions."
 msgstr "Versiones de Plone."
 
 #: collective/casestudy/interfaces.py:38
-msgid "Provided Services."
+msgid "Provided Services"
 msgstr ""
 
 #: collective/casestudy/profiles/default/types/Provider.xml

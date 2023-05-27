@@ -42,7 +42,7 @@ class ICaseStudySettings(Interface):
     )
 
     services = schema.List(
-        title=_("Provided Services."),
+        title=_("Provided Services"),
         description=_(
             "help_services",
             default=(
