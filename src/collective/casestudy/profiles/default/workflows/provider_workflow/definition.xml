@@ -210,7 +210,7 @@
               i18n:attributes="title"
   >
     <description i18n:translate="">
-    Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published.
+    Sending the item back will return the item to the original author instead of publishing it. Include your reason for not publishing it.
   </description>
     <action category="workflow"
             url="%(content_url)s/content_status_modify?workflow_action=reject"

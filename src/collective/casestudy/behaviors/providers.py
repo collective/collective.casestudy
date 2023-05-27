@@ -13,7 +13,7 @@ class IProviders(model.Schema):
     providers = RelationList(
         title=_("label_providers", default="Providers"),
         description=_(
-            "description_providers", default="One or more providers connected to this."
+            "description_providers", default="One or more providers connected to this item"
         ),
         required=False,
         default=[],

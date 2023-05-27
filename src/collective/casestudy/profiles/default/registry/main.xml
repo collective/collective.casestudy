@@ -30,7 +30,7 @@
     >
       <element>gov|Government</element>
       <element>edu|Education</element>
-      <element>ngo|NGO</element>
+      <element>ngo|Non-government organization (NGO)</element>
       <element>corporate|Corporate</element>
       <element>media|Media</element>
     </value>

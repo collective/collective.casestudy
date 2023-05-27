@@ -14,13 +14,13 @@ class IAddressInfo(model.Schema):
 
     address_2 = schema.TextLine(
         title=_("label_address_2", default="Additional Info"),
-        description=_("description_address_2", default="i.e: room 2"),
+        description=_("description_address_2", default="Example: Room 2"),
         required=False,
     )
 
     city = schema.TextLine(
         title=_("label_city", default="City"),
-        description=_("description_city", default="i.e. Brasília"),
+        description=_("description_city", default="Example: Brasília"),
         required=False,
     )
 

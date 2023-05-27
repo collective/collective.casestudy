@@ -36,8 +36,7 @@ class IContactInfo(model.Schema):
         description=_(
             "description_contact_phone",
             default=(
-                "Please provide us with a phone number including country code "
-                "and area code i.e.: +556132755673"
+                "Internationalized phone number with country code and area code"
             ),
         ),
         required=True,

@@ -23,7 +23,7 @@
   <plone:behavior
       name="collective.casestudy.address_info"
       title="Address Information"
-      description="Fields with public address information."
+      description="Fields with public address information"
       provides=".address_info.IAddressInfo"
       />
 
@@ -31,7 +31,7 @@
   <plone:behavior
       name="collective.casestudy.contact_info"
       title="Contact Information (Restricted Access)"
-      description="Fields with contact information that should be restricted to Editors and the Owner."
+      description="Fields with contact information that should be restricted to Editors and the Owner"
       provides=".contact_info.IContactInfo"
       />
 

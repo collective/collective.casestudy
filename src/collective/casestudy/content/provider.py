@@ -20,7 +20,7 @@ class IProvider(Schema):
         title=_("label_services", default="Services"),
         description=_(
             "description_services",
-            default="List of services you provide.",
+            default="List of services you provide",
         ),
         value_type=schema.Choice(
             vocabulary="collective.casestudy.vocabulary.services",
@@ -39,7 +39,7 @@ class IProvider(Schema):
         title=_("label_organization_size", default="Organization size"),
         description=_(
             "description_organization_size",
-            default="Number of people in your organization. It's fine to estimate.",
+            default="Estimated number of people in your organization",
         ),
         vocabulary="collective.casestudy.vocabulary.organization_size",
         required=True,
