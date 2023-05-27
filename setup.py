@@ -45,11 +45,7 @@ setup(
     include_package_data=True,
     zip_safe=True,
     python_requires=">=3.8",
-    install_requires=[
-        "setuptools",
-        "Plone",
-        "plone.api",
-    ],
+    install_requires=["setuptools", "Plone", "plone.api", "pycountry"],
     extras_require={
         "test": [
             "zest.releaser[recommended]",

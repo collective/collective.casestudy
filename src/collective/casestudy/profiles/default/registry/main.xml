@@ -6,7 +6,9 @@
   <records interface="collective.casestudy.interfaces.ICaseStudySettings"
            prefix="casestudy"
   >
-    <value key="versions">
+    <value key="versions"
+           purge="false"
+    >
       <element>6.0</element>
       <element>5.2</element>
       <element>5.1</element>
@@ -23,18 +25,32 @@
       <element>2.0</element>
     </value>
 
-    <value key="industries">
-      <element>Government</element>
-      <element>Education</element>
-      <element>NGO</element>
-      <element>Corporate</element>
-      <element>Media</element>
+    <value key="industries"
+           purge="false"
+    >
+      <element>gov|Government</element>
+      <element>edu|Education</element>
+      <element>ngo|NGO</element>
+      <element>corporate|Corporate</element>
+      <element>media|Media</element>
     </value>
 
-    <value key="usages">
-      <element>Portal</element>
-      <element>Intranet</element>
-      <element>Knowledge Base</element>
+    <value key="usages"
+           purge="false"
+    >
+      <element>portal|Portal</element>
+      <element>intranet|Intranet</element>
+      <element>kb|Knowledge Base</element>
+      <element>other|Other</element>
+    </value>
+
+    <value key="services"
+           purge="false"
+    >
+      <element>design|Design / Theming</element>
+      <element>dev|Development / Integration</element>
+      <element>hosting|Hosting</element>
+      <element>training|Training</element>
     </value>
   </records>
 

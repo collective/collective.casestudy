@@ -3,10 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.casestudy\n"
-"POT-Creation-Date: 2022-12-06 22:22+0000\n"
+"POT-Creation-Date: 2023-05-27 12:42+0000\n"
 "PO-Revision-Date: 2023-05-11 09:27-0400\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language: es\n"
 "Language-Team: ES <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -16,8 +15,21 @@ msgstr ""
 "Language-Name: Español\n"
 "Preferred-Encodings: utf-8\n"
 "Domain: collective.casestudy\n"
+"Language: es\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 "X-Generator: Poedit 2.2.1\n"
+
+#: collective/casestudy/vocabularies/organization.py:11
+msgid "5 to 30 employees"
+msgstr ""
+
+#: collective/casestudy/behaviors/configure.zcml:20
+msgid "Add a relation between a content and one or more Providers"
+msgstr ""
+
+#: collective/casestudy/behaviors/configure.zcml:28
+msgid "Address Information"
+msgstr ""
 
 #: collective/casestudy/profiles/default/registry/querystring.xml
 #: collective/casestudy/profiles/default/types/CaseStudy.xml
@@ -36,9 +48,22 @@ msgstr "Caso de Uso: Instalar"
 msgid "Case Study: Uninstall"
 msgstr "Caso de Uso: Desinstalar"
 
+#: collective/casestudy/behaviors/configure.zcml:36
+msgid "Contact Information (Restricted Access)"
+msgstr ""
+
 #: collective/casestudy/profiles/default/types/CaseStudy.xml
+#: collective/casestudy/profiles/default/types/Provider.xml
 msgid "Edit"
 msgstr "Editar"
+
+#: collective/casestudy/behaviors/configure.zcml:36
+msgid "Fields with contact information that should be restricted to Editors and the Owner."
+msgstr ""
+
+#: collective/casestudy/behaviors/configure.zcml:28
+msgid "Fields with public address information."
+msgstr ""
 
 #: collective/casestudy/interfaces.py:15
 msgid "Industries."
@@ -48,41 +73,132 @@ msgstr "Industrias."
 msgid "Install Case Study content type in a Plone Site"
 msgstr "Instala el tipo de Caso de Uso en un sitio Plone"
 
+#: collective/casestudy/vocabularies/organization.py:9
+msgid "Just me"
+msgstr ""
+
+#: collective/casestudy/vocabularies/organization.py:12
+msgid "More than 30 employees"
+msgstr ""
+
 #: collective/casestudy/interfaces.py:31
 msgid "Plone Versions."
 msgstr "Versiones de Plone."
 
+#: collective/casestudy/interfaces.py:38
+msgid "Provided Services."
+msgstr ""
+
+#: collective/casestudy/profiles/default/types/Provider.xml
+msgid "Provider"
+msgstr ""
+
+#: collective/casestudy/behaviors/configure.zcml:20
+#: collective/casestudy/profiles/default/registry/querystring.xml
+msgid "Providers"
+msgstr ""
+
 #: collective/casestudy/profiles.zcml:21
 msgid "Uninstall Case Study content type in a Plone Site"
 msgstr "Desinstala o tipo de Caso de Uso."
+
+#: collective/casestudy/vocabularies/organization.py:10
+msgid "Up to 5 employees"
+msgstr ""
 
 #: collective/casestudy/interfaces.py:24
 msgid "Usage."
 msgstr "Uso"
 
 #: collective/casestudy/profiles/default/types/CaseStudy.xml
+#: collective/casestudy/profiles/default/types/Provider.xml
 msgid "View"
 msgstr "Ver"
 
+#. Default: "i.e: room 2"
+#: collective/casestudy/behaviors/address_info.py:17
+msgid "description_address_2"
+msgstr ""
+
+#. Default: "i.e. Brasília"
+#: collective/casestudy/behaviors/address_info.py:23
+msgid "description_city"
+msgstr ""
+
+#. Default: "Please provide us with a phone number including country code and area code i.e.: +556132755673"
+#: collective/casestudy/behaviors/contact_info.py:36
+msgid "description_contact_phone"
+msgstr ""
+
+#. Default: "Country where the provider is based"
+#: collective/casestudy/behaviors/address_info.py:41
+msgid "description_country"
+msgstr ""
+
+#. Default: "Number of people in your organization. It's fine to estimate."
+#: collective/casestudy/content/provider.py:40
+msgid "description_organization_size"
+msgstr ""
+
+#. Default: "70123"
+#: collective/casestudy/behaviors/address_info.py:35
+msgid "description_postal_code"
+msgstr ""
+
+#. Default: "One or more providers connected to this."
+#: collective/casestudy/behaviors/providers.py:15
+msgid "description_providers"
+msgstr ""
+
+#. Default: "Categorization by Country."
+#: collective/casestudy/profiles/default/registry/querystring.xml
+msgid "description_qs_country"
+msgstr ""
+
 #. Default: "Categorization by Industry."
 #: collective/casestudy/profiles/default/registry/querystring.xml
-msgid "description_industry"
-msgstr "Categorización por Industria"
+msgid "description_qs_industry"
+msgstr ""
+
+#. Default: "Categorization by Provider."
+#: collective/casestudy/profiles/default/registry/querystring.xml
+msgid "description_qs_provider"
+msgstr ""
+
+#. Default: "Categorization by Services."
+#: collective/casestudy/profiles/default/registry/querystring.xml
+msgid "description_qs_services"
+msgstr ""
 
 #. Default: "Categorization by Usage."
 #: collective/casestudy/profiles/default/registry/querystring.xml
-msgid "description_usage"
-msgstr "Categorización por Uso"
+msgid "description_qs_usage"
+msgstr ""
 
 #. Default: "Categorization by Plone Version."
 #: collective/casestudy/profiles/default/registry/querystring.xml
-msgid "description_version"
-msgstr "Categorización por version de Plone"
+msgid "description_qs_version"
+msgstr ""
+
+#. Default: "List of services you provide."
+#: collective/casestudy/content/provider.py:21
+msgid "description_services"
+msgstr ""
+
+#. Default: "DF"
+#: collective/casestudy/behaviors/address_info.py:29
+msgid "description_state"
+msgstr ""
 
 #. Default: "List of industries available for Case Studies"
 #: collective/casestudy/interfaces.py:16
 msgid "help_industries"
 msgstr "Lista de Industria disponibles para Caso de Uso"
+
+#. Default: "List of services a provider offers to their customers"
+#: collective/casestudy/interfaces.py:39
+msgid "help_services"
+msgstr ""
 
 #. Default: "Categories of Plone usage"
 #: collective/casestudy/interfaces.py:25
@@ -94,11 +210,94 @@ msgstr "Categorías de uso do Plone"
 msgid "help_versions"
 msgstr "Lista de versiones de Plone"
 
+#. Default: "Company Address"
+#: collective/casestudy/behaviors/address_info.py:12
+msgid "label_address"
+msgstr ""
+
+#. Default: "Additional Info"
+#: collective/casestudy/behaviors/address_info.py:16
+msgid "label_address_2"
+msgstr ""
+
+#. Default: "City"
+#: collective/casestudy/behaviors/address_info.py:22
+msgid "label_city"
+msgstr ""
+
+#. Default: "Contact Email"
+#: collective/casestudy/behaviors/contact_info.py:31
+msgid "label_contact_email"
+msgstr ""
+
+#. Default: "Contact Information"
+#: collective/casestudy/behaviors/contact_info.py:19
+msgid "label_contact_info"
+msgstr ""
+
+#. Default: "Contact Person"
+#: collective/casestudy/behaviors/contact_info.py:27
+msgid "label_contact_name"
+msgstr ""
+
+#. Default: "Contact Phone Number"
+#: collective/casestudy/behaviors/contact_info.py:35
+msgid "label_contact_phone"
+msgstr ""
+
+#. Default: "Country"
+#: collective/casestudy/behaviors/address_info.py:40
+#: collective/casestudy/profiles/default/registry/querystring.xml
+msgid "label_country"
+msgstr ""
+
 #. Default: "Industry"
 #: collective/casestudy/content/case_study.py:16
 #: collective/casestudy/profiles/default/registry/querystring.xml
 msgid "label_industry"
 msgstr "Industria"
+
+#. Default: "Organization Information"
+#: collective/casestudy/content/provider.py:35
+msgid "label_organization"
+msgstr ""
+
+#. Default: "Organization size"
+#: collective/casestudy/content/provider.py:39
+msgid "label_organization_size"
+msgstr ""
+
+#. Default: "Postal Code"
+#: collective/casestudy/behaviors/address_info.py:34
+msgid "label_postal_code"
+msgstr ""
+
+#. Default: "Provider"
+#: collective/casestudy/behaviors/providers.py:21
+#: collective/casestudy/profiles/default/registry/querystring.xml
+msgid "label_provider"
+msgstr ""
+
+#. Default: "Providers"
+#: collective/casestudy/behaviors/providers.py:14
+msgid "label_providers"
+msgstr ""
+
+#. Default: "Services"
+#: collective/casestudy/content/provider.py:20
+#: collective/casestudy/profiles/default/registry/querystring.xml
+msgid "label_services"
+msgstr ""
+
+#. Default: "Company site"
+#: collective/casestudy/content/provider.py:17
+msgid "label_site"
+msgstr ""
+
+#. Default: "State / Province"
+#: collective/casestudy/behaviors/address_info.py:28
+msgid "label_state"
+msgstr ""
 
 #. Default: "URL"
 #: collective/casestudy/content/case_study.py:12

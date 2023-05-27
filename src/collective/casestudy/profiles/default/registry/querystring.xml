@@ -11,7 +11,7 @@
            i18n:translate="label_industry"
     >Industry</value>
     <value key="description"
-           i18n:translate="description_industry"
+           i18n:translate="description_qs_industry"
     >Categorization by Industry.</value>
     <value key="enabled">True</value>
     <value key="sortable">False</value>
@@ -32,7 +32,7 @@
            i18n:translate="label_usage"
     >Usage</value>
     <value key="description"
-           i18n:translate="description_usage"
+           i18n:translate="description_qs_usage"
     >Categorization by Usage.</value>
     <value key="enabled">True</value>
     <value key="sortable">False</value>
@@ -53,7 +53,7 @@
            i18n:translate="label_version"
     >Version</value>
     <value key="description"
-           i18n:translate="description_version"
+           i18n:translate="description_qs_version"
     >Categorization by Plone Version.</value>
     <value key="enabled">True</value>
     <value key="sortable">False</value>
@@ -64,6 +64,69 @@
       <element>plone.app.querystring.operation.selection.any</element>
     </value>
     <value key="vocabulary">collective.casestudy.vocabulary.versions</value>
+  </records>
+
+  <!-- Add options to search by providers -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.providers"
+  >
+    <value key="title"
+           i18n:translate="label_provider"
+    >Provider</value>
+    <value key="description"
+           i18n:translate="description_qs_provider"
+    >Categorization by Provider.</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="group"
+           i18n:translate=""
+    >Case Study</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+    </value>
+    <value key="vocabulary">collective.casestudy.vocabulary.providers</value>
+  </records>
+
+  <!-- Add options to search by country -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.country"
+  >
+    <value key="title"
+           i18n:translate="label_country"
+    >Country</value>
+    <value key="description"
+           i18n:translate="description_qs_country"
+    >Categorization by Country.</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="group"
+           i18n:translate=""
+    >Providers</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+    </value>
+    <value key="vocabulary">collective.casestudy.vocabulary.countries</value>
+  </records>
+
+  <!-- Add options to search by services -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.country"
+  >
+    <value key="title"
+           i18n:translate="label_services"
+    >Services</value>
+    <value key="description"
+           i18n:translate="description_qs_services"
+    >Categorization by Services.</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="group"
+           i18n:translate=""
+    >Providers</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+    </value>
+    <value key="vocabulary">collective.casestudy.vocabulary.services</value>
   </records>
 
 </registry>

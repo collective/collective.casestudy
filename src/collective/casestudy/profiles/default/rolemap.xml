@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rolemap>
+  <permissions>
+
+    <permission acquire="True"
+                name="collective.casestudy: Add Case Study"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Editor" />
+      <role name="Contributor" />
+    </permission>
+
+    <permission acquire="True"
+                name="collective.casestudy: Add Provider"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Editor" />
+      <role name="Contributor" />
+    </permission>
+
+    <permission acquire="True"
+                name="collective.casestudy: View Contact Information"
+    >
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Editor" />
+    </permission>
+
+    <permission acquire="True"
+                name="collective.casestudy: View Organization Information"
+    >
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Editor" />
+    </permission>
+
+  </permissions>
+</rolemap>

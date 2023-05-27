@@ -5,4 +5,7 @@
   <object meta_type="Dexterity FTI"
           name="CaseStudy"
   />
+  <object meta_type="Dexterity FTI"
+          name="Provider"
+  />
 </object>

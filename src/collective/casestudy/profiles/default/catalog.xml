@@ -19,8 +19,28 @@
     <indexed_attr value="versions" />
   </index>
 
+  <index meta_type="KeywordIndex"
+         name="providers"
+  >
+    <indexed_attr value="providers" />
+  </index>
+
+  <index meta_type="KeywordIndex"
+         name="services"
+  >
+    <indexed_attr value="services" />
+  </index>
+
+  <index meta_type="FieldIndex"
+         name="country"
+  >
+    <indexed_attr value="country" />
+  </index>
+
+  <column value="country" />
   <column value="industry" />
   <column value="usages" />
   <column value="versions" />
+  <column value="services" />
 
 </object>
