@@ -16,7 +16,8 @@ class ICaseStudySettings(Interface):
         description=_(
             "help_industries",
             default=(
-                "List of industries available for Case Studies in the format of `key|value`"
+                "List of industries available for Case Studies in the "
+                "format of `key|value`"
             ),
         ),
         value_type=schema.TextLine(),
@@ -45,7 +46,8 @@ class ICaseStudySettings(Interface):
         description=_(
             "help_services",
             default=(
-                "List of services a provider offers to their customers in the format of `key|value`"
+                "List of services a provider offers to their customers in the "
+                "format of `key|value`"
             ),
         ),
         value_type=schema.TextLine(),

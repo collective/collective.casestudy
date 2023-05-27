@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-05-27 12:42+0000\n"
+"POT-Creation-Date: 2023-05-27 21:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,12 +53,12 @@ msgid "Edit"
 msgstr "Editar"
 
 #: collective/casestudy/behaviors/configure.zcml:36
-msgid "Fields with contact information that should be restricted to Editors and the Owner."
-msgstr "Campos com informações de contato que serão restritos a Editores e o criador do conteúdo."
+msgid "Fields with contact information that should be restricted to Editors and the Owner"
+msgstr "Campos com informações de contato que serão restritas aos editores e ao criador do conteúdo"
 
 #: collective/casestudy/behaviors/configure.zcml:28
-msgid "Fields with public address information."
-msgstr "Campos com informações relativas ao endereço (informação pública)"
+msgid "Fields with public address information"
+msgstr "Campos com informações públicas de endereço"
 
 #: collective/casestudy/interfaces.py:15
 msgid "Industries."
@@ -76,11 +76,11 @@ msgstr "Apenas eu"
 msgid "More than 30 employees"
 msgstr "Mais de 30 empregados"
 
-#: collective/casestudy/interfaces.py:31
+#: collective/casestudy/interfaces.py:38
 msgid "Plone Versions."
 msgstr "Versões do Plone."
 
-#: collective/casestudy/interfaces.py:38
+#: collective/casestudy/interfaces.py:45
 msgid "Provided Services"
 msgstr "Serviços prestados"
 
@@ -101,7 +101,7 @@ msgstr "Desinstala o produto Casos de Uso."
 msgid "Up to 5 employees"
 msgstr "Até 5 funcionários"
 
-#: collective/casestudy/interfaces.py:24
+#: collective/casestudy/interfaces.py:28
 msgid "Usage."
 msgstr "Uso"
 
@@ -110,18 +110,21 @@ msgstr "Uso"
 msgid "View"
 msgstr "Visão"
 
-#. Default: "i.e: room 2"
+#. Default: "Example: Room 2"
 #: collective/casestudy/behaviors/address_info.py:17
+#, fuzzy
 msgid "description_address_2"
 msgstr "ex.: Sala 1504"
 
-#. Default: "i.e. Brasília"
+#. Default: "Example: Brasília"
 #: collective/casestudy/behaviors/address_info.py:23
+#, fuzzy
 msgid "description_city"
 msgstr "ex: Brasília"
 
-#. Default: "Please provide us with a phone number including country code and area code i.e.: +556132755673"
+#. Default: "Internationalized phone number with country code and area code"
 #: collective/casestudy/behaviors/contact_info.py:36
+#, fuzzy
 msgid "description_contact_phone"
 msgstr "Por favor nos informe um número de telefone, incluindo código de país e código de área, ex. +556132755673"
 
@@ -130,8 +133,9 @@ msgstr "Por favor nos informe um número de telefone, incluindo código de país
 msgid "description_country"
 msgstr "País onde o prestador está localizado"
 
-#. Default: "Number of people in your organization. It's fine to estimate."
+#. Default: "Estimated number of people in your organization"
 #: collective/casestudy/content/provider.py:40
+#, fuzzy
 msgid "description_organization_size"
 msgstr "Número de pessoas na organização. Pode ser uma estimativa."
 
@@ -140,8 +144,9 @@ msgstr "Número de pessoas na organização. Pode ser uma estimativa."
 msgid "description_postal_code"
 msgstr "70123-300"
 
-#. Default: "One or more providers connected to this."
+#. Default: "One or more providers connected to this item"
 #: collective/casestudy/behaviors/providers.py:15
+#, fuzzy
 msgid "description_providers"
 msgstr "Um ou mais prestadores conectados a este conteúdo."
 
@@ -175,8 +180,9 @@ msgstr "Filtro por uso de Plone."
 msgid "description_qs_version"
 msgstr "Filtro por versão de Plone."
 
-#. Default: "List of services you provide."
+#. Default: "List of services you provide"
 #: collective/casestudy/content/provider.py:21
+#, fuzzy
 msgid "description_services"
 msgstr "Lista de serviços oferecidos pelo prestador."
 
@@ -185,23 +191,26 @@ msgstr "Lista de serviços oferecidos pelo prestador."
 msgid "description_state"
 msgstr "DF"
 
-#. Default: "List of industries available for Case Studies"
+#. Default: "List of industries available for Case Studies in the format of `key|value`"
 #: collective/casestudy/interfaces.py:16
+#, fuzzy
 msgid "help_industries"
 msgstr "Lista de Segmentos disponíveis para Caso de Uso"
 
-#. Default: "List of services a provider offers to their customers"
-#: collective/casestudy/interfaces.py:39
+#. Default: "List of services a provider offers to their customers in the format of `key|value`"
+#: collective/casestudy/interfaces.py:46
+#, fuzzy
 msgid "help_services"
 msgstr "Lista de serviços oferecidos pelos prestadores."
 
-#. Default: "Categories of Plone usage"
-#: collective/casestudy/interfaces.py:25
+#. Default: "Categories of Plone usage in the format of `key|value`"
+#: collective/casestudy/interfaces.py:29
+#, fuzzy
 msgid "help_usages"
 msgstr "Categorias de uso do Plone"
 
 #. Default: "List of Plone Versions"
-#: collective/casestudy/interfaces.py:32
+#: collective/casestudy/interfaces.py:39
 msgid "help_versions"
 msgstr "Lista de versões do Plone"
 
@@ -268,7 +277,7 @@ msgid "label_postal_code"
 msgstr "CEP"
 
 #. Default: "Provider"
-#: collective/casestudy/behaviors/providers.py:21
+#: collective/casestudy/behaviors/providers.py:22
 #: collective/casestudy/profiles/default/registry/querystring.xml
 msgid "label_provider"
 msgstr "Prestador"

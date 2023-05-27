@@ -102,7 +102,7 @@ def providers_payload() -> list:
             "contact_name": "Mary Jane",
             "contact_email": "mjane@company2.com",
             "contact_phone": "+4123632259823",
-            "organization_size": "mei",
+            "organization_size": "me",
             "services": [
                 "hosting",
                 "dev",

@@ -19,7 +19,7 @@ class TestVocabOrganizationSize:
     @pytest.mark.parametrize(
         "token",
         [
-            "mei",
+            "me",
             "small",
             "medium",
             "large",
