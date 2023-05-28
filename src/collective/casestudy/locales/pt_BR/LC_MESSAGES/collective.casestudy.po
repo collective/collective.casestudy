@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-05-27 21:53+0000\n"
+"POT-Creation-Date: 2023-05-28 14:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,8 +61,8 @@ msgid "Fields with public address information"
 msgstr "Campos com informações públicas de endereço"
 
 #: collective/casestudy/interfaces.py:15
-msgid "Industries."
-msgstr "Segmentos."
+msgid "Industries"
+msgstr "Segmentos"
 
 #: collective/casestudy/profiles.zcml:13
 msgid "Install Case Study content type in a Plone Site"
@@ -102,7 +102,7 @@ msgid "Up to 5 employees"
 msgstr "Até 5 funcionários"
 
 #: collective/casestudy/interfaces.py:28
-msgid "Usage."
+msgid "Usage"
 msgstr "Uso"
 
 #: collective/casestudy/profiles/default/types/CaseStudy.xml

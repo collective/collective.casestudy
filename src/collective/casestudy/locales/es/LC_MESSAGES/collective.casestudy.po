@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.casestudy\n"
-"POT-Creation-Date: 2023-05-27 21:53+0000\n"
+"POT-Creation-Date: 2023-05-28 14:44+0000\n"
 "PO-Revision-Date: 2023-05-11 09:27-0400\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: ES <LL@li.org>\n"
@@ -66,8 +66,8 @@ msgid "Fields with public address information"
 msgstr ""
 
 #: collective/casestudy/interfaces.py:15
-msgid "Industries."
-msgstr "Industrias."
+msgid "Industries"
+msgstr ""
 
 #: collective/casestudy/profiles.zcml:13
 msgid "Install Case Study content type in a Plone Site"
@@ -107,8 +107,8 @@ msgid "Up to 5 employees"
 msgstr ""
 
 #: collective/casestudy/interfaces.py:28
-msgid "Usage."
-msgstr "Uso"
+msgid "Usage"
+msgstr ""
 
 #: collective/casestudy/profiles/default/types/CaseStudy.xml
 #: collective/casestudy/profiles/default/types/Provider.xml
