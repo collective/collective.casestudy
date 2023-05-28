@@ -24,11 +24,11 @@
 
 ## Features
 
-**collective.casestudy** provides two new content types to be used in Plone sites:
+`collective.casestudy` provides two new content types to be used in Plone sites, Case Study and Provider.
 
 ### Case Study
 
-A case study of a Plone deployment, which has attributes to track the Plone version used, the industry and the type of usage of Plone.
+A case study of a Plone deployment, which has attributes to track the Plone version used, the industry, and the type of usage of Plone.
 
 ### Provider
 
@@ -79,7 +79,7 @@ We appreciate any contribution and if a release is needed to be done on PyPI, pl
 
 ### Development
 
-You need a working `python` environment (system, virtualenv, pyenv, etc) version 3.7 or superior.
+You need a working Python environment version 3.7 or later.
 
 Then install the dependencies and a development instance using:
 
@@ -87,7 +87,6 @@ Then install the dependencies and a development instance using:
 make build
 ```
 
-To run tests for this package:
 By default, we use the latest Plone version in the 6.x series.
 
 ## License

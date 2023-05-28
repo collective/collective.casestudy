@@ -12,7 +12,7 @@ class ICaseStudyLayer(IDefaultBrowserLayer):
 class ICaseStudySettings(Interface):
 
     industries = schema.List(
-        title=_("Industries."),
+        title=_("Industries"),
         description=_(
             "help_industries",
             default=(
@@ -25,7 +25,7 @@ class ICaseStudySettings(Interface):
     )
 
     usages = schema.List(
-        title=_("Usage."),
+        title=_("Usage"),
         description=_(
             "help_usages",
             default=("Categories of Plone usage in the format of `key|value`"),
