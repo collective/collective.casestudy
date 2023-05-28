@@ -19,8 +19,10 @@ class TestVocabUsages:
     @pytest.mark.parametrize(
         "token",
         [
-            "Portal",
-            "Intranet",
+            "portal",
+            "intranet",
+            "kb",
+            "other",
         ],
     )
     def test_token(self, token):

@@ -1,4 +1,4 @@
-from collective.casestudy.content.case_study import CaseStudy
+from collective.casestudy.content.provider import Provider
 from plone import api
 from plone.dexterity.fti import DexterityFTI
 from zope.component import createObject
@@ -6,10 +6,10 @@ from zope.component import createObject
 import pytest
 
 
-CONTENT_TYPE = "CaseStudy"
+CONTENT_TYPE = "Provider"
 
 
-class TestCaseStudy:
+class TestProvider:
     @pytest.fixture(autouse=True)
     def _fti(self, get_fti, integration):
         self.fti = get_fti(CONTENT_TYPE)
@@ -21,41 +21,29 @@ class TestCaseStudy:
         factory = self.fti.factory
         obj = createObject(factory)
         assert obj is not None
-        assert isinstance(obj, CaseStudy)
+        assert isinstance(obj, Provider)
 
     @pytest.mark.parametrize(
         "behavior",
         [
-            "plone.dublincore",
+            "plone.basic",
+            "plone.categorization",
+            "collective.casestudy.address_info",
+            "collective.casestudy.contact_info",
+            "volto.blocks",
             "plone.namefromtitle",
             "plone.shortname",
             "plone.excludefromnavigation",
             "plone.relateditems",
             "plone.versioning",
-            "volto.blocks",
-            "volto.navtitle",
-            "volto.preview_image",
-            "volto.head_title",
         ],
     )
     def test_has_behavior(self, get_behaviors, behavior):
         assert behavior in get_behaviors(CONTENT_TYPE)
 
-    def test_create(self, portal, case_studies_payload):
-        payload = case_studies_payload[0]
+    def test_create(self, portal, providers_payload):
+        payload = providers_payload[0]
         with api.env.adopt_roles(["Manager"]):
             content = api.content.create(container=portal, **payload)
         assert content.portal_type == CONTENT_TYPE
-        assert isinstance(content, CaseStudy)
-
-    def test_indexer_industry(self, portal, case_studies_payload):
-        payload = case_studies_payload[0]
-        brains = api.content.find(industry="ngo")
-        assert len(brains) == 0
-
-        with api.env.adopt_roles(["Manager"]):
-            content = api.content.create(container=portal, **payload)
-
-        brains = api.content.find(industry="ngo")
-        assert len(brains) == 1
-        assert brains[0].Title == content.title
+        assert isinstance(content, Provider)

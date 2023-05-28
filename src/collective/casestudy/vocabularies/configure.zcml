@@ -15,4 +15,29 @@
       component=".versions.versions_vocabulary"
       />
 
+  <utility
+      name="collective.casestudy.vocabulary.providers"
+      component=".providers.providers_vocabulary"
+      />
+
+  <utility
+      name="collective.casestudy.vocabulary.services"
+      component=".services.services_vocabulary"
+      />
+
+  <utility
+      name="collective.casestudy.vocabulary.available_countries"
+      component=".countries.available_countries_vocabulary"
+      />
+
+  <utility
+      name="collective.casestudy.vocabulary.countries"
+      component=".countries.countries_vocabulary"
+      />
+
+  <utility
+      name="collective.casestudy.vocabulary.organization_size"
+      component=".organization.size_vocabulary"
+      />
+
 </configure>

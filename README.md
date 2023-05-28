@@ -22,19 +22,31 @@
 
 </div>
 
-Features
---------
+## Features
 
-**collective.casestudy** provides a Case Study content type to be used in Plone sites.
+`collective.casestudy` provides two new content types to be used in Plone sites, Case Study and Provider.
 
-Documentation
--------------
+### Case Study
 
-This package supports Plone sites using Volto, but each project should provide their own view for this content type.
+A case study of a Plone deployment, which has attributes to track the Plone version used, the industry, and the type of usage of Plone.
+
+### Provider
+
+A company providing Plone services and solutions.
+
+## See it in action
+
+**collective.casestudy** is being used in the following sites:
+
+* [Plone.org](https://plone.org)
+* [Plone Brasil](https://plone.org.br)
+
+## Documentation
+
+This package supports Plone sites using Volto, but each project should provide its view for this content type.
 
 
-Installation
-------------
+### Installation
 
 Add **collective.casestudy** to the Plone installation using `pip`:
 
@@ -55,21 +67,19 @@ or add it as a dependency on your package's `setup.py`
 Start Plone and activate the plugin in the addons control-panel.
 
 
-Source Code and Contributions
------------------------------
+## Source Code and Contributions
 
-If you want to help with the development (improvement, update, bug-fixing, ...) of `collective.casestudy` this is a great idea!
+We welcome contributions to `collective.casestudy`.
+You can create an issue in the issue tracker, or contact a maintainer.
 
 - [Issue Tracker](https://github.com/collective/collective.casestudy/issues)
 - [Source Code](https://github.com/collective/collective.casestudy/)
 
 
-We appreciate any contribution and if a release is needed to be done on PyPI, please just contact one of us.
 
-Development
------------
+### Development
 
-You need a working `python` environment (system, virtualenv, pyenv, etc) version 3.7 or superior.
+You need a working Python environment version 3.7 or later.
 
 Then install the dependencies and a development instance using:
 
@@ -77,15 +87,8 @@ Then install the dependencies and a development instance using:
 make build
 ```
 
-To run tests for this package:
+By default, we use the latest Plone version in the 6.x series.
 
-```bash
-make test
-```
+## License
 
-By default we use the latest Plone version in the 6.x series.
-
-License
--------
-
-The project is licensed under the GPLv2.
+The project is licensed under GPLv2.

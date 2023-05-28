@@ -5,7 +5,26 @@
     >
 
   <configure zcml:condition="installed AccessControl.security">
-    <!-- -*- extra stuff goes here -*- -->
+
+    <permission
+        id="collective.casestudy.casestudy.add"
+        title="collective.casestudy: Add Case Study"
+        />
+
+    <permission
+        id="collective.casestudy.provider.add"
+        title="collective.casestudy: Add Provider"
+        />
+
+    <permission
+        id="collective.casestudy.contact_info.view"
+        title="collective.casestudy: View Contact Information"
+        />
+
+    <permission
+        id="collective.casestudy.organization_info.view"
+        title="collective.casestudy: View Organization Information"
+        />
 
   </configure>
 

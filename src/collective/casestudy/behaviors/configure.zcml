@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.casestudy"
+    >
+
+  <include
+      package="plone.behavior"
+      file="meta.zcml"
+      />
+
+  <!-- Providers Behavior -->
+  <plone:behavior
+      name="collective.casestudy.providers"
+      title="Providers"
+      description="Add a relation between a content item and one or more Providers"
+      provides=".providers.IProviders"
+      />
+
+  <!-- Address Information Behavior -->
+  <plone:behavior
+      name="collective.casestudy.address_info"
+      title="Address Information"
+      description="Fields with public address information"
+      provides=".address_info.IAddressInfo"
+      />
+
+  <!-- Contact Information Behavior -->
+  <plone:behavior
+      name="collective.casestudy.contact_info"
+      title="Contact Information (Restricted Access)"
+      description="Fields with contact information that should be restricted to Editors and the Owner"
+      provides=".contact_info.IContactInfo"
+      />
+
+</configure>

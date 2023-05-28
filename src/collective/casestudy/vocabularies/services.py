@@ -6,12 +6,11 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 
 @provider(IVocabularyFactory)
-def usages_vocabulary(context):
-    """Vocabulary of Plone usages."""
+def services_vocabulary(context):
+    """Vocabulary of Provider Services."""
     terms = []
-    usages = api.portal.get_registry_record("casestudy.usages")
-    for title in usages:
-        token = title
+    services = api.portal.get_registry_record("casestudy.services")
+    for title in services:
         if "|" in title:
             token, title = title.split("|")
         terms.append(SimpleTerm(token, token, title))

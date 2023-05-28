@@ -12,17 +12,24 @@ class ICaseStudyLayer(IDefaultBrowserLayer):
 class ICaseStudySettings(Interface):
 
     industries = schema.List(
-        title=_("Industries."),
+        title=_("Industries"),
         description=_(
-            "help_industries", default="List of industries available for Case Studies"
+            "help_industries",
+            default=(
+                "List of industries available for Case Studies in the "
+                "format of `key|value`"
+            ),
         ),
         value_type=schema.TextLine(),
         default=[],
     )
 
     usages = schema.List(
-        title=_("Usage."),
-        description=_("help_usages", default="Categories of Plone usage"),
+        title=_("Usage"),
+        description=_(
+            "help_usages",
+            default=("Categories of Plone usage in the format of `key|value`"),
+        ),
         value_type=schema.TextLine(),
         default=[],
     )
@@ -30,6 +37,19 @@ class ICaseStudySettings(Interface):
     versions = schema.List(
         title=_("Plone Versions."),
         description=_("help_versions", default="List of Plone Versions"),
+        value_type=schema.TextLine(),
+        default=[],
+    )
+
+    services = schema.List(
+        title=_("Provided Services"),
+        description=_(
+            "help_services",
+            default=(
+                "List of services a provider offers to their customers in the "
+                "format of `key|value`"
+            ),
+        ),
         value_type=schema.TextLine(),
         default=[],
     )
