@@ -69,13 +69,13 @@ Start Plone and activate the plugin in the addons control-panel.
 
 ## Source Code and Contributions
 
-If you want to help with the development (improvement, update, bug-fixing, ...) of `collective.casestudy` this is a great idea!
+We welcome contributions to `collective.casestudy`.
+You can create an issue in the issue tracker, or contact a maintainer.
 
 - [Issue Tracker](https://github.com/collective/collective.casestudy/issues)
 - [Source Code](https://github.com/collective/collective.casestudy/)
 
 
-We appreciate any contribution and if a release is needed to be done on PyPI, please just contact one of us.
 
 ### Development
 
