@@ -4,7 +4,7 @@
              initial_state="private"
              state_variable="review_state"
              title="Provider Workflow"
-             workflow_id="simple_publication_workflow"
+             workflow_id="provider_workflow"
              i18n:attributes="title; description"
              i18n:domain="plone"
 >
