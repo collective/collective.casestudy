@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0a3 (unreleased)
+## 1.0.0a3 (2023-06-01)
 
 - Add Provider content type #2 [ericof]
 
