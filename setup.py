@@ -11,7 +11,7 @@ long_description = f"""
 
 setup(
     name="collective.casestudy",
-    version="1.0.0a3",
+    version="1.0.0a4.dev0",
     description="Case Study content type for Plone.",
     long_description=long_description,
     long_description_content_type="text/markdown",
