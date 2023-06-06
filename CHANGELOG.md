@@ -2,7 +2,7 @@
 
 ## 1.0.0a4 (unreleased)
 
-- Nothing changed yet.
+- Update Spanish translation [macagua]
 
 
 ## 1.0.0a3 (2023-06-01)
