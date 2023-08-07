@@ -11,6 +11,7 @@ def industries_vocabulary(context):
     terms = []
     industries = api.portal.get_registry_record("casestudy.industries")
     for title in industries:
+        token = title
         if "|" in title:
             token, title = title.split("|")
         terms.append(SimpleTerm(token, token, title))

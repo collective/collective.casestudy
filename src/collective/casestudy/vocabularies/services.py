@@ -11,6 +11,7 @@ def services_vocabulary(context):
     terms = []
     services = api.portal.get_registry_record("casestudy.services")
     for title in services:
+        token = title
         if "|" in title:
             token, title = title.split("|")
         terms.append(SimpleTerm(token, token, title))

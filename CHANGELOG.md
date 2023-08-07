@@ -4,6 +4,8 @@
 
 - Update Spanish translation [macagua]
 
+- Fix bug with industries and services tags [instification]
+
 
 ## 1.0.0a3 (2023-06-01)
 
