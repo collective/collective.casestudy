@@ -3,7 +3,7 @@ from copy import deepcopy
 import pytest
 
 
-DEFAULT_PASSWORD = "averylongpasswordbutnotthatlong"
+DEFAULT_PASSWORD = "averylongpasswordbutnotthatlong"  # noQA: S105
 
 
 @pytest.fixture
@@ -31,7 +31,7 @@ class TestContentProviderPost:
         assert isinstance(data, dict)
         assert data["id"] == "company-2"
         assert data["title"] == "Company 2"
-        assert data["country"]["token"] == "CH"
+        assert data["country"]["token"] == "CH"  # noQA: S105
 
     def test_contributor_can_create(self, contributor_request, payload):
         response = contributor_request.post("/", json=payload)
@@ -40,7 +40,7 @@ class TestContentProviderPost:
         assert isinstance(data, dict)
         assert data["id"] == "company-2"
         assert data["title"] == "Company 2"
-        assert data["country"]["token"] == "CH"
+        assert data["country"]["token"] == "CH"  # noQA: S105
 
     def test_editor_cannot_create(self, editor_request, payload):
         response = editor_request.post("/", json=payload)
@@ -91,6 +91,6 @@ class TestContentProviderPost:
         assert response.status_code == 200
         data = response.json()
         assert data["review_state"] == "published"
-        assert (
-            "contact_name" in data
-        ) is expected, f"Failed the check for {role} can view contact info"
+        assert ("contact_name" in data) is expected, (
+            f"Failed the check for {role} can view contact info"
+        )

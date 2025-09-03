@@ -13,7 +13,6 @@ PERMISSION = "collective.casestudy.contact_info.view"
 
 @provider(IFormFieldProvider)
 class IContactInfo(model.Schema):
-
     directives.fieldset(
         "contact_info",
         label=_("label_contact_info", default="Contact Information"),

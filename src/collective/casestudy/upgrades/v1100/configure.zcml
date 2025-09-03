@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="1000"
+      destination="1100"
+      >
+    <genericsetup:upgradeDepends
+        title="Add type Provider, update Case Study Type"
+        import_steps="typeinfo"
+        />
+    <genericsetup:upgradeDepends
+        title="Set default permissioning for Case Study and Provider types"
+        import_steps="rolemap"
+        />
+    <genericsetup:upgradeDepends
+        title="Add the querystring for providers"
+        import_steps="plone.app.registry"
+        />
+    <genericsetup:upgradeDepends
+        title="Register Provider's workflow"
+        import_steps="workflow"
+        />
+    <genericsetup:upgradeDepends
+        title="Add the providers index"
+        import_steps="catalog"
+        />
+    <genericsetup:upgradeDepends
+        title="Add CaseStudy and Provider settings to diff_tool"
+        import_steps="difftool"
+        />
+    <genericsetup:upgradeDepends
+        title="Add CaseStudy and Provider settings to repositorytool"
+        import_steps="repositorytool"
+        />
+    <upgradeStep
+        title="Adjusts industry and usages values according to the new settings"
+        handler=".vocabulary.upgrade_case_study_vocabs"
+        />
+    <upgradeStep
+        title="Remove old vocabulary terms from registru"
+        handler=".vocabulary.remove_old_values_from_registry"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>

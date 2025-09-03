@@ -5,7 +5,6 @@ import pytest
 
 
 class TestVocabIndustries:
-
     name = f"{PACKAGE_NAME}.vocabulary.industries"
 
     @pytest.fixture(autouse=True)
@@ -27,4 +26,4 @@ class TestVocabIndustries:
         ],
     )
     def test_token(self, token):
-        assert token in [x for x in self.vocab.by_token]
+        assert token in list(self.vocab.by_token)

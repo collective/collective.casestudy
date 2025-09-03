@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "cameron.vscode-pytest",
+        "charliermarsh.ruff",
+        "ms-python.python"
+    ]
+}

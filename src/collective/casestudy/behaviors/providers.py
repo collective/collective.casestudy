@@ -9,7 +9,6 @@ from zope.interface import provider
 
 @provider(IFormFieldProvider)
 class IProviders(model.Schema):
-
     providers = RelationList(
         title=_("label_providers", default="Providers"),
         description=_(
@@ -20,10 +19,8 @@ class IProviders(model.Schema):
         default=[],
         value_type=RelationChoice(
             title=_("label_provider", default="Provider"),
-            vocabulary=StaticCatalogVocabulary(
-                {
-                    "portal_type": ["Provider"],
-                }
-            ),
+            vocabulary=StaticCatalogVocabulary({
+                "portal_type": ["Provider"],
+            }),
         ),
     )

@@ -7,7 +7,6 @@ from zope.interface import provider
 
 @provider(IFormFieldProvider)
 class IAddressInfo(model.Schema):
-
     address = schema.TextLine(
         title=_("label_address", default="Company Address"), required=False
     )

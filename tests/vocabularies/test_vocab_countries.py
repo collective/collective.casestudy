@@ -6,7 +6,6 @@ import pytest
 
 
 class TestVocabAvailableCountries:
-
     name = f"{PACKAGE_NAME}.vocabulary.available_countries"
 
     @pytest.fixture(autouse=True)
@@ -31,7 +30,7 @@ class TestVocabAvailableCountries:
         ],
     )
     def test_token(self, token):
-        assert token in [x for x in self.vocab.by_token]
+        assert token in list(self.vocab.by_token)
 
     @pytest.mark.parametrize(
         "token,title",
@@ -52,11 +51,10 @@ class TestVocabAvailableCountries:
 
 
 class TestVocabCountries:
-
     name = f"{PACKAGE_NAME}.vocabulary.countries"
 
     @pytest.fixture(autouse=True)
-    def _init(self, get_vocabulary, portal, providers):
+    def _setup(self, get_vocabulary, portal, providers):
         for provider_uid in providers:
             obj = api.content.find(UID=provider_uid)[0].getObject()
             obj.reindexObject()
@@ -74,7 +72,7 @@ class TestVocabCountries:
         ],
     )
     def test_token(self, token):
-        assert token in [x for x in self.vocab.by_token]
+        assert token in list(self.vocab.by_token)
 
     @pytest.mark.parametrize(
         "token",
@@ -84,7 +82,7 @@ class TestVocabCountries:
         ],
     )
     def test_token_not_in(self, token):
-        assert token not in [x for x in self.vocab.by_token]
+        assert token not in list(self.vocab.by_token)
 
     @pytest.mark.parametrize(
         "token,title",

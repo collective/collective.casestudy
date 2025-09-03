@@ -13,9 +13,7 @@
 
 [![PyPI - Plone Versions](https://img.shields.io/pypi/frameworkversions/plone/collective.casestudy)](https://pypi.org/project/collective.casestudy/)
 
-[![Code analysis checks](https://github.com/collective/collective.casestudy/actions/workflows/code-analysis.yml/badge.svg)](https://github.com/collective/collective.casestudy/actions/workflows/code-analysis.yml)
-[![Tests](https://github.com/collective/collective.casestudy/actions/workflows/tests.yaml/badge.svg)](https://github.com/collective/collective.casestudy/actions/workflows/tests.yaml)
-![Code Style](https://img.shields.io/badge/Code%20Style-Black-000000)
+[![CI](https://github.com/collective/collective.casestudy/actions/workflows/ci.yml/badge.svg)](https://github.com/collective/collective.casestudy/actions/workflows/ci.yml)
 
 [![GitHub contributors](https://img.shields.io/github/contributors/collective/collective.casestudy)](https://github.com/collective/collective.casestudy)
 [![GitHub Repo stars](https://img.shields.io/github/stars/collective/collective.casestudy?style=social)](https://github.com/collective/collective.casestudy)
@@ -57,10 +55,9 @@ or add it as a dependency on your package's `setup.py`
 
 ```python
     install_requires = [
-        "collective.casestudy",
         "Plone",
         "plone.restapi",
-        "setuptools",
+        "collective.casestudy",
     ],
 ```
 
@@ -79,12 +76,12 @@ You can create an issue in the issue tracker, or contact a maintainer.
 
 ### Development
 
-You need a working Python environment version 3.7 or later.
+You need a working Python environment version 3.10 or later.
 
 Then install the dependencies and a development instance using:
 
 ```bash
-make build
+make install
 ```
 
 By default, we use the latest Plone version in the 6.x series.

@@ -10,12 +10,10 @@ pytest_plugins = ["pytest_plone"]
 
 
 globals().update(
-    fixtures_factory(
-        (
-            (FUNCTIONAL_TESTING, "functional"),
-            (INTEGRATION_TESTING, "integration"),
-        )
-    )
+    fixtures_factory((
+        (FUNCTIONAL_TESTING, "functional"),
+        (INTEGRATION_TESTING, "integration"),
+    ))
 )
 
 
@@ -60,11 +58,9 @@ def case_studies_payload() -> list:
 def case_studies(portal, case_studies_payload) -> dict:
     """Create provider content items."""
     response = {}
-    with api.env.adopt_roles(
-        [
-            "Manager",
-        ]
-    ):
+    with api.env.adopt_roles([
+        "Manager",
+    ]):
         for data in case_studies_payload:
             content = api.content.create(container=portal, **data)
             response[content.UID()] = content.title
@@ -116,11 +112,9 @@ def providers_payload() -> list:
 def providers(portal, providers_payload) -> dict:
     """Create provider content items."""
     response = {}
-    with api.env.adopt_roles(
-        [
-            "Manager",
-        ]
-    ):
+    with api.env.adopt_roles([
+        "Manager",
+    ]):
         for data in providers_payload:
             content = api.content.create(container=portal, **data)
             response[content.UID()] = content.title

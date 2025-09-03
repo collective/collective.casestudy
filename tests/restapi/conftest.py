@@ -7,7 +7,7 @@ import pytest
 import transaction
 
 
-DEFAULT_PASSWORD = "averylongpasswordbutnotthatlong"
+DEFAULT_PASSWORD = "averylongpasswordbutnotthatlong"  # noQA: S105
 
 
 def _create_user_with_role(role: str, username: str = ""):
