@@ -5,7 +5,6 @@ import pytest
 
 
 class TestVocabServices:
-
     name = f"{PACKAGE_NAME}.vocabulary.services"
 
     @pytest.fixture(autouse=True)
@@ -26,7 +25,7 @@ class TestVocabServices:
         ],
     )
     def test_token(self, token):
-        assert token in [x for x in self.vocab.by_token]
+        assert token in list(self.vocab.by_token)
 
     @pytest.mark.parametrize(
         "token, title",

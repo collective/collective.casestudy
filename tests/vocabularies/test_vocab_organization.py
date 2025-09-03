@@ -5,7 +5,6 @@ import pytest
 
 
 class TestVocabOrganizationSize:
-
     name = f"{PACKAGE_NAME}.vocabulary.organization_size"
 
     @pytest.fixture(autouse=True)
@@ -26,4 +25,4 @@ class TestVocabOrganizationSize:
         ],
     )
     def test_token(self, token):
-        assert token in [x for x in self.vocab.by_token]
+        assert token in list(self.vocab.by_token)

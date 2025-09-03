@@ -13,7 +13,7 @@ def portal(integration, get_fti):
     """Apply the provider behavior on the CaseStudy content type"""
     fti = get_fti("CaseStudy")
     original_behaviors = fti.behaviors
-    behaviors = list(original_behaviors) + [BEHAVIOR]
+    behaviors = [*list(original_behaviors), BEHAVIOR]
     fti.behaviors = tuple(behaviors)
     yield integration["portal"]
     # Revert changes
@@ -27,7 +27,7 @@ class TestProvidersBehavior:
 
     @property
     def provider(self):
-        provider_uid = [k for k in self.providers.keys()][0]
+        provider_uid = next(iter(self.providers))
         return api.content.find(UID=provider_uid)[0].getObject()
 
     def _create_case_study_with_provider(self, portal, case_studies_payload):

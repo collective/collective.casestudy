@@ -46,7 +46,7 @@ def remove_old_values_from_registry(context):
     logger.info("Update vocabularies in site registry")
     for key_suffix, vocab in [("industries", INDUSTRIES), ("usages", USAGES)]:
         key = f"casestudy.{key_suffix}"
-        to_remove = [item for item in vocab]
+        to_remove = list(vocab)
         current = api.portal.get_registry_record(key)
         filtered = [item for item in current if item not in to_remove]
         api.portal.set_registry_record(key, filtered)

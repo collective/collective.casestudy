@@ -9,14 +9,12 @@ from zope.interface import Interface
 
 
 class SettingsEditForm(RegistryEditForm):
-
     schema = ICaseStudySettings
     schema_prefix = "casestudy"
     label = "Case Study Settings"
 
 
 class SettingsControlPanelFormWrapper(ControlPanelFormWrapper):
-
     form = SettingsEditForm
 
 

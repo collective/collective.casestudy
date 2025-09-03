@@ -1,11 +1,13 @@
 # Changelog
 
-## 1.0.0a4 (unreleased)
+<!--
+   You should *NOT* be adding new change log entries to this file.
+   You should create a file in the news directory instead.
+   For helpful instructions, please see:
+   https://github.com/plone/plone.releaser/blob/master/ADD-A-NEWS-ITEM.rst
+-->
 
-- Update Spanish translation [macagua]
-
-- Fix bug with industries and services tags [instification]
-
+<!-- towncrier release notes start -->
 
 ## 1.0.0a3 (2023-06-01)
 

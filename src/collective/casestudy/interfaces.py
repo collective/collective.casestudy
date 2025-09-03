@@ -1,4 +1,5 @@
 """Module where all interfaces, events and exceptions live."""
+
 from collective.casestudy import _
 from zope import schema
 from zope.interface import Interface
@@ -10,7 +11,6 @@ class ICaseStudyLayer(IDefaultBrowserLayer):
 
 
 class ICaseStudySettings(Interface):
-
     industries = schema.List(
         title=_("Industries"),
         description=_(
