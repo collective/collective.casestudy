@@ -1,7 +1,7 @@
 [project]
 name = "collective.casestudy"
 dynamic = ["version"]
-description = "Provides OAuth2/OpenID login for Plone using Authomatic."
+description = "Case Study content type for Plone."
 readme = "README.md"
 license = {text = "GNU General Public License v2 (GPLv2)"}
 requires-python = ">=3.10"
@@ -9,9 +9,6 @@ authors = [
     { name = "Érico Andrei", email = "ericof@plone.org" },
 ]
 keywords = [
-    "Authentication",
-    "OAuth",
-    "PAS",
     "Plone",
     "Python",
 ]
