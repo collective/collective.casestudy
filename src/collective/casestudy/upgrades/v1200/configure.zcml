@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="1100"
+      destination="1200"
+      >
+    <genericsetup:upgradeDepends
+        title="Fix querystring field operations"
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>
