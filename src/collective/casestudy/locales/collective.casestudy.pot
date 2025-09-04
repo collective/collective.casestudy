@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-05-28 14:44+0000\n"
+"POT-Creation-Date: 2025-09-04 01:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Case Study"
 msgstr ""
 
-#: collective/casestudy/browser/controlpanel.py:30
+#: collective/casestudy/browser/controlpanel.py:28
 msgid "Case Study Settings"
 msgstr ""
 
@@ -114,22 +114,22 @@ msgid "View"
 msgstr ""
 
 #. Default: "Example: Room 2"
-#: collective/casestudy/behaviors/address_info.py:17
+#: collective/casestudy/behaviors/address_info.py:16
 msgid "description_address_2"
 msgstr ""
 
 #. Default: "Example: Brasília"
-#: collective/casestudy/behaviors/address_info.py:23
+#: collective/casestudy/behaviors/address_info.py:22
 msgid "description_city"
 msgstr ""
 
 #. Default: "Internationalized phone number with country code and area code"
-#: collective/casestudy/behaviors/contact_info.py:36
+#: collective/casestudy/behaviors/contact_info.py:35
 msgid "description_contact_phone"
 msgstr ""
 
 #. Default: "Country where the provider is based"
-#: collective/casestudy/behaviors/address_info.py:41
+#: collective/casestudy/behaviors/address_info.py:40
 msgid "description_country"
 msgstr ""
 
@@ -139,12 +139,12 @@ msgid "description_organization_size"
 msgstr ""
 
 #. Default: "70123"
-#: collective/casestudy/behaviors/address_info.py:35
+#: collective/casestudy/behaviors/address_info.py:34
 msgid "description_postal_code"
 msgstr ""
 
 #. Default: "One or more providers connected to this item"
-#: collective/casestudy/behaviors/providers.py:15
+#: collective/casestudy/behaviors/providers.py:14
 msgid "description_providers"
 msgstr ""
 
@@ -184,7 +184,7 @@ msgid "description_services"
 msgstr ""
 
 #. Default: "DF"
-#: collective/casestudy/behaviors/address_info.py:29
+#: collective/casestudy/behaviors/address_info.py:28
 msgid "description_state"
 msgstr ""
 
@@ -209,42 +209,42 @@ msgid "help_versions"
 msgstr ""
 
 #. Default: "Company Address"
-#: collective/casestudy/behaviors/address_info.py:12
+#: collective/casestudy/behaviors/address_info.py:11
 msgid "label_address"
 msgstr ""
 
 #. Default: "Additional Info"
-#: collective/casestudy/behaviors/address_info.py:16
+#: collective/casestudy/behaviors/address_info.py:15
 msgid "label_address_2"
 msgstr ""
 
 #. Default: "City"
-#: collective/casestudy/behaviors/address_info.py:22
+#: collective/casestudy/behaviors/address_info.py:21
 msgid "label_city"
 msgstr ""
 
 #. Default: "Contact Email"
-#: collective/casestudy/behaviors/contact_info.py:31
+#: collective/casestudy/behaviors/contact_info.py:30
 msgid "label_contact_email"
 msgstr ""
 
 #. Default: "Contact Information"
-#: collective/casestudy/behaviors/contact_info.py:19
+#: collective/casestudy/behaviors/contact_info.py:18
 msgid "label_contact_info"
 msgstr ""
 
 #. Default: "Contact Person"
-#: collective/casestudy/behaviors/contact_info.py:27
+#: collective/casestudy/behaviors/contact_info.py:26
 msgid "label_contact_name"
 msgstr ""
 
 #. Default: "Contact Phone Number"
-#: collective/casestudy/behaviors/contact_info.py:35
+#: collective/casestudy/behaviors/contact_info.py:34
 msgid "label_contact_phone"
 msgstr ""
 
 #. Default: "Country"
-#: collective/casestudy/behaviors/address_info.py:40
+#: collective/casestudy/behaviors/address_info.py:39
 #: collective/casestudy/profiles/default/registry/querystring.xml
 msgid "label_country"
 msgstr ""
@@ -266,18 +266,18 @@ msgid "label_organization_size"
 msgstr ""
 
 #. Default: "Postal Code"
-#: collective/casestudy/behaviors/address_info.py:34
+#: collective/casestudy/behaviors/address_info.py:33
 msgid "label_postal_code"
 msgstr ""
 
 #. Default: "Provider"
-#: collective/casestudy/behaviors/providers.py:22
+#: collective/casestudy/behaviors/providers.py:21
 #: collective/casestudy/profiles/default/registry/querystring.xml
 msgid "label_provider"
 msgstr ""
 
 #. Default: "Providers"
-#: collective/casestudy/behaviors/providers.py:14
+#: collective/casestudy/behaviors/providers.py:13
 msgid "label_providers"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgid "label_site"
 msgstr ""
 
 #. Default: "State / Province"
-#: collective/casestudy/behaviors/address_info.py:28
+#: collective/casestudy/behaviors/address_info.py:27
 msgid "label_state"
 msgstr ""
 

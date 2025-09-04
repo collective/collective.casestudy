@@ -3,11 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.casestudy\n"
-"POT-Creation-Date: 2023-05-28 14:44+0000\n"
+"POT-Creation-Date: 2025-09-04 01:21+0000\n"
 "PO-Revision-Date: 2023-05-29 09:27-0400\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: ES <LL@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,6 +15,7 @@ msgstr ""
 "Language-Name: Español\n"
 "Preferred-Encodings: utf-8\n"
 "Domain: collective.casestudy\n"
+"Language: es\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 "X-Generator: Poedit 3.3.1\n"
 
@@ -36,7 +36,7 @@ msgstr "Información sobre la dirección"
 msgid "Case Study"
 msgstr "Caso de Uso"
 
-#: collective/casestudy/browser/controlpanel.py:30
+#: collective/casestudy/browser/controlpanel.py:28
 msgid "Case Study Settings"
 msgstr "Configuraciones de Caso de Uso"
 
@@ -116,22 +116,22 @@ msgid "View"
 msgstr "Ver"
 
 #. Default: "Example: Room 2"
-#: collective/casestudy/behaviors/address_info.py:17
+#: collective/casestudy/behaviors/address_info.py:16
 msgid "description_address_2"
 msgstr "Ejemplo: Sala 2"
 
 #. Default: "Example: Brasília"
-#: collective/casestudy/behaviors/address_info.py:23
+#: collective/casestudy/behaviors/address_info.py:22
 msgid "description_city"
 msgstr "Ejemplo: Brasilia"
 
 #. Default: "Internationalized phone number with country code and area code"
-#: collective/casestudy/behaviors/contact_info.py:36
+#: collective/casestudy/behaviors/contact_info.py:35
 msgid "description_contact_phone"
 msgstr "Número de teléfono internacionalizado con prefijo de país y de zona"
 
 #. Default: "Country where the provider is based"
-#: collective/casestudy/behaviors/address_info.py:41
+#: collective/casestudy/behaviors/address_info.py:40
 msgid "description_country"
 msgstr "País en el que tiene su sede el proveedor"
 
@@ -141,12 +141,12 @@ msgid "description_organization_size"
 msgstr "Número estimado de personas en su organización"
 
 #. Default: "70123"
-#: collective/casestudy/behaviors/address_info.py:35
+#: collective/casestudy/behaviors/address_info.py:34
 msgid "description_postal_code"
 msgstr "70123"
 
 #. Default: "One or more providers connected to this item"
-#: collective/casestudy/behaviors/providers.py:15
+#: collective/casestudy/behaviors/providers.py:14
 msgid "description_providers"
 msgstr "Uno o varios proveedores conectados a este elemento"
 
@@ -186,7 +186,7 @@ msgid "description_services"
 msgstr "Lista de servicios que presta"
 
 #. Default: "DF"
-#: collective/casestudy/behaviors/address_info.py:29
+#: collective/casestudy/behaviors/address_info.py:28
 msgid "description_state"
 msgstr "DF"
 
@@ -211,42 +211,42 @@ msgid "help_versions"
 msgstr "Lista de versiones de Plone"
 
 #. Default: "Company Address"
-#: collective/casestudy/behaviors/address_info.py:12
+#: collective/casestudy/behaviors/address_info.py:11
 msgid "label_address"
 msgstr "Dirección de la empresa"
 
 #. Default: "Additional Info"
-#: collective/casestudy/behaviors/address_info.py:16
+#: collective/casestudy/behaviors/address_info.py:15
 msgid "label_address_2"
 msgstr "Información adicional"
 
 #. Default: "City"
-#: collective/casestudy/behaviors/address_info.py:22
+#: collective/casestudy/behaviors/address_info.py:21
 msgid "label_city"
 msgstr "Ciudad"
 
 #. Default: "Contact Email"
-#: collective/casestudy/behaviors/contact_info.py:31
+#: collective/casestudy/behaviors/contact_info.py:30
 msgid "label_contact_email"
 msgstr "Correo electrónico de contacto"
 
 #. Default: "Contact Information"
-#: collective/casestudy/behaviors/contact_info.py:19
+#: collective/casestudy/behaviors/contact_info.py:18
 msgid "label_contact_info"
 msgstr "Información de contacto"
 
 #. Default: "Contact Person"
-#: collective/casestudy/behaviors/contact_info.py:27
+#: collective/casestudy/behaviors/contact_info.py:26
 msgid "label_contact_name"
 msgstr "Persona de contacto"
 
 #. Default: "Contact Phone Number"
-#: collective/casestudy/behaviors/contact_info.py:35
+#: collective/casestudy/behaviors/contact_info.py:34
 msgid "label_contact_phone"
 msgstr "Número de teléfono de contacto"
 
 #. Default: "Country"
-#: collective/casestudy/behaviors/address_info.py:40
+#: collective/casestudy/behaviors/address_info.py:39
 #: collective/casestudy/profiles/default/registry/querystring.xml
 msgid "label_country"
 msgstr "País"
@@ -268,18 +268,18 @@ msgid "label_organization_size"
 msgstr "Tamaño de la organización"
 
 #. Default: "Postal Code"
-#: collective/casestudy/behaviors/address_info.py:34
+#: collective/casestudy/behaviors/address_info.py:33
 msgid "label_postal_code"
 msgstr "Código postal"
 
 #. Default: "Provider"
-#: collective/casestudy/behaviors/providers.py:22
+#: collective/casestudy/behaviors/providers.py:21
 #: collective/casestudy/profiles/default/registry/querystring.xml
 msgid "label_provider"
 msgstr "Proveedor"
 
 #. Default: "Providers"
-#: collective/casestudy/behaviors/providers.py:14
+#: collective/casestudy/behaviors/providers.py:13
 msgid "label_providers"
 msgstr "Proveedores"
 
@@ -295,7 +295,7 @@ msgid "label_site"
 msgstr "Sitio de la empresa"
 
 #. Default: "State / Province"
-#: collective/casestudy/behaviors/address_info.py:28
+#: collective/casestudy/behaviors/address_info.py:27
 msgid "label_state"
 msgstr "Estado / Provincia"
 
