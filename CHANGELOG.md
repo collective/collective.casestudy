@@ -9,6 +9,28 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0b1 (2025-09-03)
+
+
+### New features:
+
+- Update Spanish translation @macagua 
+
+
+### Bug fixes:
+
+- Fix duplication of plone.app.querystring.field.country querystring. @ericof [#9](https://github.com/collective/collective.casestudy/issues/9)
+- Fix name of plone.app.querystring.field.versions querystring. @ericof [#10](https://github.com/collective/collective.casestudy/issues/10)
+- Fix name of plone.app.querystring.field.usages querystring. @ericof [#11](https://github.com/collective/collective.casestudy/issues/11)
+- Fix bug with industries and services tags @instification 
+
+
+### Internal:
+
+- Refactor GHA support @ericof 
+- Replace `pkg_resources` with `pkgutil`. @ericof 
+- Use pyproject.toml instead of setup.py. @ericof 
+
 ## 1.0.0a3 (2023-06-01)
 
 - Add Provider content type #2 [ericof]
