@@ -34,5 +34,12 @@
       description="Fields with contact information that should be restricted to Editors and the Owner"
       provides=".contact_info.IContactInfo"
       />
+  <!-- Provider Extras Behavior -->
+  <plone:behavior
+      name="collective.casestudy.provider_extras"
+      title="Provider Extras"
+      description="Behavior with extra fields for Provider"
+      provides=".provider_extras.IProviderExtras"
+      />
 
 </configure>
