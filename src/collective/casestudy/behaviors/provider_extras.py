@@ -7,7 +7,6 @@ from zope.interface import provider
 
 @provider(IFormFieldProvider)
 class IProviderExtras(model.Schema):
-
     rating = schema.Int(
         title=_("Rating"),
         description=_("Internal rating, between 1 and 5."),
