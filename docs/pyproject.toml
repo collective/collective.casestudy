@@ -55,3 +55,52 @@ Documentation = "https://collective.github.io/collective.casestudy"
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+fix = true
+lint.select = [
+    # flake8-2020
+    "YTT",
+    # flake8-bandit
+    "S",
+    # flake8-bugbear
+    "B",
+    # flake8-builtins
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-debugger
+    "T10",
+    # flake8-simplify
+    "SIM",
+    # mccabe
+    "C90",
+    # pycodestyle
+    "E", "W",
+    # pyflakes
+    "F",
+    # pygrep-hooks
+    "PGH",
+    # pyupgrade
+    "UP",
+    # ruff
+    "RUF",
+]
+lint.ignore = [
+    # DoNotAssignLambda
+    "E731",
+]
+
+[tool.ruff.lint.isort]
+case-sensitive = false
+no-sections = true
+force-single-line = true
+from-first = true
+lines-after-imports = 2
+lines-between-types = 1
+order-by-type = false
+
+[tool.ruff.format]
+preview = true

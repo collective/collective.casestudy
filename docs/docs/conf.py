@@ -5,9 +5,10 @@
 # -- Path setup --------------------------------------------------------------
 
 from datetime import datetime
-
+from datetime import UTC
 from packaging.version import Version
-from plone_sphinx_theme import __version__
+from pathlib import Path
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -19,12 +20,15 @@ from plone_sphinx_theme import __version__
 
 # -- Project information -----------------------------------------------------
 
+docs_dir = Path(__file__).parent.parent
+repo_dir = docs_dir.parent
+version_file = repo_dir / "version.txt"
+
 project = "Case Study"
 author = "Érico Andrei"
-trademark_name = "collective"
-now = datetime.now()
+trademark_name = "Plone Community"
+now = datetime.now(UTC)
 year = str(now.year)
-copyright = year
 
 
 # The version info for the project you're documenting, acts as replacement for
@@ -32,6 +36,8 @@ copyright = year
 # built documents.
 #
 # The full version, including alpha/beta/rc tags.
+__version__ = version_file.read_text(encoding="utf-8").strip()
+
 release = __version__
 # The short X.Y version.
 version = "v" + (Version(str(release)).base_version)
@@ -72,8 +78,6 @@ extensions = [
     "sphinx_reredirects",
     "sphinx_sitemap",
     "sphinx_tippy",
-    "sphinxcontrib.httpdomain",  # plone.restapi
-    "sphinxcontrib.httpexample",  # plone.restapi
     "sphinxcontrib.mermaid",
     "sphinxcontrib.video",
     "sphinxcontrib.youtube",
@@ -95,14 +99,12 @@ linkcheck_ignore = [
     # Ignore file downloads
     r"^/_static/",
     # Ignore pages that require authentication
-    r"https://github.com/collective/casestudy/issues/new",  # requires auth
+    r"https://github.com/collective/collective.casestudy/issues/new",  # requires auth
     # Ignore github.com pages with anchors
     r"https://github.com/.*#.*",
     # Ignore other specific anchors
 ]
-linkcheck_allowed_redirects = {  # TODO: Confirm usage of linkcheck_allowed_redirects
-    # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
-}
+linkcheck_allowed_redirects = {}
 linkcheck_anchors = True
 linkcheck_timeout = 5
 linkcheck_retries = 1
@@ -130,8 +132,9 @@ suppress_warnings = []
 # a list of builtin themes.
 html_theme = "plone_sphinx_theme"  # This can be configured
 html_logo = "_static/logo.svg"
-html_favicon = "_static/favicon.ico"
-# The default value includes icon-links, so override it with that one omitted, and add it to html_theme_options[footer_content_items].
+html_favicon = "_static/favicon.svg"
+# The default value includes icon-links, so override it with that one omitted, and add
+# it to html_theme_options[footer_content_items].
 html_sidebars = {
     "**": [
         "navbar-logo",
@@ -141,8 +144,7 @@ html_sidebars = {
 }
 html_theme_options = {
     "article_header_start": ["toggle-primary-sidebar"],
-    # "extra_footer": """<p>Example `extra_footer` content. License info. Trademark info and usage.</p>
-    # <p>Pull request previews by <a href="https://readthedocs.org/">Read the Docs</a>.</p>""",
+    # "extra_footer": """<p>Example</p>""",
     "footer_content_items": [
         "author",
         "copyright",
@@ -155,7 +157,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/collective/casestudy",
+            "url": "https://github.com/collective/collective.casestudy",
             "icon": "fa-brands fa-square-github",
             "type": "fontawesome",
             "attributes": {
@@ -182,7 +184,7 @@ html_theme_options = {
     "navigation_with_keys": True,
     "path_to_docs": "docs/docs",
     "repository_branch": "main",
-    "repository_url": "https://github.com/collective/casestudy",
+    "repository_url": "https://github.com/collective/collective.casestudy",
     "search_bar_text": "Search",
     "show_toc_level": 2,
     "use_edit_page_button": True,
@@ -192,12 +194,12 @@ html_theme_options = {
 # suggest edit link
 # remark:  is mandatory in "edit_page_url_template"
 # html_context = {
-#     "edit_page_url_template": "https://github.com/collective/casestudy/edit/main/docs/",
+#     "edit_page_url_template": "https://github.com/collective/collective.casestudy/edit/main/docs/",
 # }
 
 # Announce that we have an opensearch plugin
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_use_opensearch
-html_use_opensearch = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io"
+html_use_opensearch = "https://collective.github.io/collective.casestudy"
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -235,7 +237,7 @@ autodoc_class_signature = "separated"
 # -- Options for sphinx_sitemap to html -----------------------------
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io/"
+html_baseurl = "https://collective.github.io/collective.casestudy/"
 # https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
 sitemap_url_scheme = "{link}"
 sitemap_filename = "sitemap-custom.xml"
@@ -247,7 +249,7 @@ sitemap_filename = "sitemap-custom.xml"
 myst_enable_extensions = [
     "attrs_block",  # Support parsing of block attributes.
     "attrs_inline",  # Support parsing of inline attributes.
-    "colon_fence",  # You can also use ::: delimiters to denote code fences, instead of ```.
+    "colon_fence",  # Use ::: delimiters to denote code fences, instead of ```.
     "deflist",  # Support definition lists. https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#definition-lists
     "html_image",  # For inline images. See https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#html-images
     "linkify",  # Identify "bare" web URLs and add hyperlinks.
@@ -283,9 +285,9 @@ mermaid_version = "11.2.0"
 
 
 # -- OpenGraph configuration ----------------------------------
-ogp_site_url = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io/"
+ogp_site_url = "https://collective.github.io/collective.casestudy/"
 ogp_description_length = 200
-ogp_image = "https://MY_READTHEDOCS_PROJECT_SLUG/_static/MY_LOGO.svg"
+ogp_image = "https://collective.github.io/collective.casestudy/_static/logo.svg"
 ogp_site_name = "Case Study Documentation"
 ogp_type = "website"
 ogp_custom_meta_tags = [
@@ -321,7 +323,7 @@ tippy_props = {
 # -- Options for HTML help output -------------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "Case StudyDocumentation"
+htmlhelp_basename = "casestudydoc"
 
 
 # -- Options for LaTeX output -------------------------------------------------
@@ -331,7 +333,7 @@ htmlhelp_basename = "Case StudyDocumentation"
 latex_documents = [
     (
         "index",
-        "Case StudyDocumentation.tex",
+        "casestudydoc.tex",
         "Case Study Documentation",
         "collective community",
         "manual",
@@ -356,7 +358,7 @@ def source_replace(app, docname, source):
 
 # Dict of replacements.
 source_replacements = {
-    "{SUPPORTED_PYTHON_VERSIONS}": "3.10, 3.11, 3.12, or 3.13",
+    "{SUPPORTED_PYTHON_VERSIONS}": "3.11, 3.12, 3.13 or 3.14",
 }
 
 
