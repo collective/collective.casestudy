@@ -39,6 +39,8 @@ dev = [
     "sphinx-reredirects",
     "sphinx-sitemap",
     "sphinx-tippy",
+    "sphinxcontrib-httpdomain",
+    "sphinxcontrib-httpexample",
     "sphinxcontrib-mermaid",
     "sphinxcontrib-video",
     "sphinxcontrib-youtube",

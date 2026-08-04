@@ -42,7 +42,7 @@ test = [
     "plone.restapi[test]",
     "pytest",
     "pytest-cov",
-    "pytest-plone>=1.1.0",
+    "pytest-plone",
 ]
 
 [project.urls]

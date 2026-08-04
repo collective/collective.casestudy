@@ -1,6 +1,7 @@
 # Python related
 *.egg-info
 .venv
+uv.lock
 
 # Documentation builds
 _build
