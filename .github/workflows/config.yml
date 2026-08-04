@@ -112,7 +112,7 @@ jobs:
           echo "base-tag=sha-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
           echo "storybook-deploy=${{ github.event.repository.private == false }}" >> "$GITHUB_OUTPUT"
 
-      - uses: dorny/paths-filter@v4.0.1
+      - uses: dorny/paths-filter@v4.0.2
         id: filter
         with:
           filters: |
