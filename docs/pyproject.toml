@@ -1,0 +1,55 @@
+[project]
+name = "collective-casestudy-docs"
+description = "Showcase Plone usage with case studies"
+keywords = [
+    "Case Study",
+    "documentation",
+    "Plone",
+    "Diátaxis",
+]
+version="1.0.0"
+readme = "README.md"
+requires-python = ">=3.14"
+license = { file = "LICENSE" }
+maintainers = [
+    { name = "Érico Andrei", email = "ericof@plone.org" },
+]
+authors = [
+    { name = "Érico Andrei", email = "ericof@plone.org" },
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+]
+
+[dependency-groups]
+dev = [
+    "graphviz",
+    "linkify-it-py",
+    "myst-parser",
+    "plone-sphinx-theme",
+    "sphinx-autobuild",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "sphinx-examples",
+    "sphinx-notfound-page",
+    "sphinx-reredirects",
+    "sphinx-sitemap",
+    "sphinx-tippy",
+    "sphinxcontrib-mermaid",
+    "sphinxcontrib-video",
+    "sphinxcontrib-youtube",
+    "sphinxext-opengraph",
+    "vale",
+]
+
+[project.urls]
+Repository = "https://github.com/collective/collective.casestudy"
+Documentation = "https://collective.github.io/collective.casestudy"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

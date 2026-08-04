@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="collective.casestudy"
+>
+
+  <records interface="collective.casestudy.interfaces.ICaseStudySettings"
+           prefix="casestudy"
+  >
+    <value key="versions"
+           purge="false"
+    >
+      <element>6.2</element>
+      <element>6.1</element>
+      <element>6.0</element>
+      <element>5.2</element>
+      <element>5.1</element>
+      <element>5.0</element>
+      <element>4.3</element>
+      <element>4.2</element>
+      <element>4.1</element>
+      <element>4.0</element>
+      <element>3.3</element>
+      <element>3.2</element>
+      <element>3.1</element>
+      <element>3.0</element>
+      <element>2.5</element>
+      <element>2.0</element>
+    </value>
+
+    <value key="industries"
+           purge="false"
+    >
+      <element>gov|Government</element>
+      <element>edu|Education</element>
+      <element>ngo|Non-government organization (NGO)</element>
+      <element>corporate|Corporate</element>
+      <element>media|Media</element>
+    </value>
+
+    <value key="usages"
+           purge="false"
+    >
+      <element>portal|Portal</element>
+      <element>intranet|Intranet</element>
+      <element>kb|Knowledge Base</element>
+      <element>other|Other</element>
+    </value>
+
+    <value key="services"
+           purge="false"
+    >
+      <element>design|Design / Theming</element>
+      <element>dev|Development / Integration</element>
+      <element>hosting|Hosting</element>
+      <element>training|Training</element>
+    </value>
+  </records>
+
+</registry>
