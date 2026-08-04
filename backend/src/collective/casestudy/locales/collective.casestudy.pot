@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-09-04 01:21+0000\n"
+"POT-Creation-Date: 2026-08-04 19:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Address Information"
 msgstr ""
 
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 #: collective/casestudy/profiles/default/types/CaseStudy.xml
 msgid "Case Study"
 msgstr ""
@@ -38,16 +38,24 @@ msgstr ""
 msgid "Case Study Settings"
 msgstr ""
 
+#: collective/casestudy/profiles.zcml:22
+msgid "Case Study: Example content"
+msgstr ""
+
 #: collective/casestudy/profiles.zcml:13
 msgid "Case Study: Install"
 msgstr ""
 
-#: collective/casestudy/profiles.zcml:21
+#: collective/casestudy/profiles.zcml:30
 msgid "Case Study: Uninstall"
 msgstr ""
 
 #: collective/casestudy/behaviors/configure.zcml:36
 msgid "Contact Information (Restricted Access)"
+msgstr ""
+
+#: collective/casestudy/profiles.zcml:22
+msgid "Create example content to showcase this addon."
 msgstr ""
 
 #: collective/casestudy/profiles/default/types/CaseStudy.xml
@@ -92,11 +100,11 @@ msgid "Provider"
 msgstr ""
 
 #: collective/casestudy/behaviors/configure.zcml:20
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Providers"
 msgstr ""
 
-#: collective/casestudy/profiles.zcml:21
+#: collective/casestudy/profiles.zcml:30
 msgid "Uninstall Case Study content type in a Plone Site"
 msgstr ""
 
@@ -149,32 +157,32 @@ msgid "description_providers"
 msgstr ""
 
 #. Default: "Categorization by Country."
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "description_qs_country"
 msgstr ""
 
 #. Default: "Categorization by Industry."
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "description_qs_industry"
 msgstr ""
 
 #. Default: "Categorization by Provider."
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "description_qs_provider"
 msgstr ""
 
 #. Default: "Categorization by Services."
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "description_qs_services"
 msgstr ""
 
 #. Default: "Categorization by Usage."
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "description_qs_usage"
 msgstr ""
 
 #. Default: "Categorization by Plone Version."
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "description_qs_version"
 msgstr ""
 
@@ -245,13 +253,13 @@ msgstr ""
 
 #. Default: "Country"
 #: collective/casestudy/behaviors/address_info.py:39
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "label_country"
 msgstr ""
 
 #. Default: "Industry"
 #: collective/casestudy/content/case_study.py:16
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "label_industry"
 msgstr ""
 
@@ -272,7 +280,7 @@ msgstr ""
 
 #. Default: "Provider"
 #: collective/casestudy/behaviors/providers.py:21
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "label_provider"
 msgstr ""
 
@@ -283,7 +291,7 @@ msgstr ""
 
 #. Default: "Services"
 #: collective/casestudy/content/provider.py:20
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "label_services"
 msgstr ""
 
@@ -303,7 +311,7 @@ msgid "label_url"
 msgstr ""
 
 #. Default: "Usage"
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "label_usage"
 msgstr ""
 
@@ -313,7 +321,7 @@ msgid "label_usages"
 msgstr ""
 
 #. Default: "Version"
-#: collective/casestudy/profiles/default/registry/querystring.xml
+#: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "label_version"
 msgstr ""
 
