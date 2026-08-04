@@ -1,0 +1,16 @@
+{
+    "title": "Case Study",
+    "description": "Showcase Plone usage with case studies",
+    "project_slug": "collective.casestudy",
+    "author": "\u00c9rico Andrei",
+    "email": "ericof@plone.org",
+    "use_prerelease_versions": false,
+    "plone_version": "6.2.1",
+    "volto_version": "19.3.0",
+    "python_package_name": "collective.casestudy",
+    "npm_package_name": "@plone-collective/volto-casestudy",
+    "github_organization": "collective",
+    "container_registry": "github",
+    "initialize_documentation": true,
+    "__template__": "monorepo_addon"
+}
