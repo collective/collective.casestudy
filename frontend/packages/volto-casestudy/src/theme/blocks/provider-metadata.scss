@@ -1,0 +1,21 @@
+.provider-metadata-block {
+  display: inline-block !important;
+  width: max-content;
+  max-width: 450px;
+  margin-top: 0;
+  margin-bottom: 1em;
+  margin-left: 2em;
+
+  .preview-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  & ~ .block-editor-wrapper,
+  & ~ .block,
+  & ~ .ui.section {
+    display: flow-root !important;
+    clear: none !important;
+  }
+}

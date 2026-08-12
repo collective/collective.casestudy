@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Header, List, Segment } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
+import '../../../theme/blocks/casestudy-metadata.scss';
 
 const messages = defineMessages({
   industry: { id: 'case_study_industry', defaultMessage: 'Industry' },
@@ -29,7 +30,7 @@ const PreviewImage = ({ content }: { content: any }) => {
       alt={preview_caption || ''}
       height={height}
       width={width}
-      style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
+      className="preview-image"
     />
   );
 };
@@ -72,19 +73,7 @@ const CaseStudyMetadataView = ({ data, properties }: ViewProps) => {
   if (!isClient || !content) return null;
 
   return (
-    <Segment
-      as="aside"
-      floated="right"
-      className="case-study-block-view"
-      style={{
-        display: 'inline-block',
-        width: 'max-content',
-        maxWidth: '450px',
-        marginLeft: '2em',
-        marginBottom: '1em',
-        marginTop: '0',
-      }}
-    >
+    <Segment as="aside" floated="right" className="casestudy-metadata-block">
       {content.preview_image && (
         <>
           <Header dividing sub>

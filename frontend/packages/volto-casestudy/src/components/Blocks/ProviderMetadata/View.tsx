@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Header, List, Segment } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
+import '../../../theme/blocks/provider-metadata.scss';
 
 const messages = defineMessages({
   contact_person: {
@@ -42,7 +43,7 @@ const PreviewImage = ({ content }: { content: any }) => {
       alt={preview_caption || ''}
       height={height}
       width={width}
-      style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
+      className="preview-image"
     />
   );
 };
@@ -85,19 +86,7 @@ const ProviderMetadataView = ({ data, properties }: ViewProps) => {
   if (!isClient || !content) return null;
 
   return (
-    <Segment
-      as="aside"
-      floated="right"
-      className="provider-metadata-block-view"
-      style={{
-        display: 'inline-block',
-        width: 'max-content',
-        maxWidth: '450px',
-        marginLeft: '2em',
-        marginBottom: '1em',
-        marginTop: '0',
-      }}
-    >
+    <Segment as="aside" floated="right" className="provider-metadata-block">
       {content.preview_image && (
         <>
           <Header dividing sub>
