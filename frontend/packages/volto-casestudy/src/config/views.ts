@@ -1,6 +1,7 @@
 import type { ConfigType } from '@plone/registry';
 
 import { CaseStudyView } from '../components/';
+import { ProviderView } from '../components/';
 
 export default function install(config: ConfigType) {
   config.views = {
@@ -8,6 +9,7 @@ export default function install(config: ConfigType) {
     contentTypesViews: {
       ...config.views?.contentTypesViews,
       CaseStudy: CaseStudyView,
+      Provider: ProviderView,
     },
   };
 

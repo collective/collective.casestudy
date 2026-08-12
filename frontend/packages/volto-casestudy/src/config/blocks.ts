@@ -1,25 +1,15 @@
 import type { ConfigType } from '@plone/registry';
-
-import { CaseStudyMetadataView, CaseStudyMetadataEdit } from '../components';
-
-import icon from '@plone/volto/icons/list-bullet.svg';
+import CaseStudyBlockInfo from '../components/Blocks/CaseStudyMetadata';
+import ProviderBlockInfo from '../components/Blocks/ProviderMetadata';
 
 export default function installBlocks(config: ConfigType) {
-  config.blocks.blocksConfig.case_study_metadata = {
-    id: 'case_study_metadata',
-    title: 'Case Study Metadata',
-    view: CaseStudyMetadataView,
-    edit: CaseStudyMetadataEdit,
-    icon: icon,
-    group: 'text',
-    restricted: ({ contentType }) => {
-      return contentType !== 'CaseStudy';
-    },
-  };
+  config.blocks.blocksConfig.case_study_metadata = CaseStudyBlockInfo;
+  config.blocks.blocksConfig.provider_metadata = ProviderBlockInfo;
 
   config.blocks.initialBlocks = {
     ...config.blocks.initialBlocks,
     CaseStudy: ['title', 'case_study_metadata'],
+    Provider: ['title', 'provider_metadata'],
   };
 
   return config;

@@ -1,7 +1,5 @@
-import CaseStudyMetadataView from './Blocks/CaseStudyMetadata/View';
-import CaseStudyMetadataEdit from './Blocks/CaseStudyMetadata/Edit';
-import CaseStudyView from '../components/Views/CaseStudy';
+import CaseStudyView from './Views/CaseStudyView';
+import ProviderView from './Views/ProviderView';
 
-export { CaseStudyMetadataView };
-export { CaseStudyMetadataEdit };
 export { CaseStudyView };
+export { ProviderView };
