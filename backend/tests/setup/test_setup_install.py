@@ -13,4 +13,9 @@ class TestSetupInstall:
 
     def test_latest_version(self, profile_last_version):
         """Test latest version of default profile."""
-        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1200"
+        assert profile_last_version(f"{PACKAGE_NAME}:default") == "2000"
+
+    def test_no_dangling_upgrade_steps(self, installer):
+        """Test that there are no dangling upgrade steps."""
+        upgrade_info = installer.upgrade_info(PACKAGE_NAME)
+        assert upgrade_info["available"] is False

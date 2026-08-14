@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="1200"
+      destination="2000"
+      >
+    <genericsetup:upgradeDepends
+        title="Install plonegovbr.socialmedia"
+        import_profile="plonegovbr.socialmedia:default"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>
