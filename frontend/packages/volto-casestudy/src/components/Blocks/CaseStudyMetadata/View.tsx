@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Header, List, Segment } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
-import '../../../theme/blocks/casestudy-metadata.scss';
+import { getPreviewImageSource } from '@plone-collective/volto-casestudy/helpers/preview';
+import { useMetadataContent } from '@plone-collective/volto-casestudy/hooks/useMetadataContent';
+import OrganizationLink from '@plone-collective/volto-casestudy/components/Organization/OrganizationLink';
+import type {
+  CaseStudy,
+  OrganizationSummary,
+  PreviewImageLink,
+  VocabularyTerm,
+} from '@plone-collective/volto-casestudy/types/content';
+import type { CaseStudyMetadataData } from './index';
+import './casestudy-metadata.scss';
 
 const messages = defineMessages({
   industry: { id: 'case_study_industry', defaultMessage: 'Industry' },
@@ -10,6 +19,11 @@ const messages = defineMessages({
   versions: { id: 'case_study_versions', defaultMessage: 'Versions' },
   screenshot: { id: 'case_study_screenshot', defaultMessage: 'Screenshot' },
   what: { id: 'case_study_what', defaultMessage: 'What' },
+  organizations: {
+    id: 'case_study_organizations',
+    defaultMessage: 'Organizations',
+  },
+  providers: { id: 'case_study_providers', defaultMessage: 'Providers' },
   website: { id: 'website', defaultMessage: 'Website' },
   visitWebsite: {
     id: 'visit_external_website',
@@ -17,71 +31,89 @@ const messages = defineMessages({
   },
 });
 
-const PreviewImage = ({ content }: { content: any }) => {
-  const { preview_image, preview_caption } = content;
-  const scale_name = 'preview';
-  if (!preview_image?.scales?.[scale_name]) return null;
-  const scale = preview_image.scales[scale_name];
-  const { download, height, width } = scale;
+interface PreviewImageProps {
+  link: PreviewImageLink | null;
+  caption: string | null;
+}
+
+export const PreviewImage: React.FC<PreviewImageProps> = ({
+  link,
+  caption,
+}) => {
+  const source = getPreviewImageSource(link);
+  if (!source) return null;
 
   return (
     <img
-      src={download}
-      alt={preview_caption || ''}
-      height={height}
-      width={width}
+      src={source.src}
+      alt={caption || ''}
+      height={source.height}
+      width={source.width}
       className="preview-image"
     />
   );
 };
 
-interface ViewProps {
-  data: any;
-  properties: any;
+/** Render a list of vocabulary terms as a comma-separated line. */
+const TermList: React.FC<{ terms: VocabularyTerm[] }> = ({ terms }) => (
+  <p>
+    {terms.map((term, index) => (
+      <span key={term.token || index}>
+        {term.title}
+        {index < terms.length - 1 ? ', ' : ''}
+      </span>
+    ))}
+  </p>
+);
+
+/** Render related organizations as a list of links, logo first. */
+const OrganizationList: React.FC<{ items: OrganizationSummary[] }> = ({
+  items,
+}) => (
+  <div className="organization-list">
+    {items.map((item) => (
+      <OrganizationLink key={item['@id']} item={item} showLogo />
+    ))}
+  </div>
+);
+
+export interface CaseStudyMetadataViewProps {
+  data: CaseStudyMetadataData;
+  properties?: CaseStudy;
 }
 
-const CaseStudyMetadataView = ({ data, properties }: ViewProps) => {
+export const CaseStudyMetadataView = ({
+  data,
+  properties,
+}: CaseStudyMetadataViewProps) => {
   const intl = useIntl();
-  const [externalContent, setExternalContent] = useState<any>(null);
-  const [isClient, setIsClient] = useState(false);
-
   const targetPath = data?.case_study_source?.[0]?.['@id'];
+  const content = useMetadataContent<CaseStudy>(targetPath, properties);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient || !targetPath) {
-      setExternalContent(null);
-      return;
-    }
-
-    const relativePath = targetPath.replace(/^https?:\/\/[^/]+/, '');
-    const targetUrl = `${window.location.origin}/++api++${relativePath}`;
-
-    fetch(targetUrl, { headers: { Accept: 'application/json' } })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((jsonData) => {
-        if (jsonData) setExternalContent(jsonData);
-      })
-      .catch(() => {});
-  }, [targetPath, isClient]);
-
-  const content = targetPath ? externalContent : properties;
-
-  if (!isClient || !content) return null;
+  if (!content) return null;
 
   return (
     <Segment as="aside" floated="right" className="casestudy-metadata-block">
-      {content.preview_image && (
+      {content.preview_image_link && (
         <>
           <Header dividing sub>
             {intl.formatMessage(messages.screenshot)}
           </Header>
           <div className="website-image">
-            <PreviewImage content={content} />
+            <PreviewImage
+              link={content.preview_image_link}
+              caption={content.preview_caption_link}
+            />
           </div>
+        </>
+      )}
+
+      {content.organizations?.length > 0 && (
+        <>
+          <Header dividing sub>
+            {intl.formatMessage(messages.organizations)}
+          </Header>
+          <OrganizationList items={content.organizations} />
         </>
       )}
 
@@ -99,14 +131,7 @@ const CaseStudyMetadataView = ({ data, properties }: ViewProps) => {
           <Header dividing sub>
             {intl.formatMessage(messages.usage)}
           </Header>
-          <p>
-            {content.usages.map((v: any, index: number) => (
-              <span key={v.token || index}>
-                {v.title}
-                {index < content.usages.length - 1 ? ', ' : ''}
-              </span>
-            ))}
-          </p>
+          <TermList terms={content.usages} />
         </>
       )}
 
@@ -115,14 +140,7 @@ const CaseStudyMetadataView = ({ data, properties }: ViewProps) => {
           <Header dividing sub>
             {intl.formatMessage(messages.versions)}
           </Header>
-          <p>
-            {content.versions.map((v: any, index: number) => (
-              <span key={v.token || index}>
-                {v.title}
-                {index < content.versions.length - 1 ? ', ' : ''}
-              </span>
-            ))}
-          </p>
+          <TermList terms={content.versions} />
         </>
       )}
 
@@ -143,6 +161,15 @@ const CaseStudyMetadataView = ({ data, properties }: ViewProps) => {
         </>
       )}
 
+      {content.providers?.length > 0 && (
+        <>
+          <Header dividing sub>
+            {intl.formatMessage(messages.providers)}
+          </Header>
+          <OrganizationList items={content.providers} />
+        </>
+      )}
+
       {content.subjects?.length > 0 && (
         <>
           <Header dividing sub>
@@ -153,11 +180,6 @@ const CaseStudyMetadataView = ({ data, properties }: ViewProps) => {
       )}
     </Segment>
   );
-};
-
-CaseStudyMetadataView.propTypes = {
-  data: PropTypes.object.isRequired,
-  properties: PropTypes.object.isRequired,
 };
 
 export default CaseStudyMetadataView;

@@ -1,48 +1,59 @@
 import React from 'react';
-import { SidebarPortal } from '@plone/volto/components';
-import InlineForm from '@plone/volto/components/manage/Form/InlineForm';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
 import { Message, Icon } from 'semantic-ui-react';
+import { defineMessages, useIntl } from 'react-intl';
+import OrganizationMetadataDataForm from './Data';
+import type { OrganizationMetadataData } from './index';
 
-const ProviderMetadataEdit = (props: any) => {
+const messages = defineMessages({
+  blockName: {
+    id: 'Organization Metadata Block',
+    defaultMessage: 'Organization Metadata Block',
+  },
+  source: { id: 'Source', defaultMessage: 'Source' },
+  customSelection: {
+    id: 'Custom page selection',
+    defaultMessage: 'Custom page selection',
+  },
+  currentContext: {
+    id: 'Current context page properties',
+    defaultMessage: 'Current context page properties',
+  },
+});
+
+export interface OrganizationMetadataEditProps {
+  data: OrganizationMetadataData;
+  block: string;
+  selected: boolean;
+  onChangeBlock: (id: string, data: OrganizationMetadataData) => void;
+}
+
+const OrganizationMetadataEdit: React.FC<OrganizationMetadataEditProps> = (
+  props,
+) => {
   const { block, data, onChangeBlock, selected } = props;
-
-  const schema = {
-    title: 'Provider Settings',
-    fieldsets: [
-      { id: 'default', title: 'Settings', fields: ['provider_source'] },
-    ],
-    properties: {
-      provider_source: {
-        title: 'Source Provider',
-        description: 'Leave empty to pull metadata from the current page.',
-        widget: 'object_browser',
-        mode: 'link',
-        allowExternals: false,
-        maximum: 1,
-      },
-    },
-    required: [],
-  };
-
-  const targetPath = data?.provider_source?.[0]?.['@id'];
+  const intl = useIntl();
+  const targetPath = data?.organization_source?.[0]?.['@id'];
 
   return (
     <>
-      <div className="provider-block-edit" style={{ margin: '0.5em 0' }}>
-        <Message icon info style={{ display: 'flex', alignItems: 'center' }}>
+      <div className="organization-block-edit">
+        <Message icon info>
           <Icon name="info circle" />
           <Message.Content>
-            <Message.Header style={{ fontSize: '1em', marginBottom: '4px' }}>
-              Provider Metadata Block
+            <Message.Header>
+              {intl.formatMessage(messages.blockName)}
             </Message.Header>
             {targetPath ? (
-              <p style={{ margin: 0, opacity: 0.85 }}>
-                <strong>Source:</strong> Custom page selection (
+              <p>
+                <strong>{intl.formatMessage(messages.source)}:</strong>{' '}
+                {intl.formatMessage(messages.customSelection)} (
                 <code>{targetPath}</code>)
               </p>
             ) : (
-              <p style={{ margin: 0, opacity: 0.85 }}>
-                <strong>Source:</strong> Current context page properties
+              <p>
+                <strong>{intl.formatMessage(messages.source)}:</strong>{' '}
+                {intl.formatMessage(messages.currentContext)}
               </p>
             )}
           </Message.Content>
@@ -50,17 +61,14 @@ const ProviderMetadataEdit = (props: any) => {
       </div>
 
       <SidebarPortal selected={selected}>
-        <InlineForm
-          schema={schema}
-          title={schema.title}
-          onChangeField={(id: string, value: any) => {
-            onChangeBlock(block, { ...data, [id]: value });
-          }}
-          formData={data}
+        <OrganizationMetadataDataForm
+          data={data}
+          block={block}
+          onChangeBlock={onChangeBlock}
         />
       </SidebarPortal>
     </>
   );
 };
 
-export default ProviderMetadataEdit;
+export default OrganizationMetadataEdit;

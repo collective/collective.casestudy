@@ -1,18 +1,33 @@
-import type { BlockConfigBase } from '@plone/types';
+import type { BlockConfigBase, BlocksFormData } from '@plone/types';
 import icon from '@plone/volto/icons/list-bullet.svg';
-import ProviderMetadataView from './View';
-import ProviderMetadataEdit from './Edit';
+import OrganizationMetadataView from './View';
+import OrganizationMetadataEdit from './Edit';
+import { OrganizationMetadataSchema } from './schema';
+import type { MetadataSource } from '../CaseStudyMetadata';
 
-const ProviderBlockInfo: BlockConfigBase = {
-  id: 'provider_metadata',
-  title: 'Provider Metadata',
-  view: ProviderMetadataView,
-  edit: ProviderMetadataEdit,
+export type { MetadataSource };
+
+export interface OrganizationMetadataData extends BlocksFormData {
+  /** Empty means "use the current page". */
+  organization_source?: MetadataSource[];
+}
+
+const OrganizationBlockInfo: BlockConfigBase = {
+  id: 'organization_metadata',
+  title: 'Organization Metadata',
+  // `@plone/types` declares `Content['subjects']` as the empty tuple `[]`,
+  // so a view whose `properties` is accurately typed is not assignable to
+  // `BlockViewProps`. Cast until that is fixed upstream.
+  view: OrganizationMetadataView as unknown as BlockConfigBase['view'],
+  edit: OrganizationMetadataEdit,
+  blockSchema: OrganizationMetadataSchema,
   icon: icon,
   group: 'text',
+  mostUsed: false,
+  sidebarTab: 1,
   restricted: ({ contentType }) => {
-    return contentType !== 'Provider';
+    return contentType !== 'Organization';
   },
 };
 
-export default ProviderBlockInfo;
+export default OrganizationBlockInfo;

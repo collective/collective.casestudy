@@ -1,62 +1,77 @@
 import React from 'react';
-import { SidebarPortal } from '@plone/volto/components';
-import InlineForm from '@plone/volto/components/manage/Form/InlineForm';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
+import type { CaseStudy } from '@plone-collective/volto-casestudy/types/content';
 import { Message, Icon } from 'semantic-ui-react';
+import { defineMessages, useIntl } from 'react-intl';
+import CaseStudyMetadataDataForm from './Data';
+import CaseStudyMetadataView from './View';
+import type { CaseStudyMetadataData } from './index';
 
-const CaseStudyMetadataEdit = (props: any) => {
-  const { block, data, onChangeBlock, selected } = props;
+const messages = defineMessages({
+  blockName: {
+    id: 'Case Study Metadata Block',
+    defaultMessage: 'Case Study Metadata Block',
+  },
+  source: { id: 'Source', defaultMessage: 'Source' },
+  customSelection: {
+    id: 'Custom page selection',
+    defaultMessage: 'Custom page selection',
+  },
+  currentContext: {
+    id: 'Current context page properties',
+    defaultMessage: 'Current context page properties',
+  },
+});
 
-  const schema = {
-    title: 'Case Study Settings',
-    fieldsets: [
-      { id: 'default', title: 'Settings', fields: ['case_study_source'] },
-    ],
-    properties: {
-      case_study_source: {
-        title: 'Source Case Study',
-        description: 'Leave empty to pull metadata from the current page.',
-        widget: 'object_browser',
-        mode: 'link',
-        allowExternals: false,
-        maximum: 1,
-      },
-    },
-    required: [],
-  };
+export interface CaseStudyMetadataEditProps {
+  data: CaseStudyMetadataData;
+  block: string;
+  selected: boolean;
+  properties?: CaseStudy;
+  content?: CaseStudy;
+  onChangeBlock: (id: string, data: CaseStudyMetadataData) => void;
+}
 
+const CaseStudyMetadataEdit: React.FC<CaseStudyMetadataEditProps> = (props) => {
+  const { block, data, onChangeBlock, selected, content, properties } = props;
+  const intl = useIntl();
   const targetPath = data?.case_study_source?.[0]?.['@id'];
-
+  const objectData = content ?? properties;
+  const showView =
+    objectData && objectData['@type'] === 'CaseStudy' && objectData?.id;
   return (
     <>
-      <div className="case-study-block-edit" style={{ margin: '0.5em 0' }}>
-        <Message icon info style={{ display: 'flex', alignItems: 'center' }}>
-          <Icon name="info circle" />
-          <Message.Content>
-            <Message.Header style={{ fontSize: '1em', marginBottom: '4px' }}>
-              Case Study Metadata Block
-            </Message.Header>
-            {targetPath ? (
-              <p style={{ margin: 0, opacity: 0.85 }}>
-                <strong>Source:</strong> Custom page selection (
-                <code>{targetPath}</code>)
-              </p>
-            ) : (
-              <p style={{ margin: 0, opacity: 0.85 }}>
-                <strong>Source:</strong> Current context page properties
-              </p>
-            )}
-          </Message.Content>
-        </Message>
-      </div>
-
+      {showView ? (
+        <CaseStudyMetadataView data={data} properties={objectData} />
+      ) : (
+        <div className="case-study-block-edit">
+          <Message icon info>
+            <Icon name="info circle" />
+            <Message.Content>
+              <Message.Header>
+                {intl.formatMessage(messages.blockName)}
+              </Message.Header>
+              {targetPath ? (
+                <p>
+                  <strong>{intl.formatMessage(messages.source)}:</strong>{' '}
+                  {intl.formatMessage(messages.customSelection)} (
+                  <code>{targetPath}</code>)
+                </p>
+              ) : (
+                <p>
+                  <strong>{intl.formatMessage(messages.source)}:</strong>{' '}
+                  {intl.formatMessage(messages.currentContext)}
+                </p>
+              )}
+            </Message.Content>
+          </Message>
+        </div>
+      )}
       <SidebarPortal selected={selected}>
-        <InlineForm
-          schema={schema}
-          title={schema.title}
-          onChangeField={(id: string, value: any) => {
-            onChangeBlock(block, { ...data, [id]: value });
-          }}
-          formData={data}
+        <CaseStudyMetadataDataForm
+          data={data}
+          block={block}
+          onChangeBlock={onChangeBlock}
         />
       </SidebarPortal>
     </>

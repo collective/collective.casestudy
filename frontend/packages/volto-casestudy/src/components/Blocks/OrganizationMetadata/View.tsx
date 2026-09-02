@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Header, List, Segment } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
-import '../../../theme/blocks/provider-metadata.scss';
+import { getWebsiteUrl } from '@plone-collective/volto-casestudy/helpers/socialLinks';
+import { useMetadataContent } from '@plone-collective/volto-casestudy/hooks/useMetadataContent';
+import { PreviewImage } from '../CaseStudyMetadata/View';
+import type { Organization } from '@plone-collective/volto-casestudy/types/content';
+import type { OrganizationMetadataData } from './index';
+import './organization-metadata.scss';
 
 const messages = defineMessages({
   contact_person: {
@@ -22,7 +26,7 @@ const messages = defineMessages({
     id: 'provider_organization_size',
     defaultMessage: 'Organization Size',
   },
-  screenshot: { id: 'provider_screenshot', defaultMessage: 'Screenshot' },
+  what: { id: 'organization_what', defaultMessage: 'What' },
   website: { id: 'website', defaultMessage: 'Website' },
   visitWebsite: {
     id: 'visit_external_website',
@@ -30,70 +34,34 @@ const messages = defineMessages({
   },
 });
 
-const PreviewImage = ({ content }: { content: any }) => {
-  const { preview_image, preview_caption } = content;
-  const scale_name = 'preview';
-  if (!preview_image?.scales?.[scale_name]) return null;
-  const scale = preview_image.scales[scale_name];
-  const { download, height, width } = scale;
-
-  return (
-    <img
-      src={download}
-      alt={preview_caption || ''}
-      height={height}
-      width={width}
-      className="preview-image"
-    />
-  );
-};
-
-interface ViewProps {
-  data: any;
-  properties: any;
+export interface OrganizationMetadataViewProps {
+  data: OrganizationMetadataData;
+  properties?: Organization;
 }
 
-const ProviderMetadataView = ({ data, properties }: ViewProps) => {
+export const OrganizationMetadataView = ({
+  data,
+  properties,
+}: OrganizationMetadataViewProps) => {
   const intl = useIntl();
-  const [externalContent, setExternalContent] = useState<any>(null);
-  const [isClient, setIsClient] = useState(false);
+  const targetPath = data?.organization_source?.[0]?.['@id'];
+  const content = useMetadataContent<Organization>(targetPath, properties);
 
-  const targetPath = data?.provider_source?.[0]?.['@id'];
+  if (!content) return null;
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient || !targetPath) {
-      setExternalContent(null);
-      return;
-    }
-
-    const relativePath = targetPath.replace(/^https?:\/\/[^/]+/, '');
-    const targetUrl = `${window.location.origin}/++api++${relativePath}`;
-
-    fetch(targetUrl, { headers: { Accept: 'application/json' } })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((jsonData) => {
-        if (jsonData) setExternalContent(jsonData);
-      })
-      .catch(() => {});
-  }, [targetPath, isClient]);
-
-  const content = targetPath ? externalContent : properties;
-
-  if (!isClient || !content) return null;
+  // Organization has no `remoteUrl`; the company site is a `website` entry
+  // in the `social_links` field.
+  const websiteUrl = getWebsiteUrl(content.social_links);
 
   return (
-    <Segment as="aside" floated="right" className="provider-metadata-block">
-      {content.preview_image && (
+    <Segment as="aside" floated="right" className="organization-metadata-block">
+      {content.preview_image_link && (
         <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.screenshot)}
-          </Header>
-          <div className="website-image">
-            <PreviewImage content={content} />
+          <div className="company-logo">
+            <PreviewImage
+              link={content.preview_image_link}
+              caption={content.preview_caption_link}
+            />
           </div>
         </>
       )}
@@ -143,17 +111,13 @@ const ProviderMetadataView = ({ data, properties }: ViewProps) => {
         </>
       )}
 
-      {content.remoteUrl && (
+      {websiteUrl && (
         <>
           <Header dividing sub>
             {intl.formatMessage(messages.website)}
           </Header>
           <p>
-            <a
-              href={content.remoteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
               {intl.formatMessage(messages.visitWebsite)}
             </a>
           </p>
@@ -172,9 +136,4 @@ const ProviderMetadataView = ({ data, properties }: ViewProps) => {
   );
 };
 
-ProviderMetadataView.propTypes = {
-  data: PropTypes.object.isRequired,
-  properties: PropTypes.object.isRequired,
-};
-
-export default ProviderMetadataView;
+export default OrganizationMetadataView;

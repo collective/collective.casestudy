@@ -1,0 +1,42 @@
+.case-studies {
+  .case-studies-list {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    gap: 1.5em;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    list-style: none;
+  }
+
+  .case-study-link {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 0.5em;
+    text-decoration: none;
+  }
+
+  .case-study-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    // Screenshots arrive at whatever aspect ratio the site had; crop to a
+    // common one so a row of cards lines up.
+    max-height: 180px;
+    object-fit: cover;
+  }
+
+  .case-study-title {
+    display: block;
+    font-weight: bold;
+  }
+
+  .case-study-description {
+    display: -webkit-box;
+    overflow: hidden;
+    // Plone's `description` is already the short one, but nothing stops an
+    // editor writing a paragraph -- clamp rather than truncate the text.
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
