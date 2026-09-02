@@ -1,0 +1,39 @@
+{
+  "@id": "/case-studies/diracom-website/site-diracom.png",
+  "@type": "Image",
+  "UID": "b8dc1b9f4b5d455b8950e5af5dac6c07",
+  "allow_discussion": null,
+  "contributors": [],
+  "created": "2026-09-01T14:39:33+00:00",
+  "creators": [
+    "admin"
+  ],
+  "description": "",
+  "effective": null,
+  "expires": null,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "site-diracom.png",
+  "image": {
+    "blob_path": "b8dc1b9f4b5d455b8950e5af5dac6c07/image/site-diracom.png",
+    "content-type": "image/png",
+    "filename": "site-diracom.png",
+    "height": 1289,
+    "size": 797308,
+    "width": 2560
+  },
+  "is_folderish": false,
+  "language": "##DEFAULT##",
+  "layout": "image_view",
+  "lock": {},
+  "modified": "2026-09-01T14:39:33+00:00",
+  "review_state": null,
+  "rights": "",
+  "subjects": [],
+  "title": "site-diracom.png",
+  "type_title": "Image",
+  "version": "current",
+  "workflow_history": {},
+  "working_copy": null,
+  "working_copy_of": null
+}

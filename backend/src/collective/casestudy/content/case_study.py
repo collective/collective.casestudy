@@ -1,3 +1,11 @@
+"""The CaseStudy content type.
+
+A published account of one deployment of Plone: who it was for, what it
+is used for, and which versions it runs. The organizations involved are
+relations rather than fields, so one organization can appear in any
+number of case studies.
+"""
+
 from collective.casestudy import _
 from plone.dexterity.content import Container
 from plone.supermodel.model import Schema

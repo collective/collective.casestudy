@@ -1,0 +1,1 @@
+Add test coverage for the Organization serializers, the site-wide summary metadata, and the case studies an organization exposes over the REST API, including the permission filtering that hides unpublished ones. @ericof

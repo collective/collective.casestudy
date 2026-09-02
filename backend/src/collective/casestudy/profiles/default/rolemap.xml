@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rolemap>
   <permissions>
-
+    <!-- Case Study permissions -->
     <permission acquire="True"
                 name="collective.casestudy: Add Case Study"
     >
@@ -12,8 +12,9 @@
       <role name="Contributor" />
     </permission>
 
+    <!-- Organization permissions -->
     <permission acquire="True"
-                name="collective.casestudy: Add Provider"
+                name="collective.casestudy: Add Organization"
     >
       <role name="Manager" />
       <role name="Site Administrator" />
@@ -22,8 +23,28 @@
       <role name="Contributor" />
     </permission>
 
+    <!-- Contact Information permissions -->
+    <permission acquire="True"
+                name="collective.casestudy: Edit Contact Information"
+    >
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Editor" />
+      <role name="Reviewer" />
+    </permission>
+
     <permission acquire="True"
                 name="collective.casestudy: View Contact Information"
+    >
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Editor" />
+      <role name="Reviewer" />
+    </permission>
+
+    <!-- Organization Information permissions -->
+    <permission acquire="True"
+                name="collective.casestudy: Edit Organization Information"
     >
       <role name="Site Administrator" />
       <role name="Owner" />
@@ -36,6 +57,30 @@
       <role name="Site Administrator" />
       <role name="Owner" />
       <role name="Editor" />
+    </permission>
+
+    <!-- Provider Information permissions -->
+    <permission acquire="True"
+                name="collective.casestudy: Edit Provider Information"
+    >
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Editor" />
+    </permission>
+
+    <permission acquire="True"
+                name="collective.casestudy: View Provider Information"
+    >
+      <role name="Anonymous" />
+    </permission>
+
+    <permission acquire="True"
+                name="collective.casestudy: Manage Provider Listing"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Editor" />
+      <role name="Reviewer" />
     </permission>
 
   </permissions>

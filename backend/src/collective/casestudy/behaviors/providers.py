@@ -9,6 +9,8 @@ from zope.interface import provider
 
 @provider(IFormFieldProvider)
 class IProviders(model.Schema):
+    """Add a relation between a content item and one or more Providers"""
+
     providers = RelationList(
         title=_("label_providers", default="Providers"),
         description=_(
@@ -20,7 +22,7 @@ class IProviders(model.Schema):
         value_type=RelationChoice(
             title=_("label_provider", default="Provider"),
             vocabulary=StaticCatalogVocabulary({
-                "portal_type": ["Provider"],
+                "portal_type": ["Organization"],
             }),
         ),
     )

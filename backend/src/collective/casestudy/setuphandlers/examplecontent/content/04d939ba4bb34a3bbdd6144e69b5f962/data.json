@@ -1,0 +1,181 @@
+{
+  "@id": "/case-studies",
+  "@type": "Document",
+  "UID": "04d939ba4bb34a3bbdd6144e69b5f962",
+  "allow_discussion": null,
+  "blocks": {
+    "315f3402-6aa5-4cf9-8029-02daec528b9f": {
+      "@type": "slate"
+    },
+    "68b9ca2e-58e2-451a-9b96-b95a8a0734b8": {
+      "@type": "title"
+    },
+    "e4e79945-4c6f-4db6-acae-a12f7f927b08": {
+      "@type": "search",
+      "facets": [
+        {
+          "@id": "dded53aa-a3e0-4bd1-9db7-ca3bfdbf3e02",
+          "advanced": false,
+          "field": {
+            "label": "Industry",
+            "value": "industry"
+          },
+          "hidden": false,
+          "multiple": true
+        },
+        {
+          "@id": "60db62a1-add3-4a18-9637-4b64cfe86291",
+          "advanced": false,
+          "field": {
+            "label": "Usage",
+            "value": "usages"
+          },
+          "hidden": false,
+          "multiple": true
+        },
+        {
+          "@id": "514e7877-e24c-4337-9a48-795a17d4ca58",
+          "advanced": false,
+          "field": {
+            "label": "Version",
+            "value": "versions"
+          },
+          "hidden": false,
+          "multiple": true
+        }
+      ],
+      "facetsTitle": "Filter",
+      "headline": "Using Plone",
+      "listingBodyTemplate": "summary",
+      "query": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "CaseStudy"
+            ]
+          }
+        ],
+        "sort_on": "effective",
+        "sort_order": "descending",
+        "sort_order_boolean": true
+      },
+      "showSearchInput": true,
+      "showTotalResults": true,
+      "variation": "facetsRightSide"
+    },
+    "undefined": {
+      "@type": "search",
+      "facets": [
+        {
+          "@id": "dded53aa-a3e0-4bd1-9db7-ca3bfdbf3e02",
+          "advanced": false,
+          "field": {
+            "label": "Industry",
+            "value": "industry"
+          },
+          "hidden": false,
+          "multiple": true
+        },
+        {
+          "@id": "60db62a1-add3-4a18-9637-4b64cfe86291",
+          "advanced": false,
+          "field": {
+            "label": "Usage",
+            "value": "usages"
+          },
+          "hidden": false,
+          "multiple": true
+        },
+        {
+          "@id": "514e7877-e24c-4337-9a48-795a17d4ca58",
+          "advanced": false,
+          "field": {
+            "label": "Version",
+            "value": "versions"
+          },
+          "hidden": false,
+          "multiple": true
+        }
+      ],
+      "facetsTitle": "Filter",
+      "headline": "Usin Plone",
+      "listingBodyTemplate": "summary",
+      "query": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "CaseStudy"
+            ]
+          }
+        ],
+        "sort_on": "effective",
+        "sort_order": "descending",
+        "sort_order_boolean": true
+      },
+      "showSearchInput": true,
+      "showTotalResults": true,
+      "variation": "facetsRightSide"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "68b9ca2e-58e2-451a-9b96-b95a8a0734b8",
+      "e4e79945-4c6f-4db6-acae-a12f7f927b08",
+      "315f3402-6aa5-4cf9-8029-02daec528b9f"
+    ]
+  },
+  "changeNote": "",
+  "contributors": [],
+  "created": "2026-09-01T14:23:45+00:00",
+  "creators": [
+    "admin"
+  ],
+  "description": "Case studies for Plone",
+  "effective": "2026-09-02T13:52:00+00:00",
+  "exclude_from_nav": false,
+  "expires": null,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "case-studies",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "document_view",
+  "lock": {
+    "locked": false,
+    "stealable": true
+  },
+  "modified": "2026-09-02T19:41:07+00:00",
+  "nav_title": null,
+  "preview_caption_link": null,
+  "review_state": "published",
+  "rights": "",
+  "subjects": [],
+  "title": "Case Studies",
+  "type_title": "Page",
+  "version": "current",
+  "versioning_enabled": true,
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-09-01T14:23:45+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-09-02T13:52:41+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

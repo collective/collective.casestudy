@@ -1,0 +1,132 @@
+{
+  "@id": "/stakeholders/plone-foundation",
+  "@type": "Organization",
+  "UID": "e7230dc0acf94825ab2e304e8eb6f7b4",
+  "address": null,
+  "address_2": null,
+  "allow_discussion": null,
+  "case_studies": {
+    "provided": [],
+    "received": []
+  },
+  "changeNote": "",
+  "city": null,
+  "contact_email": "board@plone.org",
+  "contact_name": "Plone Foundation Board",
+  "contact_phone": null,
+  "country": "US",
+  "created": "2026-09-02T19:37:52+00:00",
+  "description": "The guardians of Plone",
+  "exclude_from_nav": false,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "plone-foundation",
+  "industry": "ngo",
+  "is_folderish": true,
+  "is_provider": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-09-02T19:37:57+00:00",
+  "organization_size": "large",
+  "postal_code": null,
+  "preview_caption_link": null,
+  "review_state": "published",
+  "services": [
+    "training"
+  ],
+  "social_links": [
+    {
+      "@id": "90e30a78-04c5-41ed-af9b-d84b44046421",
+      "href": [
+        {
+          "@id": "https://plone.org/foundation/",
+          "title": "plone.org/foundation/"
+        }
+      ],
+      "id": "website",
+      "title": "Site"
+    },
+    {
+      "@id": "b16b4a24-32f5-4332-833a-ee07fdea6183",
+      "href": [
+        {
+          "@id": "http://youtube.com/@PloneCMS",
+          "title": "youtube.com/@PloneCMS"
+        }
+      ],
+      "id": "youtube",
+      "title": "YouTube"
+    },
+    {
+      "@id": "2e522e32-8302-48da-8297-25874295c47a",
+      "href": [
+        {
+          "@id": "https://github.com/plone",
+          "title": "github.com/plone"
+        }
+      ],
+      "id": "github",
+      "title": "GitHub"
+    },
+    {
+      "@id": "c18cb7d0-ad45-4bba-98bd-87687536e0c9",
+      "href": [
+        {
+          "@id": "https://www.instagram.com/plonecms/",
+          "title": "www.instagram.com/plonecms/"
+        }
+      ],
+      "id": "instagram",
+      "title": "Instagram"
+    },
+    {
+      "@id": "1e94592c-5bff-47e7-8716-ef8daaaa0530",
+      "href": [
+        {
+          "@id": "https://plone.social/@plone",
+          "title": "plone.social/@plone"
+        }
+      ],
+      "id": "mastodon",
+      "title": "Mastodon"
+    },
+    {
+      "@id": "2c6239ce-01a7-43b3-9cb5-30a3392937bc",
+      "href": [
+        {
+          "@id": "https://twitter.com/plone",
+          "title": "twitter.com/plone"
+        }
+      ],
+      "id": "x",
+      "title": "X"
+    }
+  ],
+  "state": null,
+  "subjects": [],
+  "title": "Plone Foundation",
+  "type_title": "Organization",
+  "version": "current",
+  "versioning_enabled": true,
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-09-02T19:37:52+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-09-02T19:37:57+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

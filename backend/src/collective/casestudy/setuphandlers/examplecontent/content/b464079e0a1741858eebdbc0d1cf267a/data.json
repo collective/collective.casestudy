@@ -1,0 +1,108 @@
+{
+  "@id": "/stakeholders/diracom",
+  "@type": "Organization",
+  "UID": "b464079e0a1741858eebdbc0d1cf267a",
+  "address": null,
+  "address_2": null,
+  "allow_discussion": null,
+  "case_studies": {
+    "provided": [],
+    "received": []
+  },
+  "changeNote": "",
+  "city": null,
+  "contact_email": "secretaria@diracom.org",
+  "contact_name": "DiraCom",
+  "contact_phone": "+556199999999",
+  "country": "BR",
+  "created": "2026-09-01T14:35:55+00:00",
+  "description": "DiraCom -- Direito \u00e0 Comunica\u00e7\u00e3o e Democracia is a Civil Society Organization (CSO) that operates nationally and internationally, based on the paradigm of human rights, with an emphasis on the human right to communication.",
+  "exclude_from_nav": false,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "diracom",
+  "industry": "ngo",
+  "is_folderish": true,
+  "is_provider": false,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-09-02T19:11:42+00:00",
+  "organization_size": "medium",
+  "postal_code": null,
+  "preview_caption_link": null,
+  "review_state": "published",
+  "services": [],
+  "social_links": [
+    {
+      "@id": "f5145792-c889-4be3-9930-229bc3bc0eac",
+      "href": [
+        {
+          "@id": "https://diracom.org/",
+          "title": "diracom.org/"
+        }
+      ],
+      "id": "website",
+      "title": "Site"
+    },
+    {
+      "@id": "8000186b-7eb0-4b61-9b77-0b62f8099697",
+      "href": [
+        {
+          "@id": "https://instagram.com/diracom_",
+          "title": "instagram.com/diracom_"
+        }
+      ],
+      "id": "instagram",
+      "title": "Instagram"
+    },
+    {
+      "@id": "88bf1b72-593a-42fa-9273-0eb8c515ee72",
+      "href": [
+        {
+          "@id": "https://twitter.com/diracom_",
+          "title": "twitter.com/diracom_"
+        }
+      ],
+      "id": "x",
+      "title": "X"
+    },
+    {
+      "@id": "c55dd1f6-4fec-4d4c-8f6f-eeb471fd1dc4",
+      "href": [
+        {
+          "@id": "https://www.youtube.com/@diracom_canal",
+          "title": "www.youtube.com/@diracom_canal"
+        }
+      ],
+      "id": "youtube",
+      "title": "YouTube"
+    }
+  ],
+  "state": null,
+  "subjects": [],
+  "title": "DiraCom",
+  "type_title": "Organization",
+  "version": "current",
+  "versioning_enabled": true,
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-09-01T14:35:55+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-09-01T14:36:45+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

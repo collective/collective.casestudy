@@ -1,41 +1,33 @@
 from collective.casestudy import PACKAGE_NAME
-from zope.schema.vocabulary import SimpleVocabulary
+from plone.app.vocabularies import SimpleTerm
+from plone.app.vocabularies import SimpleVocabulary
 
 import pytest
 
 
 class TestVocabServices:
-    name = f"{PACKAGE_NAME}.vocabulary.services"
+    name: str = f"{PACKAGE_NAME}.vocabulary.services"
+    vocab_type = SimpleVocabulary
 
     @pytest.fixture(autouse=True)
-    def _vocab(self, get_vocabulary, portal):
-        self.vocab = get_vocabulary(self.name, portal)
+    def _setup(self, portal_class, get_vocabulary):
+        self.portal = portal_class
+        self.vocab = get_vocabulary(self.name, self.portal)
 
-    def test_vocabulary(self):
-        assert self.vocab is not None
-        assert isinstance(self.vocab, SimpleVocabulary)
-
-    @pytest.mark.parametrize(
-        "token",
-        [
-            "design",
-            "dev",
-            "hosting",
-            "training",
-        ],
-    )
-    def test_token(self, token):
-        assert token in list(self.vocab.by_token)
+    def test_vocabulary_type(self):
+        assert isinstance(self.vocab, self.vocab_type)
 
     @pytest.mark.parametrize(
-        "token, title",
+        "token,title",
         [
-            ["design", "Design / Theming"],
-            ["dev", "Development / Integration"],
-            ["hosting", "Hosting"],
-            ["training", "Training"],
+            ("design", "Design / Theming"),
+            ("dev", "Development / Integration"),
+            ("hosting", "Hosting"),
+            ("training", "Training"),
         ],
     )
-    def test_token_title(self, token, title):
-        term = self.vocab.getTerm(token)
-        assert title == term.title
+    def test_vocab_terms(self, token: str, title: str):
+        term = self.vocab.getTermByToken(token)
+        assert isinstance(term, SimpleTerm)
+        assert term.title == title
+        assert term.token == token

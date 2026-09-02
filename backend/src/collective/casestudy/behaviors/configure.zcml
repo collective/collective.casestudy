@@ -11,12 +11,13 @@
       file="meta.zcml"
       />
 
-  <!-- Providers Behavior -->
+
+  <!-- Provider Information Behavior -->
   <plone:behavior
-      name="collective.casestudy.providers"
-      title="Providers"
-      description="Add a relation between a content item and one or more Providers"
-      provides=".providers.IProviders"
+      name="collective.casestudy.provider_info"
+      title="Provider Information"
+      description="Fields with public provider information"
+      provides=".provider_info.IProviderInfo"
       />
 
   <!-- Address Information Behavior -->
@@ -33,6 +34,21 @@
       title="Contact Information (Restricted Access)"
       description="Fields with contact information that should be restricted to Editors and the Owner"
       provides=".contact_info.IContactInfo"
+      />
+
+
+  <!-- Relation Behaviors -->
+  <plone:behavior
+      name="collective.casestudy.organizations"
+      title="Organizations"
+      description="Add a relation between a content item and one or more Organizations"
+      provides=".organizations.IOrganizations"
+      />
+  <plone:behavior
+      name="collective.casestudy.providers"
+      title="Providers"
+      description="Add a relation between a content item and one or more Providers"
+      provides=".providers.IProviders"
       />
 
 </configure>

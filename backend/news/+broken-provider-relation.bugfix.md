@@ -1,0 +1,1 @@
+Skip deleted providers when indexing the `providers` relation. Reindexing a case study whose provider had been removed raised, which also aborted a site-wide catalog rebuild at the first such item. @ericof

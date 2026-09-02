@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="2100"
+      destination="2200"
+      >
+    <genericsetup:upgradeStep
+        title="Remove the Provider content type"
+        description="Removes the FTI, its workflow and its add permission, unless the site still holds Provider content."
+        handler=".provider.remove_provider_type"
+        />
+    <genericsetup:upgradeDepends
+        title="Drop Provider from the versioning and diff policies"
+        import_steps="repositorytool"
+        />
+    <genericsetup:upgradeDepends
+        title="Drop Provider from the diff tool"
+        import_steps="difftool"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>

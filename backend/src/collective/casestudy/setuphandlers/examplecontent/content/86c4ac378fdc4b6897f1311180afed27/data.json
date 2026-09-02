@@ -1,0 +1,231 @@
+{
+  "@id": "/stakeholders",
+  "@type": "Document",
+  "UID": "86c4ac378fdc4b6897f1311180afed27",
+  "allow_discussion": null,
+  "blocks": {
+    "152cc09f-ea50-446e-8134-799679f661ee": {
+      "@type": "search",
+      "facets": [
+        {
+          "@id": "24243a76-bf92-495c-87ea-3c7fab0b4102",
+          "advanced": false,
+          "field": {
+            "label": "Industry",
+            "value": "industry"
+          },
+          "hidden": false,
+          "multiple": true,
+          "title": "Industry"
+        },
+        {
+          "@id": "33600778-4d13-487e-8f33-a0ebd0d5ef67",
+          "advanced": false,
+          "field": {
+            "label": "Country",
+            "value": "country"
+          },
+          "hidden": false,
+          "multiple": true,
+          "title": "Country"
+        }
+      ],
+      "facetsTitle": "Filter",
+      "headline": "Providers",
+      "listingBodyTemplate": "summary",
+      "query": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "Organization"
+            ]
+          },
+          {
+            "i": "facets",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "User"
+            ]
+          }
+        ],
+        "sort_on": "sortable_title",
+        "sort_order": "ascending"
+      },
+      "showSearchInput": true,
+      "showTotalResults": true,
+      "variation": "facetsRightSide"
+    },
+    "2e7fc3be-db76-41af-968c-b2adf6a5f5f2": {
+      "@type": "description"
+    },
+    "6d82dbcb-de7d-4862-b377-992173498753": {
+      "@type": "search",
+      "facets": [
+        {
+          "@id": "24243a76-bf92-495c-87ea-3c7fab0b4102",
+          "advanced": false,
+          "field": {
+            "label": "Provider Services",
+            "value": "services"
+          },
+          "hidden": false,
+          "multiple": true,
+          "title": "Services"
+        },
+        {
+          "@id": "33600778-4d13-487e-8f33-a0ebd0d5ef67",
+          "advanced": false,
+          "field": {
+            "label": "Country",
+            "value": "country"
+          },
+          "hidden": false,
+          "multiple": true,
+          "title": "Country"
+        }
+      ],
+      "facetsTitle": "Filter",
+      "headline": "Providers",
+      "listingBodyTemplate": "summary",
+      "query": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "Organization"
+            ]
+          },
+          {
+            "i": "facets",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "Provider"
+            ]
+          }
+        ],
+        "sort_on": "sortable_title",
+        "sort_order": "ascending"
+      },
+      "showSearchInput": true,
+      "showTotalResults": true,
+      "variation": "facetsRightSide"
+    },
+    "a8c7892c-a4af-475d-a77e-ce6d5d286748": {
+      "@type": "title"
+    },
+    "undefined": {
+      "@type": "search",
+      "facets": [
+        {
+          "@id": "24243a76-bf92-495c-87ea-3c7fab0b4102",
+          "advanced": false,
+          "field": {
+            "label": "Provider Services",
+            "value": "services"
+          },
+          "hidden": false,
+          "multiple": true,
+          "title": "Services"
+        },
+        {
+          "@id": "33600778-4d13-487e-8f33-a0ebd0d5ef67",
+          "advanced": false,
+          "field": {
+            "label": "Country",
+            "value": "country"
+          },
+          "hidden": false,
+          "multiple": true,
+          "title": "Country"
+        }
+      ],
+      "facetsTitle": "Filter",
+      "headline": "Providers",
+      "listingBodyTemplate": "summary",
+      "query": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "Organization"
+            ]
+          },
+          {
+            "i": "facets",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "Provider"
+            ]
+          }
+        ],
+        "sort_on": "sortable_title",
+        "sort_order": "ascending"
+      },
+      "showSearchInput": true,
+      "showTotalResults": true,
+      "variation": "facetsRightSide"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "a8c7892c-a4af-475d-a77e-ce6d5d286748",
+      "2e7fc3be-db76-41af-968c-b2adf6a5f5f2",
+      "6d82dbcb-de7d-4862-b377-992173498753",
+      "152cc09f-ea50-446e-8134-799679f661ee"
+    ]
+  },
+  "changeNote": "",
+  "contributors": [],
+  "created": "2026-09-01T14:23:23+00:00",
+  "creators": [
+    "admin"
+  ],
+  "description": "Plone stakeholders",
+  "effective": "2026-09-02T13:52:00+00:00",
+  "exclude_from_nav": false,
+  "expires": null,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "stakeholders",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "document_view",
+  "lock": {
+    "locked": false,
+    "stealable": true
+  },
+  "modified": "2026-09-02T19:37:52+00:00",
+  "nav_title": null,
+  "preview_caption_link": null,
+  "review_state": "published",
+  "rights": "",
+  "subjects": [],
+  "title": "Stakeholders",
+  "type_title": "Page",
+  "version": "current",
+  "versioning_enabled": true,
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-09-01T14:23:23+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-09-02T13:52:42+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

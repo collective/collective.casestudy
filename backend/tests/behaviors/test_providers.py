@@ -57,3 +57,43 @@ class TestProvidersBehavior:
     def test_provides_interface(self, portal, case_studies_payload):
         content = self._create_case_study_with_provider(portal, case_studies_payload)
         assert IProviders.providedBy(content)
+
+    def test_indexer_skips_a_deleted_provider(self, portal, case_studies_payload):
+        """Deleting a provider must not break the reindex of its case studies.
+
+        The relation stays on the case study with nothing behind it, so the
+        indexer has no UID to record -- and raising here would fail every
+        later object in a site-wide rebuild too.
+        """
+        content = self._create_case_study_with_provider(portal, case_studies_payload)
+        provider = self.provider
+        provider_uid = api.content.get_uuid(provider)
+        with api.env.adopt_roles(["Manager"]):
+            api.content.delete(obj=provider, check_linkintegrity=False)
+
+        # The reindex is what used to raise; `providers` is an index with no
+        # metadata column, so the query is how its value is observed.
+        content.reindexObject(idxs=["providers"])
+
+        assert len(api.content.find(providers=provider_uid)) == 0
+
+    def test_indexer_keeps_the_providers_that_remain(
+        self, portal, case_studies_payload
+    ):
+        """Only the broken relation drops out, not the whole value."""
+        content = self._create_case_study_with_provider(portal, case_studies_payload)
+        provider = self.provider
+        provider_uid = api.content.get_uuid(provider)
+        second_uid = next(uid for uid in self.providers if uid != provider_uid)
+        second = api.content.find(UID=second_uid)[0].getObject()
+        api.relation.create(content, second, "providers")
+        content.reindexObject(idxs=["providers"])
+
+        with api.env.adopt_roles(["Manager"]):
+            api.content.delete(obj=provider, check_linkintegrity=False)
+        content.reindexObject(idxs=["providers"])
+
+        assert len(api.content.find(providers=provider_uid)) == 0
+        found = api.content.find(providers=second_uid)
+        assert len(found) == 1
+        assert content.UID() == found[0].UID

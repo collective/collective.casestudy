@@ -1,5 +1,6 @@
 from collective.casestudy import _
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel import directives
 from plone.supermodel import model
 from zope import schema
 from zope.interface import provider
@@ -7,6 +8,11 @@ from zope.interface import provider
 
 @provider(IFormFieldProvider)
 class IAddressInfo(model.Schema):
+    directives.fieldset(
+        "address_info",
+        label=_("label_address_info", default="Address Information"),
+        fields=("address", "address_2", "city", "state", "postal_code", "country"),
+    )
     address = schema.TextLine(
         title=_("label_address", default="Company Address"), required=False
     )

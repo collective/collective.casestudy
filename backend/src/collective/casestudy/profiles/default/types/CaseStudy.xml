@@ -38,6 +38,7 @@
             purge="false"
   >
     <element value="collective.casestudy.providers" />
+    <element value="collective.casestudy.organizations" />
     <element value="plone.dublincore" />
     <element value="plone.namefromtitle" />
     <element value="plone.shortname" />
@@ -46,7 +47,7 @@
     <element value="plone.versioning" />
     <element value="volto.blocks" />
     <element value="volto.navtitle" />
-    <element value="volto.preview_image" />
+    <element value="volto.preview_image_link" />
     <element value="volto.head_title" />
   </property>
 

@@ -12,15 +12,41 @@
         />
 
     <permission
-        id="collective.casestudy.provider.add"
-        title="collective.casestudy: Add Provider"
+        id="collective.casestudy.organization.add"
+        title="collective.casestudy: Add Organization"
         />
 
+    <!-- Provider Information behavior -->
+    <permission
+        id="collective.casestudy.provider_info.edit"
+        title="collective.casestudy: Edit Provider Information"
+        />
+
+    <permission
+        id="collective.casestudy.provider_info.view"
+        title="collective.casestudy: View Provider Information"
+        />
+
+    <permission
+        id="collective.casestudy.provider_info.manage"
+        title="collective.casestudy: Manage Provider Listing"
+        />
+
+    <!-- Contact Information behavior -->
     <permission
         id="collective.casestudy.contact_info.view"
         title="collective.casestudy: View Contact Information"
         />
+    <permission
+        id="collective.casestudy.contact_info.edit"
+        title="collective.casestudy: Edit Contact Information"
+        />
 
+    <!-- Organization Information behavior -->
+    <permission
+        id="collective.casestudy.organization_info.edit"
+        title="collective.casestudy: Edit Organization Information"
+        />
     <permission
         id="collective.casestudy.organization_info.view"
         title="collective.casestudy: View Organization Information"
