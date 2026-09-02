@@ -1,0 +1,10 @@
+# npm reads this *instead of* .gitignore, so it has to repeat its entries.
+node_modules
+build
+README.md
+
+# Monorepo-relative paths that only resolve inside this checkout. Volto's
+# AddonRegistry reads a published add-on's tsconfig and lets its `paths`
+# override the aliases it already resolved, so shipping these would rewrite
+# them for the consuming project -- and for unrelated packages too.
+tsconfig.dev.json
