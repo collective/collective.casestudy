@@ -1,0 +1,76 @@
+{
+  "@id": "/case-studies/diracom-website",
+  "@type": "CaseStudy",
+  "UID": "deba84c74ef542ffb4826aded4345e13",
+  "allow_discussion": null,
+  "blocks": {
+    "76866eed-3c95-4722-85dc-439229b8379c": {
+      "@type": "title"
+    },
+    "f7bb6fae-95cd-4e79-8419-efb17a36a7e3": {
+      "@type": "case_study_metadata"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "76866eed-3c95-4722-85dc-439229b8379c",
+      "f7bb6fae-95cd-4e79-8419-efb17a36a7e3"
+    ]
+  },
+  "changeNote": "",
+  "contributors": [],
+  "created": "2026-09-01T14:39:20+00:00",
+  "creators": [
+    "admin"
+  ],
+  "description": "New site using Plone 6.2",
+  "effective": "2026-09-01T14:39:00+00:00",
+  "exclude_from_nav": false,
+  "expires": null,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "head_title": null,
+  "id": "diracom-website",
+  "industry": "ngo",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-09-01T14:39:57+00:00",
+  "nav_title": null,
+  "preview_caption_link": null,
+  "remoteUrl": "https://diracom.org/",
+  "review_state": "published",
+  "rights": "",
+  "subjects": [],
+  "title": "DiraCom website",
+  "type_title": "Case Study",
+  "usages": [
+    "portal"
+  ],
+  "version": "current",
+  "versioning_enabled": true,
+  "versions": [
+    "6.2"
+  ],
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-09-01T14:39:20+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-09-01T14:39:57+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

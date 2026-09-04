@@ -1,15 +1,15 @@
 import type { ConfigType } from '@plone/registry';
 import CaseStudyBlockInfo from '../components/Blocks/CaseStudyMetadata';
-import ProviderBlockInfo from '../components/Blocks/ProviderMetadata';
+import OrganizationBlockInfo from '../components/Blocks/OrganizationMetadata';
 
 export default function installBlocks(config: ConfigType) {
   config.blocks.blocksConfig.case_study_metadata = CaseStudyBlockInfo;
-  config.blocks.blocksConfig.provider_metadata = ProviderBlockInfo;
+  config.blocks.blocksConfig.organization_metadata = OrganizationBlockInfo;
 
   config.blocks.initialBlocks = {
     ...config.blocks.initialBlocks,
     CaseStudy: ['title', 'case_study_metadata'],
-    Provider: ['title', 'provider_metadata'],
+    Organization: ['title', 'organization_metadata'],
   };
 
   return config;

@@ -1,0 +1,76 @@
+{
+  "@id": "/case-studies/plone.org",
+  "@type": "CaseStudy",
+  "UID": "06890436fc284266aa76fc4c0a285ce1",
+  "allow_discussion": null,
+  "blocks": {
+    "e17ce58b-1c7f-4766-a198-5bce67896de0": {
+      "@type": "case_study_metadata"
+    },
+    "f9b5cba4-24eb-4462-9895-ae9c2ad0df71": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "f9b5cba4-24eb-4462-9895-ae9c2ad0df71",
+      "e17ce58b-1c7f-4766-a198-5bce67896de0"
+    ]
+  },
+  "changeNote": "",
+  "contributors": [],
+  "created": "2026-09-02T19:41:07+00:00",
+  "creators": [
+    "admin"
+  ],
+  "description": "The main website of the Plone community",
+  "effective": "2026-09-02T19:41:40+00:00",
+  "exclude_from_nav": false,
+  "expires": null,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "head_title": null,
+  "id": "plone.org",
+  "industry": "ngo",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-09-02T19:41:40+00:00",
+  "nav_title": null,
+  "preview_caption_link": null,
+  "remoteUrl": "https://plone.org/",
+  "review_state": "published",
+  "rights": "",
+  "subjects": [],
+  "title": "Plone.org",
+  "type_title": "Case Study",
+  "usages": [
+    "portal"
+  ],
+  "version": "current",
+  "versioning_enabled": true,
+  "versions": [
+    "6.1"
+  ],
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-09-02T19:41:07+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-09-02T19:41:40+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

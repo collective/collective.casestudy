@@ -97,6 +97,28 @@
     <value key="vocabulary">collective.casestudy.vocabulary.providers</value>
   </records>
 
+  <!-- Provider search options -->
+  <!-- Add options to search by services -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.facets"
+  >
+    <value key="title"
+           i18n:translate="label_services"
+    >Facet</value>
+    <value key="description"
+           i18n:translate="description_qs_services"
+    >Filter by type of organization.</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="group"
+           i18n:translate=""
+    >Organizations</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+    </value>
+    <value key="vocabulary">collective.casestudy.vocabulary.organization_facets</value>
+  </records>
+
   <!-- Add options to search by country -->
   <records interface="plone.app.querystring.interfaces.IQueryField"
            prefix="plone.app.querystring.field.country"
@@ -111,7 +133,7 @@
     <value key="sortable">False</value>
     <value key="group"
            i18n:translate=""
-    >Providers</value>
+    >Organizations</value>
     <value key="operations">
       <element>plone.app.querystring.operation.selection.any</element>
     </value>
@@ -124,7 +146,7 @@
   >
     <value key="title"
            i18n:translate="label_services"
-    >Services</value>
+    >Provider Services</value>
     <value key="description"
            i18n:translate="description_qs_services"
     >Categorization by Services.</value>
@@ -132,7 +154,7 @@
     <value key="sortable">False</value>
     <value key="group"
            i18n:translate=""
-    >Providers</value>
+    >Organizations</value>
     <value key="operations">
       <element>plone.app.querystring.operation.selection.any</element>
     </value>

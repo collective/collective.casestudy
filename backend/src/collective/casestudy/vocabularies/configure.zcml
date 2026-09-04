@@ -1,30 +1,6 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
-  <utility
-      name="collective.casestudy.vocabulary.industries"
-      component=".industries.industries_vocabulary"
-      />
-
-  <utility
-      name="collective.casestudy.vocabulary.usages"
-      component=".usages.usages_vocabulary"
-      />
-
-  <utility
-      name="collective.casestudy.vocabulary.versions"
-      component=".versions.versions_vocabulary"
-      />
-
-  <utility
-      name="collective.casestudy.vocabulary.providers"
-      component=".providers.providers_vocabulary"
-      />
-
-  <utility
-      name="collective.casestudy.vocabulary.services"
-      component=".services.services_vocabulary"
-      />
-
+  <!-- General vocabularies -->
   <utility
       name="collective.casestudy.vocabulary.available_countries"
       component=".countries.available_countries_vocabulary"
@@ -36,8 +12,40 @@
       />
 
   <utility
+      name="collective.casestudy.vocabulary.industries"
+      component=".industries.industries_vocabulary"
+      />
+
+  <!-- CaseStudy vocabularies -->
+  <utility
+      name="collective.casestudy.vocabulary.usages"
+      component=".usages.usages_vocabulary"
+      />
+
+  <utility
+      name="collective.casestudy.vocabulary.versions"
+      component=".versions.versions_vocabulary"
+      />
+
+  <!-- Provider vocabularies -->
+  <utility
+      name="collective.casestudy.vocabulary.providers"
+      component=".providers.providers_vocabulary"
+      />
+
+  <utility
+      name="collective.casestudy.vocabulary.services"
+      component=".services.services_vocabulary"
+      />
+
+  <!-- Organization vocabularies -->
+  <utility
       name="collective.casestudy.vocabulary.organization_size"
       component=".organization.size_vocabulary"
+      />
+  <utility
+      name="collective.casestudy.vocabulary.organization_facets"
+      component=".organization.facet_vocabulary"
       />
 
 </configure>

@@ -80,7 +80,7 @@ class TestRegistryValues:
                 ],
             ),
             ("country", "vocabulary", "collective.casestudy.vocabulary.countries"),
-            ("country", "group", "Providers"),
+            ("country", "group", "Organizations"),
             ("services", "title", "label_services"),
             ("services", "description", "description_qs_services"),
             ("services", "enabled", True),
@@ -93,7 +93,7 @@ class TestRegistryValues:
                 ],
             ),
             ("services", "vocabulary", "collective.casestudy.vocabulary.services"),
-            ("services", "group", "Providers"),
+            ("services", "group", "Organizations"),
         ],
     )
     def test_plone_qs_field(self, field_name: str, key: str, expected):

@@ -1,6 +1,10 @@
+from . import CASE_STUDIES
+from . import ORGANIZATIONS
+from . import PROVIDERS
 from collections.abc import Generator
 from collective.casestudy.testing import FUNCTIONAL_TESTING
 from collective.casestudy.testing import INTEGRATION_TESTING
+from copy import deepcopy
 from plone import api
 from Products.CMFPlone.Portal import PloneSite
 from pytest_plone import fixtures_factory
@@ -20,46 +24,15 @@ globals().update(
 )
 
 
-@pytest.fixture
+@pytest.fixture(scope="class")
 def case_studies_payload() -> list:
     """Payload to create a new Case Study."""
-    return [
-        {
-            "type": "CaseStudy",
-            "title": "New Plone.org",
-            "description": "An explanation about the new Plone.org",
-            "subject": ["Tag 1", "Tag 2"],
-            "industry": "ngo",
-            "versions": [
-                "6.0",
-            ],
-            "usages": [
-                "portal",
-            ],
-            "remoteUrl": "https://plone.org",
-            "id": "plone-org",
-        },
-        {
-            "type": "CaseStudy",
-            "title": "News Site",
-            "description": "An explanation about the news site",
-            "subject": ["Tag 1", "Tag 2"],
-            "industry": "media",
-            "versions": [
-                "6.0",
-            ],
-            "usages": [
-                "portal",
-            ],
-            "remoteUrl": "https://news-site.com",
-            "id": "news-site",
-        },
-    ]
+    return deepcopy(CASE_STUDIES)
 
 
 @pytest.fixture
 def case_studies(portal, case_studies_payload) -> dict:
-    """Create provider content items."""
+    """Create case study content items."""
     response = {}
     with api.env.adopt_roles(["Manager"]):
         for data in case_studies_payload:
@@ -68,50 +41,32 @@ def case_studies(portal, case_studies_payload) -> dict:
     return response
 
 
+@pytest.fixture(scope="class")
+def organizations_payload() -> list:
+    """Payload to create two organizations that are not providers."""
+    return deepcopy(ORGANIZATIONS)
+
+
 @pytest.fixture
+def organizations(portal, organizations_payload) -> dict:
+    """Create organization content items."""
+    response = {}
+    with api.env.adopt_roles(["Manager"]):
+        for data in organizations_payload:
+            content = api.content.create(container=portal, **data)
+            response[content.UID()] = content.title
+    return response
+
+
+@pytest.fixture(scope="class")
 def providers_payload() -> list:
-    """Payload to create two providers."""
-    return [
-        {
-            "type": "Provider",
-            "id": "company-1",
-            "title": "Company 1",
-            "description": "A Plone Company provider",
-            "remoteUrl": "https://company1.com",
-            "country": "DE",
-            "contact_name": "John Doe",
-            "contact_email": "doe@company1.com",
-            "contact_phone": "+4917632259823",
-            "organization_size": "large",
-            "services": [
-                "design",
-                "dev",
-                "training",
-            ],
-        },
-        {
-            "type": "Provider",
-            "id": "company-2",
-            "title": "Company 2",
-            "description": "Another Plone Company provider",
-            "remoteUrl": "https://company2.com",
-            "country": "CH",
-            "contact_name": "Mary Jane",
-            "contact_email": "mjane@company2.com",
-            "contact_phone": "+4123632259823",
-            "organization_size": "me",
-            "services": [
-                "hosting",
-                "dev",
-                "training",
-            ],
-        },
-    ]
+    """Payload to create two organizations that are also providers."""
+    return deepcopy(PROVIDERS)
 
 
 @pytest.fixture
 def providers(portal, providers_payload) -> dict:
-    """Create provider content items."""
+    """Create organization content items flagged as providers."""
     response = {}
     with api.env.adopt_roles(["Manager"]):
         for data in providers_payload:

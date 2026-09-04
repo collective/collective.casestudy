@@ -1,0 +1,91 @@
+{
+  "@id": "/stakeholders/simples-consultoria",
+  "@type": "Organization",
+  "UID": "9a346ac4e9984657b807ea8f7fc0a482",
+  "address": "Avenida Paulista 1636 Sala 1504",
+  "address_2": null,
+  "allow_discussion": null,
+  "case_studies": {
+    "provided": [],
+    "received": []
+  },
+  "changeNote": "",
+  "city": "S\u00e3o Paulo",
+  "contact_email": "comercial@simplesconsultoria.com.br",
+  "contact_name": "\u00c9rico Andrei",
+  "contact_phone": "+5511942893964",
+  "country": "BR",
+  "created": "2026-09-01T14:27:19+00:00",
+  "description": "Simples Consultoria is the main Plone provider in South America",
+  "exclude_from_nav": false,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "simples-consultoria",
+  "industry": "technology",
+  "is_folderish": true,
+  "is_provider": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-09-02T13:53:08+00:00",
+  "organization_size": "small",
+  "postal_code": "01310-200",
+  "preview_caption_link": "Logo Simples Consultoria",
+  "review_state": "published",
+  "services": [
+    "design",
+    "dev",
+    "hosting",
+    "training"
+  ],
+  "social_links": [
+    {
+      "@id": "49bb13cc-666e-4581-a380-f5afc0b08840",
+      "href": [
+        {
+          "@id": "https://simplesconsultoria.com.br/",
+          "title": "simplesconsultoria.com.br/"
+        }
+      ],
+      "id": "website",
+      "title": "Site"
+    },
+    {
+      "@id": "c47647e7-fbe3-4964-bb43-08a67bbb29da",
+      "href": [
+        {
+          "@id": "https://x.com/simplesconsult",
+          "title": "x.com/simplesconsult"
+        }
+      ],
+      "id": "x",
+      "title": "X"
+    }
+  ],
+  "state": "SP",
+  "subjects": [],
+  "title": "Simples Consultoria",
+  "type_title": "Organization",
+  "version": "current",
+  "versioning_enabled": true,
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-09-01T14:27:19+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-09-01T14:30:00+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

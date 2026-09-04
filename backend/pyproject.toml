@@ -32,6 +32,7 @@ dependencies = [
     "plone.api",
     "plone.restapi",
     "plone.volto",
+    "plonegovbr.socialmedia>=3.0.0a0",
     "pycountry",
 ]
 

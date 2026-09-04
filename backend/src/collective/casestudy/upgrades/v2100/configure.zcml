@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="2000"
+      destination="2100"
+      >
+    <!-- No upgradeDepends on plone.app.registry: re-registering the schema
+         resets every record it touches, so the step below has to read the
+         old values before it re-registers, and does both itself. -->
+    <genericsetup:upgradeStep
+        title="Rewrite the vocabulary records as term objects"
+        description="Convert token|title strings into {token, title} objects."
+        handler=".vocabulary.upgrade_vocabulary_records"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>

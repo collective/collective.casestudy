@@ -1,0 +1,18 @@
+.organization-link {
+  display: inline-flex;
+  align-items: center;
+
+  &.with-logo {
+    max-width: 100%;
+  }
+
+  .organization-logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    // Logos arrive at wildly different aspect ratios; cap the height so a
+    // list of them lines up instead of stacking at full size.
+    max-height: 48px;
+    object-fit: contain;
+  }
+}

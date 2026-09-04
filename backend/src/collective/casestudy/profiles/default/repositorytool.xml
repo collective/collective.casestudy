@@ -5,7 +5,7 @@
       <policy name="at_edit_autoversion" />
       <policy name="version_on_revert" />
     </type>
-    <type name="Provider">
+    <type name="Organization">
       <policy name="at_edit_autoversion" />
       <policy name="version_on_revert" />
     </type>

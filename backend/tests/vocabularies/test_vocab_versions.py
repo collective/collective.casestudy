@@ -1,48 +1,46 @@
 from collective.casestudy import PACKAGE_NAME
-from zope.schema.vocabulary import SimpleVocabulary
+from plone.app.vocabularies import SimpleTerm
+from plone.app.vocabularies import SimpleVocabulary
 
 import pytest
 
 
 class TestVocabVersions:
-    name = f"{PACKAGE_NAME}.vocabulary.versions"
+    name: str = f"{PACKAGE_NAME}.vocabulary.versions"
+    vocab_type = SimpleVocabulary
 
     @pytest.fixture(autouse=True)
-    def _vocab(self, get_vocabulary, portal):
-        self.vocab = get_vocabulary(self.name, portal)
+    def _setup(self, portal_class, get_vocabulary):
+        self.portal = portal_class
+        self.vocab = get_vocabulary(self.name, self.portal)
 
-    def test_vocabulary(self):
-        assert self.vocab is not None
-        assert isinstance(self.vocab, SimpleVocabulary)
-
-    @pytest.mark.parametrize(
-        "token",
-        [
-            "6.0",
-            "5.2",
-            "3.0",
-        ],
-    )
-    def test_token(self, token):
-        assert token in list(self.vocab.by_token)
+    def test_vocabulary_type(self):
+        assert isinstance(self.vocab, self.vocab_type)
 
     @pytest.mark.parametrize(
         "token,title",
         [
-            [
-                "6.0",
-                "Plone 6.0",
-            ],
-            [
-                "5.2",
-                "Plone 5.2",
-            ],
-            [
-                "3.0",
-                "Plone 3.0",
-            ],
+            ("6.2", "Plone 6.2"),
+            ("6.1", "Plone 6.1"),
+            ("6.0", "Plone 6.0"),
+            ("5.2", "Plone 5.2"),
+            ("5.1", "Plone 5.1"),
+            ("5.0", "Plone 5.0"),
+            ("4.3", "Plone 4.3"),
+            ("4.2", "Plone 4.2"),
+            ("4.1", "Plone 4.1"),
+            ("4.0", "Plone 4.0"),
+            ("3.3", "Plone 3.3"),
+            ("3.2", "Plone 3.2"),
+            ("3.1", "Plone 3.1"),
+            ("3.0", "Plone 3.0"),
+            ("2.5", "Plone 2.5"),
+            ("2.1", "Plone 2.1"),
+            ("1.0", "Plone 1.0"),
         ],
     )
-    def test_token_title(self, token, title):
-        term = self.vocab.getTerm(token)
-        assert title == term.title
+    def test_vocab_terms(self, token: str, title: str):
+        term = self.vocab.getTermByToken(token)
+        assert isinstance(term, SimpleTerm)
+        assert term.title == title
+        assert term.token == token

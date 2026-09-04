@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <!-- CaseStudy -->
+  <subscriber
+      for="collective.casestudy.content.case_study.ICaseStudy
+           zope.lifecycleevent.IObjectAddedEvent"
+      handler=".case_study.added"
+      />
+
+  <subscriber
+      for="collective.casestudy.content.case_study.ICaseStudy
+           zope.lifecycleevent.IObjectModifiedEvent"
+      handler=".case_study.modified"
+      />
+
+</configure>

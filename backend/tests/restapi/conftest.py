@@ -1,3 +1,4 @@
+from . import DEFAULT_PASSWORD
 from plone import api
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
@@ -5,9 +6,6 @@ from plone.restapi.testing import RelativeSession
 
 import pytest
 import transaction
-
-
-DEFAULT_PASSWORD = "averylongpasswordbutnotthatlong"  # noQA: S105
 
 
 def _create_user_with_role(role: str, username: str = ""):
@@ -24,8 +22,8 @@ def _create_user_with_role(role: str, username: str = ""):
     )
 
 
-def _create_provider(portal, payload):
-    """Create a provider in the root of the portal."""
+def _create_organization(portal, payload):
+    """Create an organization in the root of the portal."""
     return api.content.create(container=portal, **payload)
 
 
@@ -49,10 +47,10 @@ def portal(functional, providers_payload):
         # Create a second contributor
         _create_user_with_role("Contributor", "owner")
     with api.env.adopt_user("owner"):
-        # Create provider
-        content = _create_provider(portal, providers_payload[0])
+        # Create organization
+        content = _create_organization(portal, providers_payload[0])
     with api.env.adopt_user(SITE_OWNER_NAME):
-        # Publish provider
+        # Publish organization
         _publish_content(content)
 
     transaction.commit()

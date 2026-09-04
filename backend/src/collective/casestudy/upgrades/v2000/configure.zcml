@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="1200"
+      destination="2000"
+      >
+    <genericsetup:upgradeDepends
+        title="Install plonegovbr.socialmedia"
+        import_profile="plonegovbr.socialmedia:default"
+        />
+    <genericsetup:upgradeDepends
+        title="Add type Organization, deprecate type Provider"
+        import_steps="typeinfo"
+        />
+    <genericsetup:upgradeDepends
+        title="Set default permissioning for Organization and its behaviors"
+        import_steps="rolemap"
+        />
+    <genericsetup:upgradeDepends
+        title="Update the workflow bindings"
+        import_steps="workflow"
+        />
+    <genericsetup:upgradeDepends
+        title="Add the facets index and metadata column"
+        import_steps="catalog"
+        />
+    <genericsetup:upgradeDepends
+        title="Add Organization settings to repositorytool"
+        import_steps="repositorytool"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>

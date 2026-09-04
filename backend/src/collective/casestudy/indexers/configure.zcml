@@ -11,6 +11,11 @@
       />
 
   <adapter
+      factory=".organization.facets_indexer"
+      name="facets"
+      />
+
+  <adapter
       factory=".providers.providers_indexer"
       name="providers"
       />

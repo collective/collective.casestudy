@@ -20,6 +20,8 @@
   <include package=".behaviors" />
   <include package=".browser" />
   <include package=".indexers" />
+  <include package=".serializers" />
+  <include package=".subscribers" />
   <include package=".vocabularies" />
 
 </configure>

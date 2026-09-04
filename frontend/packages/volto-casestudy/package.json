@@ -10,7 +10,7 @@
     "plone",
     "react"
   ],
-  "author": "Érico Andrei",
+  "author": "\u00c9rico Andrei",
   "homepage": "https://github.com/collective/collective.casestudy#readme",
   "repository": {
     "type": "git",
@@ -26,22 +26,32 @@
     "release-major-alpha": "release-it major --preRelease=alpha",
     "release-alpha": "release-it --preRelease=alpha"
   },
-  "addons": [],
   "theme": "",
-  "dependencies": {},
+  "addons": [
+    "@plonegovbr/volto-social-media"
+  ],
+  "dependencies": {
+    "@plonegovbr/volto-social-media": "^3.0.0-alpha.0",
+    "@plone/components": "workspace:*"
+  },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "classnames": "2.5.1"
   },
   "devDependencies": {
+    "@plone/components": "workspace:*",
     "@plone/registry": "workspace:*",
     "@plone/scripts": "workspace:*",
     "@plone/types": "workspace:*",
+    "@storybook/react": "^8.0.4",
+    "@testing-library/react": "^16.2.0",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
-    "typescript": "^5.7.3",
-    "@testing-library/react": "^16.2.0",
+    "react-intl": "3.12.1",
     "release-it": "^19.0.5",
+    "semantic-ui-react": "2.1.5",
+    "typescript": "^5.7.3",
     "vitest": "^3.1.2"
   }
 }

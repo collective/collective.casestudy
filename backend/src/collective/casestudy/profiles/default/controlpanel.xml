@@ -5,7 +5,7 @@
              appId="casestudy-controlpanel"
              category="Products"
              condition_expr=""
-             icon_expr=""
+             icon_expr="string:briefcase"
              title="Case Study Settings"
              url_expr="string:${portal_url}/@@casestudy-controlpanel"
              visible="True"

@@ -6,7 +6,7 @@
              name="any"
       />
     </type>
-    <type portal_type="Provider">
+    <type portal_type="Organization">
       <field difftype="Compound Diff for Dexterity types"
              name="any"
       />

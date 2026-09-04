@@ -6,26 +6,46 @@ from zope.component import createObject
 import pytest
 
 
-CONTENT_TYPE = "CaseStudy"
+@pytest.fixture(scope="class")
+def portal_type() -> str:
+    return "CaseStudy"
 
 
-class TestCaseStudy:
+@pytest.fixture(scope="class")
+def payload(portal_type, case_studies_payload) -> dict:
+    return case_studies_payload[0]
+
+
+class TestCaseStudyFTI:
     @pytest.fixture(autouse=True)
-    def _fti(self, get_fti, integration):
-        self.fti = get_fti(CONTENT_TYPE)
-
-    def test_fti(self):
-        assert isinstance(self.fti, DexterityFTI)
-
-    def test_factory(self):
-        factory = self.fti.factory
-        obj = createObject(factory)
-        assert obj is not None
-        assert isinstance(obj, CaseStudy)
+    def _setup(self, portal, portal_type, get_fti) -> None:
+        """Bind the site and the FTI of the type under test to the instance."""
+        self.portal = portal
+        self.fti: DexterityFTI = get_fti(portal_type)
 
     @pytest.mark.parametrize(
-        "behavior",
+        "attr,expected",
         [
+            ("title", "Case Study"),
+            ("factory", "CaseStudy"),
+            ("klass", "collective.casestudy.content.case_study.CaseStudy"),
+            ("schema", "collective.casestudy.content.case_study.ICaseStudy"),
+            ("add_permission", "cmf.AddPortalContent"),
+            ("global_allow", True),
+        ],
+    )
+    def test_fti(self, attr: str, expected):
+        """Test FTI values."""
+        fti = self.fti
+
+        assert isinstance(fti, DexterityFTI)
+        assert getattr(fti, attr) == expected
+
+    @pytest.mark.parametrize(
+        "idx,behavior",
+        enumerate((
+            "collective.casestudy.providers",
+            "collective.casestudy.organizations",
             "plone.dublincore",
             "plone.namefromtitle",
             "plone.shortname",
@@ -34,28 +54,29 @@ class TestCaseStudy:
             "plone.versioning",
             "volto.blocks",
             "volto.navtitle",
-            "volto.preview_image",
+            "volto.preview_image_link",
             "volto.head_title",
-        ],
+        )),
     )
-    def test_has_behavior(self, get_behaviors, behavior):
-        assert behavior in get_behaviors(CONTENT_TYPE)
+    def test_behaviors(self, idx: int, behavior: str):
+        """Test behaviors are present and in correct order."""
+        assert self.fti.behaviors[idx] == behavior
 
-    def test_create(self, portal, case_studies_payload):
-        payload = case_studies_payload[0]
-        with api.env.adopt_roles(["Manager"]):
-            content = api.content.create(container=portal, **payload)
-        assert content.portal_type == CONTENT_TYPE
-        assert isinstance(content, CaseStudy)
+    def test_factory(self):
+        """The FTI factory returns a CaseStudy."""
+        obj = createObject(self.fti.factory)
+        assert obj is not None
+        assert isinstance(obj, CaseStudy)
 
-    def test_indexer_industry(self, portal, case_studies_payload):
-        payload = case_studies_payload[0]
-        brains = api.content.find(industry="ngo")
-        assert len(brains) == 0
 
-        with api.env.adopt_roles(["Manager"]):
-            content = api.content.create(container=portal, **payload)
+class TestCaseStudy:
+    def test_create(self, portal_type, content_instance):
+        """Content is created with the expected type and class."""
+        assert content_instance.portal_type == portal_type
+        assert isinstance(content_instance, CaseStudy)
 
+    def test_indexer_industry(self, content_instance):
+        """The industry field is indexed on creation."""
         brains = api.content.find(industry="ngo")
         assert len(brains) == 1
-        assert brains[0].Title == content.title
+        assert content_instance.UID() == brains[0].UID
