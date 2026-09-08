@@ -1,0 +1,20 @@
+.provider-info {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .providerBadge {
+    float: right;
+  }
+  .providerInfoBlocks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 5px;
+    .providerInfoBlock {
+      flex: 1;
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -7,6 +7,7 @@ import type {
   PreviewImageLink,
 } from '@plone-collective/volto-casestudy/types/content';
 import CaseStudies from '@plone-collective/volto-casestudy/components/Organization/CaseStudies';
+import ProviderInfo from '@plone-collective/volto-casestudy/components/Organization/ProviderInfo';
 import './organization.scss';
 
 interface OrganizationViewProps {
@@ -45,6 +46,7 @@ const OrganizationView: React.FC<OrganizationViewProps> = ({ content }) => {
   const previewImageAlt = content?.preview_caption_link;
   const social_links = content?.social_links || [];
   const case_studies = content?.case_studies;
+  const isProvider = content?.is_provider || false;
   const hasCaseStudies =
     case_studies?.provided?.length > 0 || case_studies?.received?.length > 0;
   return (
@@ -61,8 +63,11 @@ const OrganizationView: React.FC<OrganizationViewProps> = ({ content }) => {
       <Container className="socialNetworks">
         <SocialNetworks networks={social_links} />
       </Container>
+      {isProvider && (
+        <ProviderInfo content={content} className="organizationInfoBlock" />
+      )}
       {hasCaseStudies && (
-        <Container className="caseStudies">
+        <Container className="caseStudies organizationInfoBlock">
           <CaseStudies case_studies={case_studies} />
         </Container>
       )}

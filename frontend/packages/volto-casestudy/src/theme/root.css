@@ -1,4 +1,6 @@
 :root {
   --organization-logo-max-width: 400px;
   --organization-logo-background-color: #ffffff;
+  --verified-badge-fill: transparent;
+  --verified-badge-stroke: #07461c;
 }

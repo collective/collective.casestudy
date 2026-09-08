@@ -1,0 +1,6 @@
+.verified-badge {
+  &.icon {
+    fill: var(--verified-badge-fill) !important;
+    stroke: var(--verified-badge-stroke) !important;
+  }
+}
