@@ -27,7 +27,7 @@
   "language": "##DEFAULT##",
   "layout": "view",
   "lock": {},
-  "modified": "2026-09-02T13:53:08+00:00",
+  "modified": "2026-09-08T13:36:00+00:00",
   "organization_size": "small",
   "postal_code": "01310-200",
   "preview_caption_link": "Logo Simples Consultoria",
@@ -69,6 +69,22 @@
   "version": "current",
   "versioning_enabled": true,
   "workflow_history": {
+    "provider_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-01T14:27:19+00:00",
+        "workflow_states": "created"
+      },
+      {
+        "action": "verify",
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-08T13:33:28+00:00",
+        "workflow_states": "verified"
+      }
+    ],
     "simple_publication_workflow": [
       {
         "action": null,

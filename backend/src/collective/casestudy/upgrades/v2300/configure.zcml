@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="2200"
+      destination="2300"
+      >
+    <genericsetup:upgradeDepends
+        title="Install collective.multiworkflow"
+        import_profile="profile-collective.multiworkflow:default"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>

@@ -51,4 +51,10 @@
       provides=".providers.IProviders"
       />
 
+  <!-- Additional workflow for Provider -->
+  <plone:additionalworkflows
+      marker=".provider_info.IProvider"
+      workflows="provider_workflow"
+      />
+
 </configure>

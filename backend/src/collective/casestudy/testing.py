@@ -10,6 +10,7 @@ from plone.restapi.testing import PLONE_RESTAPI_DX_FUNCTIONAL_TESTING
 from Products.CMFPlone.Portal import PloneSite
 
 import collective.casestudy
+import collective.multiworkflow
 
 
 class CaseStudyLayer(PloneSandboxLayer):
@@ -20,9 +21,17 @@ class CaseStudyLayer(PloneSandboxLayer):
     def setUpZope(self, app: Application, configurationContext) -> None:
         """Load this package's ZCML.
 
+        `collective.multiworkflow` is loaded first because this package's
+        ZCML uses its ``plone:additionalworkflows`` directive, and a directive
+        has to be defined before the file using it is parsed. A running site
+        never notices: Plone loads every package's ``meta.zcml`` up front,
+        while a sandbox layer loads only what it is told to.
+
         :param app: The Zope application root.
         :param configurationContext: ZCML configuration context.
         """
+        self.loadZCML(name="meta.zcml", package=collective.multiworkflow)
+        self.loadZCML(package=collective.multiworkflow)
         self.loadZCML(package=collective.casestudy)
 
     def setUpPloneSite(self, portal: PloneSite) -> None:

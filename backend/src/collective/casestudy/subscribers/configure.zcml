@@ -13,4 +13,17 @@
       handler=".case_study.modified"
       />
 
+  <!-- Organization -->
+  <subscriber
+      for="collective.casestudy.content.organization.IOrganization
+           zope.lifecycleevent.IObjectAddedEvent"
+      handler=".organization.added"
+      />
+
+  <subscriber
+      for="collective.casestudy.content.organization.IOrganization
+           zope.lifecycleevent.IObjectModifiedEvent"
+      handler=".organization.modified"
+      />
+
 </configure>

@@ -1,4 +1,5 @@
 from AccessControl.SecurityManagement import newSecurityManager
+from collective.casestudy import logger
 from collective.casestudy.interfaces import ICaseStudyLayer
 from Products.CMFPlone.factory import _DEFAULT_PROFILE
 from Products.CMFPlone.factory import addPloneSite
@@ -7,8 +8,12 @@ from Testing.makerequest import makerequest
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 
+import logging
 import os
 import transaction
+
+
+logger.setLevel(logging.INFO)
 
 
 truthy = frozenset(("t", "true", "y", "yes", "on", "1"))

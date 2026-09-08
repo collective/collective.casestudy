@@ -28,7 +28,10 @@ class TestSummarySerializerMetadataUtility:
 
     def test_declares_facets(self):
         """It contributes exactly the one field."""
-        assert JSONSummarySerializerMetadata().default_metadata_fields() == {"facets"}
+        assert JSONSummarySerializerMetadata().default_metadata_fields() == {
+            "facets",
+            "workflow_states",
+        }
 
     def test_facets_is_a_catalog_column(self, portal):
         """``getattr`` on a brain only works for a metadata column."""
