@@ -28,10 +28,12 @@
   },
   "theme": "",
   "addons": [
-    "@plonegovbr/volto-social-media"
+    "@plonegovbr/volto-social-media",
+    "@plone-collective/volto-multiworkflow"
   ],
   "dependencies": {
     "@plonegovbr/volto-social-media": "^3.0.0-alpha.0",
+    "@plone-collective/volto-multiworkflow": "^1.0.0-alpha.1",
     "@plone/components": "workspace:*"
   },
   "peerDependencies": {

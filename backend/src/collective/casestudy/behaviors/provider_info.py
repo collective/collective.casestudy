@@ -1,4 +1,5 @@
 from collective.casestudy import _
+from collective.multiworkflow.interfaces import IAdditionalWorkflows
 from plone.autoform.directives import read_permission
 from plone.autoform.directives import write_permission
 from plone.autoform.interfaces import IFormFieldProvider
@@ -55,3 +56,7 @@ class IProviderInfo(model.Schema):
     )
     read_permission(is_provider=READ_PERMISSION, services=READ_PERMISSION)
     write_permission(is_provider=MANAGE_PERMISSION, services=WRITE_PERMISSION)
+
+
+class IProvider(IAdditionalWorkflows):
+    """Marker for content whose provider status is tracked."""

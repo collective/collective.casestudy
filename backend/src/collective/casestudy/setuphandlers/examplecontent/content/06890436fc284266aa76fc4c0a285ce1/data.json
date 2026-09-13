@@ -24,7 +24,7 @@
     "admin"
   ],
   "description": "The main website of the Plone community",
-  "effective": "2026-09-02T19:41:40+00:00",
+  "effective": "2026-09-02T19:41:00+00:00",
   "exclude_from_nav": false,
   "expires": null,
   "exportimport.constrains": {},

@@ -183,3 +183,41 @@ class TestOrganizationSerializerContract:
         """The added key does not depend on the arguments."""
         for kwargs in ({}, {"include_items": False}, {"include_expansion": False}):
             assert "case_studies" in serializer(**kwargs)
+
+
+class TestWorkflowStates:
+    """The ``workflow_states`` key the frontend reads.
+
+    ``review_state`` reports the publication workflow only. An additional
+    workflow keeps its state under its own variable, which no standard key
+    exposes -- so a client cannot tell a verified provider from a draft one
+    without this.
+    """
+
+    def test_key_is_present(self, organization, serialize):
+        assert "workflow_states" in serialize(organization)
+
+    def test_it_reports_every_workflow_in_the_chain(self, organization, serialize):
+        """Not only the additional one -- the publication state is here too."""
+        assert serialize(organization)["workflow_states"] == {
+            "simple_publication_workflow": "private",
+        }
+
+    def test_plain_organization_has_no_provider_state(self, organization, serialize):
+        """The workflow only joins the chain for a provider."""
+        assert "provider_workflow" not in serialize(organization)["workflow_states"]
+
+    def test_provider_reports_the_initial_state(self, provider, serialize):
+        states = serialize(provider)["workflow_states"]
+        assert states["provider_workflow"] == "created"
+
+    def test_it_follows_a_transition(self, provider, serialize):
+        api.content.transition(obj=provider, transition="verify")
+        states = serialize(provider)["workflow_states"]
+        assert states["provider_workflow"] == "verified"
+
+    def test_it_is_json_serializable(self, provider, serialize):
+        """The value is dumped into a REST response, not read in Python."""
+        import json
+
+        json.dumps(serialize(provider)["workflow_states"])

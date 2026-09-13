@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dc-workflow description="Controls provider information listing."
+             initial_state="created"
+             manager_bypass="False"
+             state_variable="workflow_states"
+             title="Provider"
+             workflow_id="provider_workflow"
+>
+
+
+  <permission>collective.casestudy: Edit Provider Information</permission>
+  <permission>collective.casestudy: View Provider Information</permission>
+  <permission>collective.casestudy: Manage Provider Listing</permission>
+
+  <state state_id="created"
+         title="Created"
+  >
+    <description>Provider entry has been created.</description>
+    <exit-transition transition_id="review" />
+    <exit-transition transition_id="list" />
+    <exit-transition transition_id="verify" />
+    <exit-transition transition_id="archive" />
+    <permission-map acquired="False"
+                    name="collective.casestudy: Manage Provider Listing"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: View Provider Information"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+      <permission-role>Owner</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: Edit Provider Information"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+      <permission-role>Owner</permission-role>
+    </permission-map>
+  </state>
+
+  <state state_id="pending"
+         title="Pending"
+  >
+    <description>Waiting for a review from the site administrators.</description>
+    <exit-transition transition_id="list" />
+    <exit-transition transition_id="verify" />
+    <exit-transition transition_id="archive" />
+    <permission-map acquired="False"
+                    name="collective.casestudy: Manage Provider Listing"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: View Provider Information"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+      <permission-role>Owner</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: Edit Provider Information"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+      <permission-role>Owner</permission-role>
+    </permission-map>
+  </state>
+
+  <state state_id="listed"
+         title="Listed"
+  >
+    <description>Provider is listed on the site.</description>
+    <exit-transition transition_id="archive" />
+    <exit-transition transition_id="review" />
+    <exit-transition transition_id="verify" />
+    <permission-map acquired="False"
+                    name="collective.casestudy: Manage Provider Listing"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: View Provider Information"
+    >
+      <permission-role>Member</permission-role>
+      <permission-role>Anonymous</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: Edit Provider Information"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Editor</permission-role>
+    </permission-map>
+  </state>
+
+  <state state_id="verified"
+         title="Verified"
+  >
+    <description>Provider is listed and verified.</description>
+    <exit-transition transition_id="archive" />
+    <exit-transition transition_id="review" />
+    <exit-transition transition_id="unverify" />
+    <permission-map acquired="False"
+                    name="collective.casestudy: Manage Provider Listing"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+      <permission-role>Reviewer</permission-role>
+      <permission-role>Editor</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: View Provider Information"
+    >
+      <permission-role>Member</permission-role>
+      <permission-role>Anonymous</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: Edit Provider Information"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+    </permission-map>
+  </state>
+
+  <state state_id="archived"
+         title="Archived"
+  >
+    <description>Provider information is outdated, but kept for historical reasons.</description>
+    <exit-transition transition_id="review" />
+    <permission-map acquired="False"
+                    name="collective.casestudy: Manage Provider Listing"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: View Provider Information"
+    >
+      <permission-role>Member</permission-role>
+      <permission-role>Anonymous</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="collective.casestudy: Edit Provider Information"
+    >
+      <permission-role>Manager</permission-role>
+      <permission-role>Site Administrator</permission-role>
+    </permission-map>
+  </state>
+
+  <transition after_script=""
+              before_script=""
+              new_state="listed"
+              title="List"
+              transition_id="list"
+              trigger="USER"
+  >
+    <description>Publish the provider information in the site listing.</description>
+    <action category="workflow"
+            icon=""
+            url="%(content_url)s/content_status_modify?workflow_action=list"
+    >List</action>
+    <guard>
+      <guard-permission>collective.casestudy: Manage Provider Listing</guard-permission>
+    </guard>
+  </transition>
+
+  <transition after_script=""
+              before_script=""
+              new_state="verified"
+              title="Verify"
+              transition_id="verify"
+              trigger="USER"
+  >
+    <description>Confirm the provider information has been checked.</description>
+    <action category="workflow"
+            icon=""
+            url="%(content_url)s/content_status_modify?workflow_action=verify"
+    >Verify</action>
+    <guard>
+      <guard-permission>collective.casestudy: Manage Provider Listing</guard-permission>
+    </guard>
+  </transition>
+
+  <transition after_script=""
+              before_script=""
+              new_state="listed"
+              title="Unverify"
+              transition_id="unverify"
+              trigger="USER"
+  >
+    <description>Withdraw the verification, keeping the provider listed.</description>
+    <action category="workflow"
+            icon=""
+            url="%(content_url)s/content_status_modify?workflow_action=unverify"
+    >Unverify</action>
+    <guard>
+      <guard-permission>collective.casestudy: Manage Provider Listing</guard-permission>
+    </guard>
+  </transition>
+
+  <transition after_script=""
+              before_script=""
+              new_state="archived"
+              title="Archive"
+              transition_id="archive"
+              trigger="USER"
+  >
+    <description>Retire the provider information, keeping it for historical reasons.</description>
+    <action category="workflow"
+            icon=""
+            url="%(content_url)s/content_status_modify?workflow_action=archive"
+    >Archive</action>
+    <guard>
+      <guard-permission>collective.casestudy: Manage Provider Listing</guard-permission>
+    </guard>
+  </transition>
+
+  <transition after_script=""
+              before_script=""
+              new_state="pending"
+              title="Review"
+              transition_id="review"
+              trigger="USER"
+  >
+    <description>Return the provider information to the review queue.</description>
+    <action category="workflow"
+            icon=""
+            url="%(content_url)s/content_status_modify?workflow_action=review"
+    >Review</action>
+    <guard>
+      <guard-permission>Request review</guard-permission>
+    </guard>
+  </transition>
+
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="action"
+  >
+    <description>Previous transition</description>
+    <default>
+      <expression>transition/getId|nothing</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
+
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="actor"
+  >
+    <description>The ID of the user who performed the previous transition</description>
+    <default>
+      <expression>user/getId</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
+
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="comments"
+  >
+    <description>Comment about the last transition</description>
+    <default>
+      <expression>python:state_change.kwargs.get('comment', '')</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
+
+  <variable for_catalog="False"
+            for_status="False"
+            update_always="False"
+            variable_id="review_history"
+  >
+    <description>Provides access to workflow history</description>
+    <default>
+      <expression>state_change/getHistory</expression>
+    </default>
+    <guard>
+      <guard-permission>Request review</guard-permission>
+      <guard-permission>Review portal content</guard-permission>
+    </guard>
+  </variable>
+
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="time"
+  >
+    <description>When the previous transition was performed</description>
+    <default>
+      <expression>state_change/getDateTime</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
+
+</dc-workflow>

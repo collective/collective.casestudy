@@ -2,10 +2,10 @@
   "__version__": "1.0.0",
   "_blob_files_": [
     "b8dc1b9f4b5d455b8950e5af5dac6c07/image/site-diracom.png",
+    "2a5361af43d14e2a83e9a3c93d618318/image/ploneorg.png",
     "a58ccead718140c1baa98d43595fc3e6/image/plone-foundation.png",
     "c2bbf98d6f2c429a8931e7e69679433e/image/diracom-2.png",
-    "381b572a3af84562bd18fd1a87bb7acc/image/logo-simples.svg",
-    "2a5361af43d14e2a83e9a3c93d618318/image/ploneorg.png"
+    "381b572a3af84562bd18fd1a87bb7acc/image/logo-simples.svg"
   ],
   "_data_files_": [
     "plone_site_root/data.json",

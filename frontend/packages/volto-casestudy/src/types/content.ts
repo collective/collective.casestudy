@@ -125,4 +125,5 @@ export interface Organization extends ContentBase {
   services: VocabularyTerm[];
   subjects: string[];
   case_studies: CaseStudyRelations;
+  workflow_states: Record<string, any>;
 }

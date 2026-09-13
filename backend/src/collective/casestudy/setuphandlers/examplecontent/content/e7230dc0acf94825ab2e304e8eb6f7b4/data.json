@@ -27,7 +27,7 @@
   "language": "##DEFAULT##",
   "layout": "view",
   "lock": {},
-  "modified": "2026-09-02T19:37:57+00:00",
+  "modified": "2026-09-08T13:36:00+00:00",
   "organization_size": "large",
   "postal_code": null,
   "preview_caption_link": null,
@@ -110,6 +110,22 @@
   "version": "current",
   "versioning_enabled": true,
   "workflow_history": {
+    "provider_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-01T14:27:19+00:00",
+        "workflow_states": "created"
+      },
+      {
+        "action": "verify",
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-08T13:33:18+00:00",
+        "workflow_states": "verified"
+      }
+    ],
     "simple_publication_workflow": [
       {
         "action": null,

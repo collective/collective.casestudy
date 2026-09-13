@@ -3,8 +3,15 @@ node_modules
 build
 README.md
 
-# Monorepo-relative paths that only resolve inside this checkout. Volto's
-# AddonRegistry reads a published add-on's tsconfig and lets its `paths`
-# override the aliases it already resolved, so shipping these would rewrite
-# them for the consuming project -- and for unrelated packages too.
-tsconfig.dev.json
+# The tsconfig carries monorepo-relative paths that resolve only inside this
+# checkout, and it has to carry them under this exact name: an IDE's
+# TypeScript service reads `tsconfig.json` and nothing else, so a
+# `tsconfig.dev.json` beside it is never loaded.
+#
+# Volto's AddonRegistry reads a published add-on's tsconfig and spreads its
+# `paths` over the aliases it has already resolved, so shipping this file
+# would rewrite them for the consuming project -- and for whichever unrelated
+# package a `paths` entry names. Shipping no tsconfig at all is the safe
+# outcome: `getTSConfigPaths` finds no config, and `getAliasesFromTSConfig`
+# contributes zero aliases.
+tsconfig.json

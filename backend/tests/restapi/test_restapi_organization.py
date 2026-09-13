@@ -1,7 +1,10 @@
 from . import DEFAULT_PASSWORD
 from copy import deepcopy
+from plone import api
+from plone.app.testing import SITE_OWNER_NAME
 
 import pytest
+import transaction
 
 
 @pytest.fixture
@@ -19,6 +22,20 @@ def organization(payload, contributor_request):
     assert response.status_code == 201
     data = response.json()
     return data["id"]
+
+
+@pytest.fixture
+def verified_provider(portal):
+    """Move the published provider through to ``verified``.
+
+    ``verify`` is a transition of ``provider_workflow``, the chain entry the
+    ``IProvider`` marker adds -- it does not touch the publication state.
+    """
+    content = portal["company-1"]
+    with api.env.adopt_user(SITE_OWNER_NAME):
+        api.content.transition(obj=content, transition="verify")
+    transaction.commit()
+    return content
 
 
 class TestContentOrganizationPost:
@@ -105,18 +122,47 @@ class TestContentOrganizationPost:
         [
             ["Manager", ("manager", DEFAULT_PASSWORD), True],
             ["Editor", ("editor", DEFAULT_PASSWORD), True],
-            ["Anonymous", (), True],
+            ["Anonymous", (), False],
         ],
     )
-    def test_role_can_view_provider_info(
+    def test_role_can_view_provider_info_before_listing(
         self, request_factory, role, credentials, expected
     ):
-        """Provider information is public, unlike contact information."""
+        """Provider information is staff-only until the listing is approved.
+
+        The organization is *published* -- the page itself is public -- but
+        ``provider_workflow`` starts in ``created``, whose permission map is
+        not acquired and does not name Anonymous. Publishing the page and
+        listing the provider are separate decisions.
+        """
         session = request_factory()
         session.auth = credentials
         response = session.get("/company-1")
         assert response.status_code == 200
         data = response.json()
+        assert data["review_state"] == "published"
+        assert ("services" in data) is expected, (
+            f"Failed the check for {role} can view provider info"
+        )
+
+    @pytest.mark.parametrize(
+        "role,credentials,expected",
+        [
+            ["Manager", ("manager", DEFAULT_PASSWORD), True],
+            ["Editor", ("editor", DEFAULT_PASSWORD), True],
+            ["Anonymous", (), True],
+        ],
+    )
+    def test_role_can_view_provider_info_once_verified(
+        self, request_factory, verified_provider, role, credentials, expected
+    ):
+        """Once verified, provider information is public."""
+        session = request_factory()
+        session.auth = credentials
+        response = session.get("/company-1")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["workflow_states"]["provider_workflow"] == "verified"
         assert ("services" in data) is expected, (
             f"Failed the check for {role} can view provider info"
         )

@@ -3,5 +3,6 @@
   <include package="plone.volto" />
   <include package="plone.restapi" />
   <include package="plonegovbr.socialmedia" />
+  <include package="collective.multiworkflow" />
 
 </configure>

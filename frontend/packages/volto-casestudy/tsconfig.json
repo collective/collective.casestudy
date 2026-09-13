@@ -13,7 +13,11 @@
     "lib": ["es2022", "dom", "dom.iterable"],
     "jsx": "react-jsx",
     "paths": {
-      "@plone-collective/volto-casestudy/*": ["./src/*"]
+      "@plone-collective/volto-casestudy/*": ["./src/*"],
+      "@plone/volto/*": ["../../core/packages/volto/src/*"],
+      "@plonegovbr/volto-social-media/*": [
+        "./node_modules/@plonegovbr/volto-social-media/src/*"
+      ]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],

@@ -20,16 +20,6 @@
     "to_uuid": "381b572a3af84562bd18fd1a87bb7acc"
   },
   {
-    "from_attribute": "isReferencing",
-    "from_uuid": "a0d19f25e6ad487e94c0be3b5afe7feb",
-    "to_uuid": "04d939ba4bb34a3bbdd6144e69b5f962"
-  },
-  {
-    "from_attribute": "isReferencing",
-    "from_uuid": "a0d19f25e6ad487e94c0be3b5afe7feb",
-    "to_uuid": "86c4ac378fdc4b6897f1311180afed27"
-  },
-  {
     "from_attribute": "preview_image_link",
     "from_uuid": "b464079e0a1741858eebdbc0d1cf267a",
     "to_uuid": "c2bbf98d6f2c429a8931e7e69679433e"

@@ -21,6 +21,7 @@ from collective.casestudy.content.case_study import CaseStudy
 from collective.casestudy.content.organization import IOrganization
 from collective.casestudy.content.organization import Organization
 from collective.casestudy.utils.relations import case_studies_for_organization
+from collective.multiworkflow import api as mw_api
 from plone.restapi.interfaces import ISerializeToJson
 from plone.restapi.interfaces import ISerializeToJsonSummary
 from plone.restapi.serializer.converters import json_compatible
@@ -107,16 +108,19 @@ class OrganizationJSONSerializer(SerializeFolderToJson):
         :param version: Version to serialize, or ``None`` for the current one.
         :param include_items: Whether to include the folder contents.
         :param include_expansion: Whether to run the registered expanders.
-        :returns: The inherited representation plus ``case_studies``.
+        :returns: The inherited representation plus ``case_studies`` and
+            ``workflow_states``.
         """
         result = super().__call__(
             version=version,
             include_items=include_items,
             include_expansion=include_expansion,
         )
+        workflow_states = mw_api.get_states(self.context)
         result.update(
             json_compatible({
                 "case_studies": self.get_case_studies(),
+                "workflow_states": workflow_states,
             })
         )
         return result
