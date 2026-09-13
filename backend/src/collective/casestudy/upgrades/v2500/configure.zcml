@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="2400"
+      destination="2500"
+      >
+    <genericsetup:upgradeDepends
+        title="Update the querystring fields"
+        description="Adds the listing and verification filters for case studies and providers, and regroups the existing fields."
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>

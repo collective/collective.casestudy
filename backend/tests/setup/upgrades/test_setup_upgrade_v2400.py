@@ -8,7 +8,7 @@ published case study would silently read as ``created`` -- and, once its role
 mappings were rewritten, disappear from the site.
 """
 
-from ..workflow import roles_for
+from ...workflow import roles_for
 from collections.abc import Callable
 from collective.casestudy import PACKAGE_NAME
 from collective.casestudy.upgrades.v2400.workflow import migrate_case_studies
@@ -62,9 +62,9 @@ class TestUpgradeStepRegistered:
         ]
         assert kinds == ["import", "handler"]
 
-    def test_destination_is_the_profile_version(self, setup_tool: SetupTool):
+    def test_destination_is_not_past_the_profile_version(self, setup_tool: SetupTool):
         """A step whose destination outruns ``metadata.xml`` never shows up."""
-        assert setup_tool.getVersionForProfile(PROFILE_ID) == "2400"
+        assert int(setup_tool.getVersionForProfile(PROFILE_ID)) >= 2400
 
 
 @pytest.fixture

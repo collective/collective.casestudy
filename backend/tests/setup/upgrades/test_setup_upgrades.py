@@ -60,6 +60,22 @@ class TestUpgradeImportSteps:
             declared.update(getattr(step, "import_steps", ()))
         assert declared - known == set()
 
+    def test_querystring_fields_reach_existing_sites(self):
+        """The listing and verification querystring fields need a registry import.
+
+        They were added after profile version 2300, along with new groups for
+        the existing fields. ``registry/*.xml`` is only read on install, so an
+        upgrade starting at 2300 or later has to re-run ``plone.app.registry``.
+        """
+        steps = self.setup_tool.listUpgrades(PROFILE_ID, show_old=True, simple=True)
+        rerun = {
+            step.dest
+            for step in steps
+            if int(step.source[0]) >= 2300
+            and "plone.app.registry" in getattr(step, "import_steps", ())
+        }
+        assert rerun != set()
+
     @pytest.mark.parametrize(
         "source,destination,import_step",
         [

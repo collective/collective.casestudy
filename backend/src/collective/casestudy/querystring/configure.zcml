@@ -1,0 +1,29 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <!-- Each utility is named after the querystring field it rewrites. -->
+
+  <!-- Case Studies -->
+  <utility
+      provides="plone.app.querystring.interfaces.IParsedQueryIndexModifier"
+      name="case_study_verified"
+      component=".query_index_modifiers.case_study_verified"
+      />
+  <utility
+      provides="plone.app.querystring.interfaces.IParsedQueryIndexModifier"
+      name="case_study_listed"
+      component=".query_index_modifiers.case_study_listed"
+      />
+
+  <!-- Providers -->
+  <utility
+      provides="plone.app.querystring.interfaces.IParsedQueryIndexModifier"
+      name="provider_verified"
+      component=".query_index_modifiers.provider_verified"
+      />
+  <utility
+      provides="plone.app.querystring.interfaces.IParsedQueryIndexModifier"
+      name="provider_listed"
+      component=".query_index_modifiers.provider_listed"
+      />
+
+</configure>
