@@ -1,6 +1,10 @@
 from collective.casestudy import _
 from collective.multiworkflow.interfaces import IAdditionalWorkflows
+from plone.app.dexterity.textindexer import searchable
+from plone.app.textfield import RichText as RichTextField
+from plone.app.z3cform.widgets.richtext import RichTextFieldWidget
 from plone.autoform.directives import read_permission
+from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import directives
@@ -32,6 +36,7 @@ class IProviderInfo(model.Schema):
         fields=(
             "is_provider",
             "services",
+            "text",
         ),
     )
     is_provider = schema.Bool(
@@ -54,8 +59,24 @@ class IProviderInfo(model.Schema):
         default=[],
         required=False,
     )
-    read_permission(is_provider=READ_PERMISSION, services=READ_PERMISSION)
-    write_permission(is_provider=MANAGE_PERMISSION, services=WRITE_PERMISSION)
+    text = RichTextField(
+        title=_("label_text", default="Text"),
+        description="",
+        required=False,
+    )
+    widget("text", RichTextFieldWidget)
+    model.primary("text")
+    searchable("text")
+    read_permission(
+        is_provider=READ_PERMISSION,
+        services=READ_PERMISSION,
+        text=READ_PERMISSION,
+    )
+    write_permission(
+        is_provider=MANAGE_PERMISSION,
+        services=WRITE_PERMISSION,
+        text=WRITE_PERMISSION,
+    )
 
 
 class IProvider(IAdditionalWorkflows):

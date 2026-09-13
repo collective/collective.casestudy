@@ -117,6 +117,7 @@ class TestContentOrganizationPost:
             f"Failed the check for {role} can view contact info"
         )
 
+    @pytest.mark.parametrize("field", ["services", "text"])
     @pytest.mark.parametrize(
         "role,credentials,expected",
         [
@@ -126,7 +127,7 @@ class TestContentOrganizationPost:
         ],
     )
     def test_role_can_view_provider_info_before_listing(
-        self, request_factory, role, credentials, expected
+        self, request_factory, role, credentials, expected, field
     ):
         """Provider information is staff-only until the listing is approved.
 
@@ -141,10 +142,11 @@ class TestContentOrganizationPost:
         assert response.status_code == 200
         data = response.json()
         assert data["review_state"] == "published"
-        assert ("services" in data) is expected, (
-            f"Failed the check for {role} can view provider info"
+        assert (field in data) is expected, (
+            f"Failed the check for {role} can view provider {field}"
         )
 
+    @pytest.mark.parametrize("field", ["services", "text"])
     @pytest.mark.parametrize(
         "role,credentials,expected",
         [
@@ -154,7 +156,7 @@ class TestContentOrganizationPost:
         ],
     )
     def test_role_can_view_provider_info_once_verified(
-        self, request_factory, verified_provider, role, credentials, expected
+        self, request_factory, verified_provider, role, credentials, expected, field
     ):
         """Once verified, provider information is public."""
         session = request_factory()
@@ -163,6 +165,6 @@ class TestContentOrganizationPost:
         assert response.status_code == 200
         data = response.json()
         assert data["workflow_states"]["provider_workflow"] == "verified"
-        assert ("services" in data) is expected, (
-            f"Failed the check for {role} can view provider info"
+        assert (field in data) is expected, (
+            f"Failed the check for {role} can view provider {field}"
         )
