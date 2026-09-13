@@ -40,7 +40,7 @@
   "nav_title": null,
   "preview_caption_link": null,
   "remoteUrl": "https://diracom.org/",
-  "review_state": "published",
+  "review_state": "listed",
   "rights": "",
   "subjects": [],
   "title": "DiraCom website",
@@ -54,19 +54,19 @@
     "6.2"
   ],
   "workflow_history": {
-    "simple_publication_workflow": [
+    "casestudy_workflow": [
       {
         "action": null,
         "actor": "admin",
         "comments": "",
-        "review_state": "private",
+        "review_state": "created",
         "time": "2026-09-01T14:39:20+00:00"
       },
       {
-        "action": "publish",
+        "action": "list",
         "actor": "admin",
         "comments": "",
-        "review_state": "published",
+        "review_state": "listed",
         "time": "2026-09-01T14:39:57+00:00"
       }
     ]

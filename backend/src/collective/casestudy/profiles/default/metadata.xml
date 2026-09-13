@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-  <version>2300</version>
+  <version>2400</version>
   <dependencies>
     <dependency>profile-plonegovbr.socialmedia:default</dependency>
     <dependency>profile-collective.multiworkflow:default</dependency>

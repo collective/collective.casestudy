@@ -22,8 +22,15 @@ def plone_user(portal, organizations_payload) -> DexterityContent:
 
 
 @pytest.fixture
+def case_study(portal, case_studies_payload) -> DexterityContent:
+    """A case study, running ``casestudy_workflow`` alone."""
+    with api.env.adopt_roles(["Manager"]):
+        return api.content.create(container=portal, **case_studies_payload[0])
+
+
+@pytest.fixture
 def as_manager() -> Callable[..., None]:
-    """Return a helper running a provider transition with enough rights."""
+    """Return a helper running a transition with enough rights."""
 
     def func(obj: DexterityContent, transition: str) -> None:
         with api.env.adopt_roles(["Manager"]):

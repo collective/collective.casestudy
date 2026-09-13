@@ -9,5 +9,6 @@
   <include package=".v2100" />
   <include package=".v2200" />
   <include package=".v2300" />
+  <include package=".v2400" />
 
 </configure>

@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="2300"
+      destination="2400"
+      >
+    <genericsetup:upgradeDepends
+        title="Install the case study workflow"
+        description="Imports casestudy_workflow and binds it to CaseStudy."
+        import_steps="workflow"
+        />
+    <genericsetup:upgradeStep
+        title="Move case studies to the case study workflow"
+        description="Maps each case study's simple_publication_workflow state onto casestudy_workflow."
+        handler=".workflow.migrate_case_studies"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>

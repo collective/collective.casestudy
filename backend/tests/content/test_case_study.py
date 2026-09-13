@@ -70,6 +70,11 @@ class TestCaseStudyFTI:
 
 
 class TestCaseStudy:
+    def test_workflow_chain(self, portal_type, content_instance):
+        """Case studies run a workflow of their own, not the site default."""
+        wf_tool = api.portal.get_tool("portal_workflow")
+        assert wf_tool.getChainFor(portal_type) == ("casestudy_workflow",)
+
     def test_create(self, portal_type, content_instance):
         """Content is created with the expected type and class."""
         assert content_instance.portal_type == portal_type
