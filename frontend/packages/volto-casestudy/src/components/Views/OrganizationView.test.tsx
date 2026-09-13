@@ -152,4 +152,15 @@ describe('OrganizationView', () => {
     const wrapper = container.querySelector('#page-document');
     expect(wrapper?.className).toContain('organization-view');
   });
+
+  it('renders no provider information, even for a provider', () => {
+    // A provider with a public listing is rendered by `ProviderView`.
+    const { container } = renderView({
+      is_provider: true,
+      services: [{ token: 'dev', title: 'Development' }],
+      workflow_states: { provider_workflow: 'verified' },
+    } as unknown as Partial<Organization>);
+    expect(container.querySelector('.provider-info')).toBeNull();
+    expect(container.querySelector('.verified-badge')).toBeNull();
+  });
 });

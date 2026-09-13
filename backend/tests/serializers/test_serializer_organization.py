@@ -221,3 +221,33 @@ class TestWorkflowStates:
         import json
 
         json.dumps(serialize(provider)["workflow_states"])
+
+
+class TestLayout:
+    """The ``layout`` key, which picks the view the frontend renders.
+
+    A provider whose listing is public -- ``listed`` or ``verified`` -- is
+    rendered with ``providerView``. Every other organization keeps the layout
+    stored on the object.
+    """
+
+    @pytest.mark.parametrize(
+        "transitions,expected",
+        [
+            ([], False),
+            (["review"], False),
+            (["list"], True),
+            (["verify"], True),
+            (["verify", "unverify"], True),
+            (["archive"], False),
+        ],
+    )
+    def test_provider_layout_follows_the_listing(
+        self, provider, serialize, transitions: list[str], expected: bool
+    ):
+        for transition in transitions:
+            api.content.transition(obj=provider, transition=transition)
+        assert (serialize(provider)["layout"] == "providerView") is expected
+
+    def test_plain_organization_keeps_its_layout(self, organization, serialize):
+        assert serialize(organization)["layout"] != "providerView"
