@@ -50,10 +50,10 @@ class TestUpgradeStepRegistered:
         """
         assert list(upgrade_step.import_steps) == []
 
-    def test_destination_is_the_profile_version(self, setup_tool: SetupTool):
+    def test_destination_is_not_past_the_profile_version(self, setup_tool: SetupTool):
         """A step whose destination outruns ``metadata.xml`` never shows up."""
         version = setup_tool.getVersionForProfile(PROFILE_ID)
-        assert version == "2300"
+        assert int(version) >= 2300
 
 
 class TestDependencyInstalled:

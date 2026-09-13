@@ -3,7 +3,7 @@
 The serializer looks its relations up with ``plone.api.relation.get``, which
 filters by the ``View`` permission of the requesting user. That is the part
 worth asserting over the wire rather than in an integration test: an anonymous
-visitor must not learn about a case study that has not been published.
+visitor must not learn about a case study that has not been listed.
 """
 
 from . import DEFAULT_PASSWORD
@@ -29,18 +29,18 @@ def add_case_study(portal, organization, case_studies_payload):
     """Return a helper relating a new case study to the organization.
 
     :returns: Callable taking the relationship name -- ``organizations`` or
-        ``providers`` -- and whether to publish the case study.
+        ``providers`` -- and whether to list the case study.
     """
 
-    def func(relationship: str, published: bool = True, index: int = 0):
+    def func(relationship: str, listed: bool = True, index: int = 0):
         payload = deepcopy(case_studies_payload[index])
         with api.env.adopt_user(SITE_OWNER_NAME):
             content = api.content.create(container=portal, **payload)
             api.relation.create(
                 source=content, target=organization, relationship=relationship
             )
-            if published:
-                api.content.transition(content, transition="publish")
+            if listed:
+                api.content.transition(content, transition="list")
         transaction.commit()
         return content
 
@@ -61,10 +61,10 @@ class TestOrganizationCaseStudies:
             ("providers", "provided"),
         ],
     )
-    def test_published_case_study_is_public(
+    def test_listed_case_study_is_public(
         self, anon_request, add_case_study, relationship: str, bucket: str
     ):
-        """A published case study reaches anonymous visitors."""
+        """A listed case study reaches anonymous visitors."""
         case_study = add_case_study(relationship)
         data = anon_request.get(ORGANIZATION_PATH).json()
         assert [item["title"] for item in data["case_studies"][bucket]] == [
@@ -74,8 +74,8 @@ class TestOrganizationCaseStudies:
     def test_private_case_study_hidden_from_anonymous(
         self, anon_request, add_case_study
     ):
-        """An unpublished case study is not disclosed by the relation."""
-        add_case_study("organizations", published=False)
+        """An unlisted case study is not disclosed by the relation."""
+        add_case_study("organizations", listed=False)
         data = anon_request.get(ORGANIZATION_PATH).json()
         assert data["case_studies"]["received"] == []
 
@@ -83,7 +83,7 @@ class TestOrganizationCaseStudies:
         self, manager_request, add_case_study
     ):
         """The same relation is reported to someone allowed to see it."""
-        case_study = add_case_study("organizations", published=False)
+        case_study = add_case_study("organizations", listed=False)
         data = manager_request.get(ORGANIZATION_PATH).json()
         assert [item["title"] for item in data["case_studies"]["received"]] == [
             case_study.title

@@ -1,52 +1,29 @@
 import React from 'react';
 import { Container } from '@plone/components';
-import Image from '@plone/volto/components/theme/Image/Image';
-import SocialNetworks from '@plonegovbr/volto-social-media/components/SocialNetworks/SocialNetworks';
-import type {
-  Organization,
-  PreviewImageLink,
-} from '@plone-collective/volto-casestudy/types/content';
+import type { Organization } from '@plone-collective/volto-casestudy/types/content';
 import CaseStudies from '@plone-collective/volto-casestudy/components/Organization/CaseStudies';
-import ProviderInfo from '@plone-collective/volto-casestudy/components/Organization/ProviderInfo';
+import OrganizationLogo from '@plone-collective/volto-casestudy/components/Organization/OrganizationLogo';
+import OrganizationSocialLinks from '@plone-collective/volto-casestudy/components/Organization/OrganizationSocialLinks';
 import './organization.scss';
 
 interface OrganizationViewProps {
+  /** The organization, as the backend serializes it. */
   content: Organization;
+  /** Everything else Volto passes to a view. */
   [key: string]: any;
 }
 
-interface OrganizationLogoProps {
-  previewImage: PreviewImageLink | null;
-  previewImageAlt: string | null;
-}
-
-const OrganizationLogo: React.FC<OrganizationLogoProps> = ({
-  previewImage,
-  previewImageAlt,
-}) => {
-  if (!previewImage) {
-    return null;
-  }
-  return (
-    <div className="organizationLogo">
-      <figure className="figure right medium">
-        <Image
-          item={previewImage}
-          alt={previewImageAlt || previewImage?.title}
-          loading="lazy"
-          responsive={true}
-        />
-      </figure>
-    </div>
-  );
-};
-
+/**
+ * Page of an organization: logo, title, description, social links and the
+ * case studies it takes part in.
+ *
+ * Registered as the content type view of `Organization`. A provider whose
+ * listing is public is reported by the backend with the `providerView` layout
+ * and rendered by `ProviderView` instead, so this page never shows provider
+ * information.
+ */
 const OrganizationView: React.FC<OrganizationViewProps> = ({ content }) => {
-  const previewImage = content?.preview_image_link;
-  const previewImageAlt = content?.preview_caption_link;
-  const social_links = content?.social_links || [];
   const case_studies = content?.case_studies;
-  const isProvider = content?.is_provider || false;
   const hasCaseStudies =
     case_studies?.provided?.length > 0 || case_studies?.received?.length > 0;
   return (
@@ -54,18 +31,10 @@ const OrganizationView: React.FC<OrganizationViewProps> = ({ content }) => {
       id="page-document"
       className="view-wrapper ui container organization-view"
     >
-      <OrganizationLogo
-        previewImage={previewImage}
-        previewImageAlt={previewImageAlt}
-      />
+      <OrganizationLogo content={content} />
       <h1 className="documentFirstHeading">{content.title}</h1>
       <p className="description">{content.description}</p>
-      <Container className="socialNetworks">
-        <SocialNetworks networks={social_links} />
-      </Container>
-      {isProvider && (
-        <ProviderInfo content={content} className="organizationInfoBlock" />
-      )}
+      <OrganizationSocialLinks content={content} />
       {hasCaseStudies && (
         <Container className="caseStudies organizationInfoBlock">
           <CaseStudies case_studies={case_studies} />

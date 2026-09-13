@@ -2,9 +2,18 @@
 <object meta_type="Plone Workflow Tool"
         name="portal_workflow"
 >
-  <!-- The workflow is only defined here. It is never bound to a type: the
-       chain adapter appends it for content providing the behavior marker. -->
+  <!-- The provider workflow is only defined here. It is never bound to a
+       type: the chain adapter appends it for content providing the behavior
+       marker. -->
   <object meta_type="Workflow"
           name="provider_workflow"
   />
+  <object meta_type="Workflow"
+          name="casestudy_workflow"
+  />
+  <bindings>
+    <type type_id="CaseStudy">
+      <bound-workflow workflow_id="casestudy_workflow" />
+    </type>
+  </bindings>
 </object>

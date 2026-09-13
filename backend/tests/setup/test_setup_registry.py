@@ -8,6 +8,22 @@ def portal(portal_class):
     yield portal_class
 
 
+#: Operations every Yes/No querystring field offers.
+BOOLEAN_OPERATIONS = [
+    "plone.app.querystring.operation.boolean.isTrue",
+    "plone.app.querystring.operation.boolean.isFalse",
+]
+
+#: Yes/No querystring fields filtering by listing and verification, and the
+#: group each is offered in.
+BOOLEAN_FIELDS = {
+    "case_study_verified": "Case Studies",
+    "case_study_listed": "Case Studies",
+    "provider_verified": "Providers",
+    "provider_listed": "Providers",
+}
+
+
 class TestRegistryValues:
     @pytest.fixture(autouse=True)
     def _setup(self, portal):
@@ -28,7 +44,7 @@ class TestRegistryValues:
                 ],
             ),
             ("industry", "vocabulary", "collective.casestudy.vocabulary.industries"),
-            ("industry", "group", "Case Study"),
+            ("industry", "group", "Case Studies"),
             ("usages", "title", "label_usage"),
             ("usages", "description", "description_qs_usage"),
             ("usages", "enabled", True),
@@ -41,7 +57,7 @@ class TestRegistryValues:
                 ],
             ),
             ("usages", "vocabulary", "collective.casestudy.vocabulary.usages"),
-            ("usages", "group", "Case Study"),
+            ("usages", "group", "Case Studies"),
             ("versions", "title", "label_version"),
             ("versions", "description", "description_qs_version"),
             ("versions", "enabled", True),
@@ -54,7 +70,7 @@ class TestRegistryValues:
                 ],
             ),
             ("versions", "vocabulary", "collective.casestudy.vocabulary.versions"),
-            ("versions", "group", "Case Study"),
+            ("versions", "group", "Case Studies"),
             ("providers", "title", "label_provider"),
             ("providers", "description", "description_qs_provider"),
             ("providers", "enabled", True),
@@ -67,7 +83,8 @@ class TestRegistryValues:
                 ],
             ),
             ("providers", "vocabulary", "collective.casestudy.vocabulary.providers"),
-            ("providers", "group", "Case Study"),
+            ("providers", "group", "Case Studies"),
+            ("facets", "group", "Organizations"),
             ("country", "title", "label_country"),
             ("country", "description", "description_qs_country"),
             ("country", "enabled", True),
@@ -80,7 +97,7 @@ class TestRegistryValues:
                 ],
             ),
             ("country", "vocabulary", "collective.casestudy.vocabulary.countries"),
-            ("country", "group", "Organizations"),
+            ("country", "group", "Providers"),
             ("services", "title", "label_services"),
             ("services", "description", "description_qs_services"),
             ("services", "enabled", True),
@@ -93,10 +110,30 @@ class TestRegistryValues:
                 ],
             ),
             ("services", "vocabulary", "collective.casestudy.vocabulary.services"),
-            ("services", "group", "Organizations"),
+            ("services", "group", "Providers"),
         ],
     )
     def test_plone_qs_field(self, field_name: str, key: str, expected):
+        reg_key = f"plone.app.querystring.field.{field_name}.{key}"
+        value = api.portal.get_registry_record(reg_key)
+        assert value == expected
+
+    @pytest.mark.parametrize(
+        "field_name,key,expected",
+        [
+            (field_name, key, expected)
+            for field_name, group in BOOLEAN_FIELDS.items()
+            for key, expected in (
+                ("title", f"label_{field_name}"),
+                ("description", f"description_qs_{field_name}"),
+                ("enabled", True),
+                ("sortable", False),
+                ("operations", BOOLEAN_OPERATIONS),
+                ("group", group),
+            )
+        ],
+    )
+    def test_plone_boolean_qs_field(self, field_name: str, key: str, expected):
         reg_key = f"plone.app.querystring.field.{field_name}.{key}"
         value = api.portal.get_registry_record(reg_key)
         assert value == expected

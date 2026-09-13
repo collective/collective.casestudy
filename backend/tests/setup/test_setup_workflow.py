@@ -1,4 +1,4 @@
-"""The ``provider_workflow`` definition, as installed.
+"""The workflow definitions this package ships, as installed.
 
 A workflow is a graph, and GenericSetup imports it without checking that the
 graph closes: a state may name an exit transition nobody defined, and a
@@ -9,6 +9,11 @@ the second as a ``KeyError`` the moment somebody triggers it.
 The permission maps get the same treatment. A ``permission-map`` naming a
 permission the workflow does not manage is silently ignored, so a state that
 looks locked down in the XML can be wide open in the site.
+
+Both workflows go through the same checks. ``provider_workflow`` is appended
+to an organization by the chain adapter; ``casestudy_workflow`` is bound to
+``CaseStudy``. They share their states, and differ in the permissions they
+manage and in the state variable they keep.
 """
 
 from collective.casestudy.subscribers.organization import WORKFLOW_ID
@@ -18,15 +23,37 @@ from Products.DCWorkflow.DCWorkflow import DCWorkflowDefinition
 import pytest
 
 
-#: The permissions the workflow is expected to manage.
-MANAGED_PERMISSIONS = {
-    "collective.casestudy: Edit Provider Information",
-    "collective.casestudy: View Provider Information",
-    "collective.casestudy: Manage Provider Listing",
+#: What each workflow is expected to look like once installed: the
+#: permissions it manages, the one gating public reading, its state variable,
+#: and the portal types it is bound to.
+WORKFLOWS: dict[str, dict] = {
+    WORKFLOW_ID: {
+        "permissions": {
+            "collective.casestudy: Edit Provider Information",
+            "collective.casestudy: View Provider Information",
+            "collective.casestudy: Manage Provider Listing",
+        },
+        "view": "collective.casestudy: View Provider Information",
+        "state_var": "workflow_states",
+        "types": set(),
+    },
+    "casestudy_workflow": {
+        "permissions": {
+            "Access contents information",
+            "Modify portal content",
+            "View",
+        },
+        "view": "View",
+        "state_var": "review_state",
+        "types": {"CaseStudy"},
+    },
 }
 
-#: States whose permission map makes the provider fields publicly readable.
+#: States whose permission map makes the content publicly readable.
 PUBLIC_STATES = {"listed", "verified", "archived"}
+
+#: States whose permission map keeps the content staff-only.
+DRAFT_STATES = {"created", "pending"}
 
 
 @pytest.fixture(scope="class")
@@ -34,27 +61,50 @@ def portal(portal_class):
     yield portal_class
 
 
+@pytest.fixture(params=sorted(WORKFLOWS))
+def workflow_id(request) -> str:
+    """Id of the workflow under test; every test runs once per workflow."""
+    return request.param
+
+
 @pytest.fixture
-def workflow(portal) -> DCWorkflowDefinition:
+def expected(workflow_id: str) -> dict:
+    """What the workflow under test is expected to look like."""
+    return WORKFLOWS[workflow_id]
+
+
+@pytest.fixture
+def workflow(portal, workflow_id: str) -> DCWorkflowDefinition:
     """The installed workflow definition."""
     wt = api.portal.get_tool("portal_workflow")
-    return wt.getWorkflowById(WORKFLOW_ID)
+    return wt.getWorkflowById(workflow_id)
 
 
 class TestWorkflowInstalled:
     def test_workflow_exists(self, workflow):
         assert workflow is not None
 
-    def test_it_is_not_bound_to_any_type(self, portal):
-        """The chain adapter appends it; a type binding would double it up."""
-        wt = api.portal.get_tool("portal_workflow")
-        for portal_type in wt.listWorkflows():
-            chain = wt.getChainForPortalType(portal_type)
-            assert WORKFLOW_ID not in (chain or ())
+    def test_bound_types(self, portal, workflow_id, expected):
+        """``provider_workflow`` is appended by the chain adapter, never bound.
 
-    def test_state_variable(self, workflow):
-        """A second workflow on one object needs its own state variable."""
-        assert workflow.state_var == "workflow_states"
+        A type binding would double it up on every provider.
+        """
+        wt = api.portal.get_tool("portal_workflow")
+        portal_types = api.portal.get_tool("portal_types")
+        bound = {
+            portal_type
+            for portal_type in portal_types.listContentTypes()
+            if workflow_id in (wt.getChainForPortalType(portal_type) or ())
+        }
+        assert bound == expected["types"]
+
+    def test_state_variable(self, workflow, expected):
+        """A second workflow on one object needs a state variable of its own.
+
+        A type's own workflow keeps ``review_state``, which is what listings
+        and the ``review_state`` index read.
+        """
+        assert workflow.state_var == expected["state_var"]
 
     def test_initial_state_exists(self, workflow):
         assert workflow.initial_state in workflow.states
@@ -114,36 +164,34 @@ class TestGraphCloses:
 
 
 class TestPermissions:
-    def test_managed_permissions(self, workflow):
-        assert set(workflow.permissions) == MANAGED_PERMISSIONS
+    def test_managed_permissions(self, workflow, expected):
+        assert set(workflow.permissions) == expected["permissions"]
 
-    def test_every_permission_map_is_managed(self, workflow):
+    def test_every_permission_map_is_managed(self, workflow, expected):
         """A map for an unmanaged permission is silently ignored."""
         mapped = {
             permission
             for state in workflow.states.values()
             for permission in (state.permission_roles or {})
         }
-        assert mapped - MANAGED_PERMISSIONS == set()
+        assert mapped - expected["permissions"] == set()
 
-    def test_every_managed_permission_is_mapped_in_every_state(self, workflow):
+    def test_every_managed_permission_is_mapped_in_every_state(
+        self, workflow, expected
+    ):
         """An unmapped permission acquires, which is not what a map means."""
         for state_id, state in workflow.states.items():
             mapped = set(state.permission_roles or {})
-            assert MANAGED_PERMISSIONS - mapped == set(), state_id
+            assert expected["permissions"] - mapped == set(), state_id
 
     @pytest.mark.parametrize("state_id", sorted(PUBLIC_STATES))
-    def test_public_states_are_publicly_readable(self, workflow, state_id):
-        roles = workflow.states[state_id].permission_roles[
-            "collective.casestudy: View Provider Information"
-        ]
+    def test_public_states_are_publicly_readable(self, workflow, expected, state_id):
+        roles = workflow.states[state_id].permission_roles[expected["view"]]
         assert "Anonymous" in roles
 
-    @pytest.mark.parametrize("state_id", ["created", "pending"])
-    def test_draft_states_are_not_publicly_readable(self, workflow, state_id):
-        roles = workflow.states[state_id].permission_roles[
-            "collective.casestudy: View Provider Information"
-        ]
+    @pytest.mark.parametrize("state_id", sorted(DRAFT_STATES))
+    def test_draft_states_are_not_publicly_readable(self, workflow, expected, state_id):
+        roles = workflow.states[state_id].permission_roles[expected["view"]]
         assert "Anonymous" not in roles
 
     def test_transitions_are_guarded(self, workflow):
@@ -154,3 +202,35 @@ class TestPermissions:
             if not (transition.guard and transition.guard.permissions)
         }
         assert unguarded == set()
+
+
+class TestCaseStudyWorkflowMirrorsProvider:
+    """``casestudy_workflow`` is meant to move through the same states."""
+
+    @pytest.fixture(autouse=True)
+    def _setup(self, portal) -> None:
+        wt = api.portal.get_tool("portal_workflow")
+        self.provider: DCWorkflowDefinition = wt.getWorkflowById(WORKFLOW_ID)
+        self.case_study: DCWorkflowDefinition = wt.getWorkflowById("casestudy_workflow")
+
+    def test_same_states(self):
+        assert set(self.case_study.states) == set(self.provider.states)
+
+    def test_same_initial_state(self):
+        assert self.case_study.initial_state == self.provider.initial_state
+
+    def test_same_transitions(self):
+        """Same ids, leading to the same states."""
+
+        def edges(workflow: DCWorkflowDefinition) -> dict[str, str]:
+            return {
+                transition_id: transition.new_state_id
+                for transition_id, transition in workflow.transitions.items()
+            }
+
+        assert edges(self.case_study) == edges(self.provider)
+
+    def test_same_exits_per_state(self):
+        for state_id, state in self.provider.states.items():
+            case_study_state = self.case_study.states[state_id]
+            assert set(case_study_state.transitions) == set(state.transitions), state_id

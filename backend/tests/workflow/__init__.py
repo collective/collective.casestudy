@@ -6,6 +6,9 @@ both is simply overwritten by whichever transitioned last, a transition id
 present in both resolves to the first workflow in the chain, and an untargeted
 ``review_history`` read never reaches past the publication workflow.
 
+A case study runs ``casestudy_workflow`` alone, bound to its type. It shares
+the provider workflow's states but manages the standard content permissions.
+
 Shared values live here so the modules and ``conftest`` import them relatively,
 following the layout `collective.multiworkflow`'s own suite uses.
 """
@@ -33,6 +36,15 @@ PROVIDER_PERMISSIONS = {VIEW_PROVIDER, EDIT_PROVIDER, MANAGE_LISTING}
 #: One of the three the publication workflow manages. Nothing in this package
 #: may claim it, or the two workflows fight over the mapping.
 PUBLICATION_PERMISSION = "Modify portal content"
+
+CASESTUDY_WORKFLOW = "casestudy_workflow"
+
+ACCESS = "Access contents information"
+MODIFY = "Modify portal content"
+VIEW = "View"
+
+#: Everything ``casestudy_workflow`` is expected to manage, and nothing else.
+CASESTUDY_PERMISSIONS = {ACCESS, MODIFY, VIEW}
 
 
 def roles_for(obj: Any, permission: str) -> tuple[str, ...]:

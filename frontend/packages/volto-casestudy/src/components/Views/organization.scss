@@ -1,35 +1,9 @@
 .organization-view {
-  .organizationLogo {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 1em;
-    clear: both;
-    figure {
-      padding: 0 10px;
-      background: var(--organization-logo-background-color);
-      float: right;
-      img {
-        max-width: var(--organization-logo-max-width);
-        margin-left: 1em !important;
-      }
-    }
-  }
   .organizationInfoBlock {
     margin-bottom: 10px;
     .case-studies {
       .case-studies-group {
         margin-bottom: 10px;
-      }
-    }
-  }
-  .socialNetworks {
-    ul.social-networks {
-      .item {
-        display: inline-block;
-        margin-right: 10px;
-        svg {
-          height: 32px !important;
-        }
       }
     }
   }
