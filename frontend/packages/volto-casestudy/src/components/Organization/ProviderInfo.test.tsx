@@ -25,13 +25,18 @@ const VERIFIED = {
     { token: 'dev', title: 'Development' },
     { token: 'hosting', title: 'Hosting' },
   ],
-  workflow_states: { provider_workflow: 'verified' },
+  workflow_states: [
+    'simple_publication_workflow|published',
+    'provider_workflow|verified',
+  ],
 } as unknown as Organization;
 
 function withState(state: string | null): Organization {
   return {
     ...VERIFIED,
-    workflow_states: state ? { provider_workflow: state } : {},
+    workflow_states: state
+      ? ['simple_publication_workflow|published', `provider_workflow|${state}`]
+      : ['simple_publication_workflow|published'],
   } as unknown as Organization;
 }
 
@@ -89,13 +94,16 @@ describe('ProviderInfo badge', () => {
     expect(container.querySelector('.verified-badge')).toBeNull();
   });
 
-  it('ignores the publication state', () => {
-    /* `published` belongs to the other workflow and must not verify. */
-    const published = {
+  it('reads verified from the provider workflow only', () => {
+    /* A `verified` state of any other workflow must not verify. */
+    const elsewhere = {
       ...VERIFIED,
-      workflow_states: { simple_publication_workflow: 'published' },
+      workflow_states: [
+        'simple_publication_workflow|published',
+        'another_workflow|verified',
+      ],
     } as unknown as Organization;
-    const { container } = renderProvider(published);
+    const { container } = renderProvider(elsewhere);
     expect(container.querySelector('.verified-badge')).toBeNull();
   });
 });
@@ -116,7 +124,7 @@ describe('ProviderInfo services block', () => {
   it('survives a missing services field', () => {
     const bare = {
       '@id': '/acme',
-      workflow_states: {},
+      workflow_states: [],
     } as unknown as Organization;
     expect(() => renderProvider(bare)).not.toThrow();
   });

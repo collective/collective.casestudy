@@ -1,0 +1,1 @@
+Name `provider_workflow` "Provider listing" through the `label` attribute of `<plone:additionalworkflows />`. The `@workflow` endpoint, the Volto workflow control and history, and the options of the **Review state** collection criterion show the label in place of the workflow's title. @ericof

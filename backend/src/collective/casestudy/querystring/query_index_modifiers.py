@@ -12,16 +12,18 @@ Both only ever name states of the field's own workflow, so content that does
 not run it -- a plain organization, a document, a case study for a provider
 field -- matches neither.
 
-**Known limitation.** All four fields, and `collective.multiworkflow`'s own
-``review_state`` modifier, target the same index. ``plone.app.querystring``
-stores a rewritten criterion under its new index name, so when a query holds
-two of them the last modifier to run replaces the other one, without an error.
-A single ``KeywordIndex`` criterion cannot express "listed or verified, and
-published".
+**Known limitation.** All four fields target the same index, and so does
+`collective.multiworkflow`'s own ``review_state`` modifier when a value names a
+workflow, as in ``simple_publication_workflow|published`` -- which is what the
+collection editor saves. ``plone.app.querystring`` stores a rewritten criterion
+under its new index name, so when a query holds two of them the last modifier
+to run replaces the other one, without an error. A ``review_state`` criterion
+whose values name no workflow, as in ``published``, stays on the stock
+``review_state`` index and combines with any of these fields.
 """
 
-from collective.multiworkflow.indexers import format_state
-from collective.multiworkflow.indexers import WORKFLOW_STATES
+from collective.multiworkflow.utils.workflow import format_state
+from collective.multiworkflow.utils.workflow import WORKFLOW_STATES
 from plone import api
 from plone.app.querystring.interfaces import IParsedQueryIndexModifier
 from Products.CMFPlone.WorkflowTool import WorkflowTool

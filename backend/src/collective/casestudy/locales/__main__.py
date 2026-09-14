@@ -15,7 +15,16 @@ PATTERN = r"^[a-z]{2}.*"
 
 locale_path = Path(__file__).parent.resolve()
 target_path = locale_path.parent.resolve()
-domains = [path.name[:-4] for path in locale_path.glob("*.pot")]
+#: Suffix of a pot file listing messages no extractor finds -- i18ndude reads
+#: only ``title`` and ``description`` from ZCML, so a ``label`` attribute is
+#: listed by hand. It is merged into its domain's pot file on every rebuild.
+MANUAL_SUFFIX = "-manual"
+
+domains = [
+    path.stem
+    for path in locale_path.glob("*.pot")
+    if not path.stem.endswith(MANUAL_SUFFIX)
+]
 
 i18ndude = "uvx i18ndude"
 
@@ -41,8 +50,11 @@ def locale_folder_setup(domain: str):
 
 
 def _rebuild(domain: str):
+    manual = locale_path / f"{domain}{MANUAL_SUFFIX}.pot"
+    merge = f"--merge {manual} " if manual.exists() else ""
     cmd = (
         f"{i18ndude} rebuild-pot --pot {locale_path}/{domain}.pot "
+        f"{merge}"
         f"--exclude {excludes} "
         f"--create {domain} {target_path}"
     )

@@ -9,6 +9,7 @@ assertions below are about catalog brains: that is the path listings take.
 from collective.casestudy.serializers.summary import JSONSummarySerializerMetadata
 from collective.casestudy.vocabularies.organization import DEFAULT_FACET
 from collective.casestudy.vocabularies.organization import PROVIDER_FACET
+from collective.multiworkflow.utils.workflow import format_state
 from plone import api
 from plone.restapi.interfaces import IJSONSummarySerializerMetadata
 from zope.component import getAllUtilitiesRegisteredFor
@@ -28,10 +29,7 @@ class TestSummarySerializerMetadataUtility:
 
     def test_declares_facets(self):
         """It contributes exactly the one field."""
-        assert JSONSummarySerializerMetadata().default_metadata_fields() == {
-            "facets",
-            "workflow_states",
-        }
+        assert JSONSummarySerializerMetadata().default_metadata_fields() == {"facets"}
 
     def test_facets_is_a_catalog_column(self, portal):
         """``getattr`` on a brain only works for a metadata column."""
@@ -70,6 +68,13 @@ class TestSummaryOfBrains:
         data = serialize_summary(brain_for(case_study))
         assert "facets" in data
         assert not data["facets"]
+
+    def test_provider_summary_has_workflow_states(
+        self, provider, brain_for, serialize_summary
+    ):
+        """`collective.multiworkflow` asks for the column in every summary."""
+        data = serialize_summary(brain_for(provider))
+        assert format_state("provider_workflow", "created") in data["workflow_states"]
 
     @pytest.mark.parametrize("key", ["@id", "@type", "title", "review_state"])
     def test_default_fields_untouched(

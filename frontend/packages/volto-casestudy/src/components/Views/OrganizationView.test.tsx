@@ -158,7 +158,10 @@ describe('OrganizationView', () => {
     const { container } = renderView({
       is_provider: true,
       services: [{ token: 'dev', title: 'Development' }],
-      workflow_states: { provider_workflow: 'verified' },
+      workflow_states: [
+        'simple_publication_workflow|published',
+        'provider_workflow|verified',
+      ],
     } as unknown as Partial<Organization>);
     expect(container.querySelector('.provider-info')).toBeNull();
     expect(container.querySelector('.verified-badge')).toBeNull();

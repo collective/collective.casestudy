@@ -61,16 +61,28 @@ class TestCombinedCriteria:
         )
         assert found == {"pv-listed", "pv-verified", "pv-verified-private"}
 
+    def test_with_a_bare_review_state_criterion(self):
+        """Published *and* verified, naming the state alone.
+
+        A ``review_state`` value naming no workflow stays on the stock
+        ``review_state`` index, so it combines with the field.
+        """
+        found = self.search(
+            ("provider_verified", IS_TRUE, None),
+            ("review_state", ANY, ["published"]),
+        )
+        assert found == {"pv-verified"}
+
     @pytest.mark.xfail(
         strict=True,
         reason=(
-            "review_state is also rewritten onto workflow_states by "
-            "collective.multiworkflow; the last modifier to run replaces the "
-            "other criterion"
+            "a review_state value naming a workflow is also rewritten onto "
+            "workflow_states by collective.multiworkflow; the last modifier to "
+            "run replaces the other criterion"
         ),
     )
-    def test_with_a_review_state_criterion(self):
-        """Published *and* verified: the listing a site is most likely to build."""
+    def test_with_a_qualified_review_state_criterion(self):
+        """Published *and* verified, as the collection editor saves the state."""
         found = self.search(
             ("provider_verified", IS_TRUE, None),
             ("review_state", ANY, ["simple_publication_workflow|published"]),

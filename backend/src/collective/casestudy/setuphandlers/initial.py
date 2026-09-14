@@ -22,11 +22,14 @@ def create_example_content(portal_setup: SetupTool) -> None:
 
     Role mappings are rewritten across the site once the import finishes.
     `plone.exportimport` restores an object's workflow state by assigning
-    ``workflow_history`` directly, which fires no transition and so never
-    updates the object's permission map. An additional workflow reaching the
-    object through a marker interface is affected: it ends up in its restored
-    state carrying the initial state's security. The sweep is site-wide
-    because the importer gives no per-object hook that runs late enough.
+    ``workflow_history`` directly, which fires no transition.
+    `collective.multiworkflow` reapplies the permission maps of the workflows
+    in the object's chain when that history is restored, but
+    ``provider_workflow`` joins the chain only once
+    :func:`~collective.casestudy.subscribers.organization.check_provider_status`
+    sets the ``IProvider`` marker, which may happen after the history is
+    restored. The sweep is site-wide because the importer gives no per-object
+    hook that runs late enough.
 
     :param portal_setup: The setup tool running the import step. Unused: the
         site is resolved through :func:`plone.api.portal.get`.

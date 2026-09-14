@@ -96,6 +96,11 @@ msgstr "Serviços prestados"
 msgid "Provider"
 msgstr "Prestador"
 
+#. The label attribute of <plone:additionalworkflows />.
+#: collective/casestudy/behaviors/configure.zcml
+msgid "Provider listing"
+msgstr "Listagem do prestador"
+
 #: collective/casestudy/behaviors/configure.zcml:20
 #: collective/casestudy/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Providers"

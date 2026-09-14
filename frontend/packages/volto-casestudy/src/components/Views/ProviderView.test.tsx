@@ -45,10 +45,10 @@ const LISTED = {
     { token: 'hosting', title: 'Hosting' },
   ],
   case_studies: { provided: [], received: [] },
-  workflow_states: {
-    simple_publication_workflow: 'published',
-    provider_workflow: 'listed',
-  },
+  workflow_states: [
+    'simple_publication_workflow|published',
+    'provider_workflow|listed',
+  ],
 } as unknown as Organization;
 
 const CASE_STUDY = {
@@ -111,10 +111,10 @@ describe('ProviderView', () => {
 
   it('shows the verified badge for a verified provider', () => {
     const { container } = renderView({
-      workflow_states: {
-        simple_publication_workflow: 'published',
-        provider_workflow: 'verified',
-      },
+      workflow_states: [
+        'simple_publication_workflow|published',
+        'provider_workflow|verified',
+      ],
     });
     expect(container.querySelector('.verified-badge')).not.toBeNull();
   });

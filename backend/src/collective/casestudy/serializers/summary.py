@@ -25,4 +25,4 @@ class JSONSummarySerializerMetadata:
 
         :returns: The set of extra field names.
         """
-        return {"facets", "workflow_states"}
+        return {"facets"}
