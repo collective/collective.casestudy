@@ -14,8 +14,8 @@ provider.
 from . import FIELDS
 from . import LISTED_STATES
 from . import VERIFIED_STATES
-from collective.multiworkflow.indexers import parse_state
-from collective.multiworkflow.indexers import WORKFLOW_STATES
+from collective.multiworkflow.utils.workflow import parse_state
+from collective.multiworkflow.utils.workflow import WORKFLOW_STATES
 from plone import api
 from plone.app.querystring.interfaces import IParsedQueryIndexModifier
 from zope.component import getUtility

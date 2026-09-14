@@ -22,14 +22,20 @@ const ACME = {
     { token: 'dev', title: 'Development' },
     { token: 'hosting', title: 'Hosting' },
   ],
-  workflow_states: { provider_workflow: 'verified' },
+  workflow_states: [
+    'simple_publication_workflow|published',
+    'provider_workflow|verified',
+  ],
 } as unknown as Organization;
 
 /** Build the same provider in another `provider_workflow` state. */
 function inState(state: string): Organization {
   return {
     ...ACME,
-    workflow_states: { provider_workflow: state },
+    workflow_states: [
+      'simple_publication_workflow|published',
+      `provider_workflow|${state}`,
+    ],
   } as unknown as Organization;
 }
 
@@ -86,6 +92,9 @@ export const WithoutServices: Story = {
  */
 export const WithoutTheWorkflow: Story = {
   args: {
-    content: { ...ACME, workflow_states: {} } as unknown as Organization,
+    content: {
+      ...ACME,
+      workflow_states: ['simple_publication_workflow|published'],
+    } as unknown as Organization,
   },
 };

@@ -29,7 +29,8 @@ from collective.casestudy.content.organization import Organization
 from collective.casestudy.querystring.query_index_modifiers import LISTED_STATES
 from collective.casestudy.querystring.query_index_modifiers import PROVIDER_WORKFLOW
 from collective.casestudy.utils.relations import case_studies_for_organization
-from collective.multiworkflow import api as mw_api
+from collective.multiworkflow.utils.workflow import parse_state
+from collective.multiworkflow.utils.workflow import WORKFLOW_STATES
 from plone.restapi.interfaces import ISerializeToJson
 from plone.restapi.interfaces import ISerializeToJsonSummary
 from plone.restapi.serializer.converters import json_compatible
@@ -115,8 +116,10 @@ class OrganizationJSONSerializer(SerializeFolderToJson):
 
         Reads the serialization rather than the object. ``is_provider`` is only
         in it when the current user may read the provider fields, and
-        ``workflow_states`` maps each workflow of the chain to its state --
-        ``provider_workflow`` joins the chain for providers only.
+        ``workflow_states`` -- which `collective.multiworkflow` adds to every
+        content serialization -- lists the state of each workflow of the chain
+        as ``<workflow-id>|<state-id>``. ``provider_workflow`` joins the chain
+        for providers only.
 
         :param result: The serialization built so far, ``workflow_states``
             included.
@@ -126,8 +129,8 @@ class OrganizationJSONSerializer(SerializeFolderToJson):
         """
         if not result.get("is_provider"):
             return False
-        state = result.get("workflow_states", {}).get(PROVIDER_WORKFLOW)
-        return state in LISTED_STATES
+        states = dict(parse_state(value) for value in result.get(WORKFLOW_STATES, []))
+        return states.get(PROVIDER_WORKFLOW) in LISTED_STATES
 
     def __call__(
         self,
@@ -140,8 +143,8 @@ class OrganizationJSONSerializer(SerializeFolderToJson):
         :param version: Version to serialize, or ``None`` for the current one.
         :param include_items: Whether to include the folder contents.
         :param include_expansion: Whether to run the registered expanders.
-        :returns: The inherited representation plus ``case_studies`` and
-            ``workflow_states``, with ``layout`` set to
+        :returns: The inherited representation, ``workflow_states`` included,
+            plus ``case_studies``, with ``layout`` set to
             :data:`PROVIDER_LAYOUT` for a provider whose listing is public.
         """
         result = super().__call__(
@@ -149,13 +152,7 @@ class OrganizationJSONSerializer(SerializeFolderToJson):
             include_items=include_items,
             include_expansion=include_expansion,
         )
-        workflow_states = mw_api.get_states(self.context)
-        result.update(
-            json_compatible({
-                "case_studies": self.get_case_studies(),
-                "workflow_states": workflow_states,
-            })
-        )
+        result["case_studies"] = json_compatible(self.get_case_studies())
         if self._is_provider(result):
             result["layout"] = PROVIDER_LAYOUT
         return result

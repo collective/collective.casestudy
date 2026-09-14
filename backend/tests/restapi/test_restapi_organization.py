@@ -1,4 +1,5 @@
 from . import DEFAULT_PASSWORD
+from collective.multiworkflow.utils.workflow import format_state
 from copy import deepcopy
 from plone import api
 from plone.app.testing import SITE_OWNER_NAME
@@ -164,7 +165,26 @@ class TestContentOrganizationPost:
         response = session.get("/company-1")
         assert response.status_code == 200
         data = response.json()
-        assert data["workflow_states"]["provider_workflow"] == "verified"
+        assert format_state("provider_workflow", "verified") in data["workflow_states"]
         assert (field in data) is expected, (
             f"Failed the check for {role} can view provider {field}"
         )
+
+
+class TestWorkflowEndpoint:
+    """The ``chain`` of ``@workflow`` names each workflow the way the UI shows it."""
+
+    @pytest.fixture
+    def titles(self, manager_request) -> dict[str, str]:
+        """Map each chain entry of the published provider to its title."""
+        response = manager_request.get("/company-1/@workflow")
+        assert response.status_code == 200
+        return {
+            entry["workflow_id"]: entry["title"] for entry in response.json()["chain"]
+        }
+
+    def test_provider_workflow_is_named_by_its_label(self, titles):
+        assert titles["provider_workflow"] == "Provider listing"
+
+    def test_publication_workflow_keeps_its_title(self, titles):
+        assert titles["simple_publication_workflow"] == "Simple Publication Workflow"

@@ -1,0 +1,1 @@
+Import `format_state`, `parse_state` and `WORKFLOW_STATES` from `collective.multiworkflow.utils.workflow`, their location since `collective.multiworkflow` 1.0.0a2, and stop requesting the `workflow_states` summary column, which the add-on now requests itself. @ericof

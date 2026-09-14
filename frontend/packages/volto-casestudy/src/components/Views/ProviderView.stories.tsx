@@ -115,19 +115,19 @@ const baseContent = {
     { token: 'hosting', title: 'Hosting' },
   ],
   case_studies: { provided: [], received: [] },
-  workflow_states: {
-    simple_publication_workflow: 'published',
-    provider_workflow: 'listed',
-  },
+  workflow_states: [
+    'simple_publication_workflow|published',
+    'provider_workflow|listed',
+  ],
 } as unknown as Organization;
 
 /** The same provider, verified. */
 const verified = {
   ...baseContent,
-  workflow_states: {
-    simple_publication_workflow: 'published',
-    provider_workflow: 'verified',
-  },
+  workflow_states: [
+    'simple_publication_workflow|published',
+    'provider_workflow|verified',
+  ],
 } as unknown as Organization;
 
 const withWrapper: Decorator = (Story) => (

@@ -1,4 +1,5 @@
 import type { Content, Image, RelatedItem } from '@plone/types';
+import type { WorkflowStateValue } from '@plone-collective/volto-multiworkflow';
 
 /**
  * `@plone/types` declares `Content['subjects']` as the empty tuple `[]`, which
@@ -125,5 +126,10 @@ export interface Organization extends ContentBase {
   services: VocabularyTerm[];
   subjects: string[];
   case_studies: CaseStudyRelations;
-  workflow_states: Record<string, any>;
+  /**
+   * The state in every workflow of the chain, as `<workflow-id>|<state-id>`,
+   * primary workflow first. Read it with the helpers of
+   * `@plone-collective/volto-multiworkflow`.
+   */
+  workflow_states: WorkflowStateValue[];
 }

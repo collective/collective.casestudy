@@ -53,6 +53,7 @@
 
   <!-- Additional workflow for Provider -->
   <plone:additionalworkflows
+      label="Provider listing"
       marker=".provider_info.IProvider"
       workflows="provider_workflow"
       />

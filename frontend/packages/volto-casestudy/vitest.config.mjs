@@ -19,6 +19,9 @@ const addonAlias = {
   // vitest has no registry, so any add-on we import from needs the mapping
   // repeated here or the deep import resolves against the package root.
   '@plonegovbr/volto-social-media': addonSrc('@plonegovbr/volto-social-media'),
+  '@plone-collective/volto-multiworkflow': addonSrc(
+    '@plone-collective/volto-multiworkflow',
+  ),
 };
 
 // `test.projects` each carry their own `resolve`, and a project's aliases win

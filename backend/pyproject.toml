@@ -33,7 +33,7 @@ dependencies = [
     "plone.restapi",
     "plone.volto",
     "plonegovbr.socialmedia>=3.0.0a0",
-    "collective.multiworkflow>=1.0.0a1",
+    "collective.multiworkflow>=1.0.0a2",
     "pycountry",
 ]
 
