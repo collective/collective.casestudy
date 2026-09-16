@@ -1,0 +1,7 @@
+@use '../info-block' as *;
+
+.industry-info {
+  // An organization has one industry, so there is no inline variant here --
+  // the `.industryInline` rule this file used to carry matched nothing.
+  @include info-block('industryWrapper', 'industryLine');
+}

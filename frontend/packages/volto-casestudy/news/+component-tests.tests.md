@@ -1,0 +1,1 @@
+Cover `ContactInfo`, `IndustryInfo`, `OrganizationHeader`, `OrganizationInfo` and the case studies slot with tests and stories, and split the configuration tests into one file per module under `config`. @ericof

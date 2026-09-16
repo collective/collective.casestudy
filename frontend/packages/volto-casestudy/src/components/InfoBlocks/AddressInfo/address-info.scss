@@ -1,0 +1,7 @@
+@use '../info-block' as *;
+
+.address-info {
+  @include info-block('addressWrapper', 'addressLine');
+  // City, state and postal code read as one line rather than three.
+  @include info-block-inline('addressInline');
+}

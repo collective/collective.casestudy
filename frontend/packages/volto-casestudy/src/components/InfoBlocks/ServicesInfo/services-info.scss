@@ -1,0 +1,12 @@
+@use '../info-block' as *;
+
+.services-info {
+  // The wrapper is a `ul`, so it keeps a list indent the others do not need.
+  @include info-block('servicesWrapper') {
+    padding-inline-start: var(--info-block-list-indent);
+  }
+
+  .service-item {
+    margin-bottom: var(--info-block-list-item-gap);
+  }
+}

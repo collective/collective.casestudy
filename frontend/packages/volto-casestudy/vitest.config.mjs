@@ -24,11 +24,22 @@ const addonAlias = {
   ),
 };
 
+/**
+ * Runs after Volto's own setup files, whose widget mock omits
+ * `widgets.views` -- see the file itself for why an add-on needs it back.
+ */
+const setupWidgets = path.resolve(packageDir, 'test-setup-widgets.js');
+
 // `test.projects` each carry their own `resolve`, and a project's aliases win
 // over the top-level ones — so the addon alias has to be merged into every
-// project, not just the root config.
+// project, not just the root config. `setupFiles` is per-project too, and
+// ours has to come last, so it patches Volto's mock instead of preceding it.
 const projects = (voltoVitestConfig.test?.projects ?? []).map((project) => ({
   ...project,
+  test: {
+    ...project.test,
+    setupFiles: [...(project.test?.setupFiles ?? []), setupWidgets],
+  },
   resolve: {
     ...project.resolve,
     alias: {

@@ -1,0 +1,9 @@
+@use '../../theme/info-blocks' as *;
+
+.organization-info {
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  @include info-blocks('organizationInfoBlocks', 'organizationInfoBlock');
+}

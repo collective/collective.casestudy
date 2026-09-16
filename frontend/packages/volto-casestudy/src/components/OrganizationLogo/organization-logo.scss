@@ -1,0 +1,42 @@
+.organizationLogo {
+  // Each size modifier only re-points this, so the `img` rule stays
+  // single-source.
+  --organization-logo-width: var(--organization-logo-max-width);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1em;
+  clear: both;
+  figure {
+    padding: 0 10px;
+    background: var(--organization-logo-background-color);
+    img {
+      max-width: var(--organization-logo-width);
+      margin-left: 1em !important;
+    }
+    &.align-left {
+      float: left;
+    }
+    &.align-right {
+      float: right;
+    }
+    &.align-center {
+      display: flex;
+      justify-content: center;
+      margin-right: auto;
+      margin-left: auto;
+      float: none;
+      img {
+        margin: 1em !important;
+      }
+    }
+    &.size-small {
+      --organization-logo-width: var(--organization-logo-size-small);
+    }
+    &.size-medium {
+      --organization-logo-width: var(--organization-logo-size-medium);
+    }
+    &.size-large {
+      --organization-logo-width: var(--organization-logo-size-large);
+    }
+  }
+}

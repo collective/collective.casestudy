@@ -1,0 +1,21 @@
+.case-studies.full {
+  padding: var(--case-studies-band-padding);
+  margin: var(--case-studies-band-margin);
+
+  &.provided {
+    background-color: var(--case-studies-provided-background-color);
+  }
+
+  &.received {
+    background-color: var(--case-studies-received-background-color);
+  }
+
+  .case-studies-group {
+    // `max-width` rather than `width`: a fixed width scrolls horizontally on
+    // any viewport narrower than the band.
+    width: 100%;
+    max-width: var(--case-studies-max-width);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

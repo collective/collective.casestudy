@@ -117,13 +117,17 @@ class TestOrganizationCaseStudies:
         assert response.status_code == 200
         assert "case_studies" in response.json()
 
-    def test_summary_entries_carry_social_links(self, anon_request, add_case_study):
+    def test_summary_entries_carry_empty_social_links(
+        self, anon_request, add_case_study
+    ):
         """Case study summaries come from the default serializer, not ours.
 
-        ``social_links`` is added for Organization only, so a CaseStudy
-        summary must not grow one.
+        ``plonegovbr.socialmedia`` registers ``social_links`` as a site-wide
+        catalog column, so the key rides along on a CaseStudy summary with no
+        value. Our Organization-only adapter is what gives it one.
         """
         add_case_study("organizations")
         data = anon_request.get(ORGANIZATION_PATH).json()
         entry = data["case_studies"]["received"][0]
-        assert "social_links" not in entry
+        assert "social_links" in entry
+        assert not entry["social_links"]

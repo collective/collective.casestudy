@@ -1,0 +1,36 @@
+.organizationHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--organization-header-border-color);
+  .organizationLogo {
+    flex: 0 0 auto;
+    padding: 20px;
+  }
+  .organizationSummary {
+    flex: auto;
+    .organizationLabel {
+      // A span is inline, where `margin-bottom` has no effect.
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .organizationTitle {
+      margin: 0;
+      font-size: 2em;
+    }
+    .organizationDescription {
+      margin-top: 5px;
+      font-size: 1em;
+    }
+    .socialNetworks {
+      // Scoped to this view on purpose: OrganizationView renders the same
+      // component and keeps the default list indent.
+      .social-networks {
+        padding-inline-start: 0;
+      }
+    }
+  }
+}

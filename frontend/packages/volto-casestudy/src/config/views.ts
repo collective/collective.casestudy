@@ -1,9 +1,9 @@
 import type { ConfigType } from '@plone/registry';
 import type { ViewsConfig } from '@plone/types';
 
-import CaseStudyView from '../components/Views/CaseStudyView';
-import OrganizationView from '../components/Views/OrganizationView';
-import ProviderView from '../components/Views/ProviderView';
+import CaseStudyView from '../components/Views/CaseStudyView/CaseStudyView';
+import OrganizationView from '../components/Views/OrganizationView/OrganizationView';
+import ProviderView from '../components/Views/ProviderView/ProviderView';
 
 /**
  * Register the views of the add-on's content types.

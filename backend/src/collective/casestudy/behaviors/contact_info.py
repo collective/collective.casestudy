@@ -26,11 +26,11 @@ class IContactInfo(model.Schema):
     )
 
     contact_name = schema.TextLine(
-        title=_("label_contact_name", default="Contact Person"), required=True
+        title=_("label_contact_name", default="Contact Person"), required=False
     )
 
     contact_email = Email(
-        title=_("label_contact_email", default="Contact Email"), required=True
+        title=_("label_contact_email", default="Contact Email"), required=False
     )
 
     contact_phone = schema.TextLine(
