@@ -23,21 +23,14 @@
   "id": "simples-consultoria",
   "industry": "technology",
   "is_folderish": true,
-  "is_provider": true,
   "language": "##DEFAULT##",
   "layout": "view",
   "lock": {},
-  "modified": "2026-09-08T13:36:00+00:00",
+  "modified": "2026-09-16T13:52:35+00:00",
   "organization_size": "small",
   "postal_code": "01310-200",
   "preview_caption_link": "Logo Simples Consultoria",
   "review_state": "published",
-  "services": [
-    "design",
-    "dev",
-    "hosting",
-    "training"
-  ],
   "social_links": [
     {
       "@id": "49bb13cc-666e-4581-a380-f5afc0b08840",
@@ -83,6 +76,20 @@
         "comments": "",
         "time": "2026-09-08T13:33:28+00:00",
         "workflow_states": "verified"
+      },
+      {
+        "action": "unverify",
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-14T14:13:45+00:00",
+        "workflow_states": "listed"
+      },
+      {
+        "action": "verify",
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-14T14:14:16+00:00",
+        "workflow_states": "verified"
       }
     ],
     "simple_publication_workflow": [
@@ -102,6 +109,10 @@
       }
     ]
   },
+  "workflow_states": [
+    "simple_publication_workflow|published",
+    "provider_workflow|verified"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }

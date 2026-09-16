@@ -140,12 +140,19 @@ class TestOrganizationSummarySerializer:
         data = serialize_summary(organization)
         assert key in data
 
-    def test_case_study_summary_has_no_social_links(
+    def test_case_study_summary_has_empty_social_links(
         self, case_study, serialize_summary
     ):
-        """The adapter is registered for Organization only."""
+        """Our adapter is registered for Organization only.
+
+        ``plonegovbr.socialmedia`` registers ``social_links`` as a catalog
+        column for the whole site and names it for every summary, so the key
+        rides along on a CaseStudy with no value -- exactly as ``facets``
+        does. Filling it in is what our Organization-only adapter adds.
+        """
         data = serialize_summary(case_study)
-        assert "social_links" not in data
+        assert "social_links" in data
+        assert not data["social_links"]
 
 
 class TestOrganizationSerializerContract:

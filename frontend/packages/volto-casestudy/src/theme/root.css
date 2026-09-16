@@ -1,6 +1,47 @@
 :root {
   --organization-logo-max-width: 400px;
   --organization-logo-background-color: #ffffff;
+  --organization-logo-size-small: 200px;
+  --organization-logo-size-medium: 300px;
+  --organization-logo-size-large: 400px;
   --verified-badge-fill: transparent;
   --verified-badge-stroke: #07461c;
+
+  /* Provider view */
+  --organization-header-border-color: #cccccc;
+  --provider-about-max-width: 800px;
+
+  /* Information blocks: address, contact and services. ProviderInfo and
+     OrganizationInfo lay them out identically, so both read these -- see
+     theme/_info-blocks.scss. */
+  --info-block-border-width: 5px;
+  --info-block-border-color: #cccccc;
+  --info-block-title-font-size: 13px;
+  --info-block-gap: 20px;
+  --info-block-margin-bottom: 20px;
+  --info-block-inline-gap: 5px;
+  --info-block-list-indent: 20px;
+  --info-block-list-item-gap: 2px;
+
+  /* Case studies band */
+  --case-studies-max-width: 1024px;
+  --case-studies-band-padding: 50px 0;
+  --case-studies-band-margin: 30px 0;
+  --case-studies-provided-background-color: #cccccc;
+  --case-studies-received-background-color: #aaaaaa;
+
+  /* Case study cards */
+  --case-study-card-min-width: 260px;
+  --case-study-card-gap: 1.5em;
+  --case-study-link-gap: 0.5em;
+  --case-study-image-max-height: 180px;
+  --case-study-description-lines: 3;
+
+  /* Social links, per size modifier */
+  --social-links-icon-size-small: 24px;
+  --social-links-icon-size-medium: 32px;
+  --social-links-icon-size-large: 48px;
+  --social-links-font-size-small: 12px;
+  --social-links-font-size-medium: 16px;
+  --social-links-font-size-large: 24px;
 }

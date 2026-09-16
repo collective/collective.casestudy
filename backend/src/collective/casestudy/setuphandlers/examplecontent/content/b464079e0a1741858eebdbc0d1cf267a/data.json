@@ -81,6 +81,7 @@
   ],
   "state": null,
   "subjects": [],
+  "text": null,
   "title": "DiraCom",
   "type_title": "Organization",
   "version": "current",
@@ -103,6 +104,9 @@
       }
     ]
   },
+  "workflow_states": [
+    "simple_publication_workflow|published"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }

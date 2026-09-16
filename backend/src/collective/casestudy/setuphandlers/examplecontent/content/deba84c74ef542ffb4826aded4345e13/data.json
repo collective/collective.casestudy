@@ -40,7 +40,7 @@
   "nav_title": null,
   "preview_caption_link": null,
   "remoteUrl": "https://diracom.org/",
-  "review_state": "listed",
+  "review_state": "verified",
   "rights": "",
   "subjects": [],
   "title": "DiraCom website",
@@ -68,9 +68,19 @@
         "comments": "",
         "review_state": "listed",
         "time": "2026-09-01T14:39:57+00:00"
+      },
+      {
+        "action": "verify",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "verified",
+        "time": "2026-09-14T14:16:16+00:00"
       }
     ]
   },
+  "workflow_states": [
+    "casestudy_workflow|verified"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }

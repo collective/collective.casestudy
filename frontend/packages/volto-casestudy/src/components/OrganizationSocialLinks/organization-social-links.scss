@@ -1,0 +1,43 @@
+.socialNetworks {
+  // Each size modifier only re-points these two custom properties, so the
+  // rules that consume them stay written once.
+  --social-links-icon-size: var(--social-links-icon-size-medium);
+  --social-links-font-size: var(--social-links-font-size-medium);
+
+  font-size: var(--social-links-font-size);
+
+  &.align-left {
+    text-align: left;
+  }
+  &.align-center {
+    text-align: center;
+  }
+  &.align-right {
+    text-align: right;
+  }
+
+  &.size-small {
+    --social-links-icon-size: var(--social-links-icon-size-small);
+    --social-links-font-size: var(--social-links-font-size-small);
+  }
+  &.size-medium {
+    --social-links-icon-size: var(--social-links-icon-size-medium);
+    --social-links-font-size: var(--social-links-font-size-medium);
+  }
+  &.size-large {
+    --social-links-icon-size: var(--social-links-icon-size-large);
+    --social-links-font-size: var(--social-links-font-size-large);
+  }
+
+  ul.social-networks {
+    .item {
+      display: inline-block;
+      margin-right: 10px;
+      svg {
+        // `!important` predates this change: the social-media add-on sets the
+        // icon height at a higher specificity.
+        height: var(--social-links-icon-size) !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@use '../info-block' as *;
+
+.contact-info {
+  @include info-block('contactWrapper', 'contactLine');
+}

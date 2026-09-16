@@ -71,6 +71,9 @@
       }
     ]
   },
+  "workflow_states": [
+    "casestudy_workflow|listed"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }

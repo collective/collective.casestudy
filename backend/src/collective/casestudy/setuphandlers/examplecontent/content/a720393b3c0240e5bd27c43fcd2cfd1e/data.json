@@ -86,6 +86,9 @@
       }
     ]
   },
+  "workflow_states": [
+    "simple_publication_workflow|published"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }

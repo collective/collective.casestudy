@@ -108,6 +108,7 @@ export interface Organization extends ContentBase {
   description: string;
   preview_image_link: PreviewImageLink | null;
   preview_caption_link: string | null;
+  industry: VocabularyTerm | null;
   organization_size: VocabularyTerm | null;
   social_links: SocialMediaItem[];
   // collective.casestudy.contact_info
@@ -126,6 +127,16 @@ export interface Organization extends ContentBase {
   services: VocabularyTerm[];
   subjects: string[];
   case_studies: CaseStudyRelations;
+  /**
+   * The `text` field of `collective.casestudy.provider_info`, a
+   * `plone.app.textfield.RichText`. plone.restapi's converter emits `data`,
+   * `content-type` and `encoding` -- not `mime-type`.
+   */
+  text?: {
+    data: string;
+    'content-type': string;
+    encoding: string;
+  };
   /**
    * The state in every workflow of the chain, as `<workflow-id>|<state-id>`,
    * primary workflow first. Read it with the helpers of

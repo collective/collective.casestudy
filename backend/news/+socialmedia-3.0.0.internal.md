@@ -1,0 +1,1 @@
+Require `plonegovbr.socialmedia` 3.0.0. It registers `social_links` as a site-wide catalog column and names it for every summary, so the key now rides along on any content summary with an empty value, exactly as `facets` does; the Organization summary serializer remains the only thing that fills it in. @ericof
