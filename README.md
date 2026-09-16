@@ -1,4 +1,4 @@
-<div align="center"><img alt="logo" src="https://raw.githubusercontent.com/collective/collective.casestudy/main/docs/docs/_static/icon.svg" width="70" /></div>
+<div align="center"><img alt="logo" src="https://raw.githubusercontent.com/collective/collective.casestudy/main/docs/docs/_static/logo.svg" width="70" /></div>
 
 <h1 align="center">Case Study for Plone</h1>
 <h2 align="center">Showcase Plone usage with case studies</h1>
