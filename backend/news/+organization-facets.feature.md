@@ -1,1 +1,0 @@
-Keep an organization's facets in step with the case studies about it. The `User` facet is derived from the case studies pointing at an organization, so creating or editing one now reindexes the organizations it names — without that a newly published case study left its organization listed as one nobody had written about. @ericof

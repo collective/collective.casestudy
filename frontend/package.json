@@ -1,8 +1,8 @@
 {
   "name": "@plone-collective/volto-casestudy-dev",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "Showcase Plone usage with case studies",
-  "author": "Érico Andrei",
+  "author": "\u00c9rico Andrei",
   "homepage": "https://github.com/collective/collective.casestudy",
   "license": "MIT",
   "keywords": [

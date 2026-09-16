@@ -1,1 +1,0 @@
-Add a `ProviderView`, registered as the `providerView` layout, that renders a listed provider's address, services and verified badge next to its logo, social links and case studies. `OrganizationView` no longer shows provider information. The logo and social links are now the reusable `OrganizationLogo` and `OrganizationSocialLinks` components. @ericof

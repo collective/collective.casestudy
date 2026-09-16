@@ -1,6 +1,6 @@
 {
   "name": "@plone-collective/volto-casestudy",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "Showcase Plone usage with case studies",
   "main": "src/index.ts",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "plone",
     "react"
   ],
-  "author": "\u00c9rico Andrei",
+  "author": "Érico Andrei",
   "homepage": "https://github.com/collective/collective.casestudy#readme",
   "repository": {
     "type": "git",

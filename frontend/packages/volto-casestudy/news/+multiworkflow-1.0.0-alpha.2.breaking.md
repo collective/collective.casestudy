@@ -1,1 +1,0 @@
-Require `@plone-collective/volto-multiworkflow` 1.0.0-alpha.2. `Organization['workflow_states']` is now the list of `<workflow-id>|<state-id>` values the backend serializes, and `ProviderInfo` reads the verified state from it with the add-on's `getWorkflowStates` and `formatWorkflowState` helpers. @ericof

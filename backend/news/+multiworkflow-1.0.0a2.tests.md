@@ -1,1 +1,0 @@
-Test that a **Review state** criterion naming no workflow combines with the listing and verification querystring fields, and that the provider workflow's label reaches the `@workflow` endpoint and the review state vocabulary. @ericof

@@ -1,1 +1,0 @@
-Report the `providerView` layout for an organization flagged as a provider whose listing is `listed` or `verified`, so Volto renders it with a page of its own. Other organizations keep their layout. @ericof

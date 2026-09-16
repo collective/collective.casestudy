@@ -1,1 +1,0 @@
-Add test coverage for the content views, the metadata blocks and their registration, the add-on configuration, and the `useMetadataContent` hook; add Storybook stories for the views and the block edit forms. @ericof

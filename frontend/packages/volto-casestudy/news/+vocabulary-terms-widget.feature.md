@@ -1,1 +1,0 @@
-Edit the industries, usages, versions and services settings with a term-by-term widget instead of the raw JSON editor. Each row has a token and a title, and rows can be added, removed and reordered. A site that has not run the 2100 upgrade yet still gets an editable panel: the old `token|title` strings are read and converted on save. @ericof
