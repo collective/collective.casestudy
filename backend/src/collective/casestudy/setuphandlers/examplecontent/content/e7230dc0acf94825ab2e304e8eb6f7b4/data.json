@@ -23,18 +23,14 @@
   "id": "plone-foundation",
   "industry": "ngo",
   "is_folderish": true,
-  "is_provider": true,
   "language": "##DEFAULT##",
   "layout": "view",
   "lock": {},
-  "modified": "2026-09-08T13:36:00+00:00",
+  "modified": "2026-09-15T14:29:16+00:00",
   "organization_size": "large",
   "postal_code": null,
   "preview_caption_link": null,
   "review_state": "published",
-  "services": [
-    "training"
-  ],
   "social_links": [
     {
       "@id": "90e30a78-04c5-41ed-af9b-d84b44046421",
@@ -124,6 +120,20 @@
         "comments": "",
         "time": "2026-09-08T13:33:18+00:00",
         "workflow_states": "verified"
+      },
+      {
+        "action": "review",
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-15T14:29:16+00:00",
+        "workflow_states": "pending"
+      },
+      {
+        "action": "list",
+        "actor": "admin",
+        "comments": "",
+        "time": "2026-09-15T14:29:35+00:00",
+        "workflow_states": "listed"
       }
     ],
     "simple_publication_workflow": [
@@ -143,6 +153,10 @@
       }
     ]
   },
+  "workflow_states": [
+    "simple_publication_workflow|published",
+    "provider_workflow|listed"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }

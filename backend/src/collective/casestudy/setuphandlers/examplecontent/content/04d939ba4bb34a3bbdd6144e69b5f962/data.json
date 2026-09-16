@@ -14,6 +14,17 @@
       "@type": "search",
       "facets": [
         {
+          "@id": "8527470f-037e-4622-988b-eebedb9cc988",
+          "advanced": false,
+          "field": {
+            "label": "Case Study Verified",
+            "value": "case_study_verified"
+          },
+          "hidden": false,
+          "multiple": false,
+          "type": "toggleFacet"
+        },
+        {
           "@id": "dded53aa-a3e0-4bd1-9db7-ca3bfdbf3e02",
           "advanced": false,
           "field": {
@@ -100,7 +111,7 @@
         }
       ],
       "facetsTitle": "Filter",
-      "headline": "Usin Plone",
+      "headline": "Using Plone",
       "listingBodyTemplate": "summary",
       "query": {
         "query": [
@@ -148,7 +159,7 @@
     "locked": false,
     "stealable": true
   },
-  "modified": "2026-09-02T19:41:07+00:00",
+  "modified": "2026-09-16T20:06:34+00:00",
   "nav_title": null,
   "preview_caption_link": null,
   "review_state": "published",
@@ -176,6 +187,9 @@
       }
     ]
   },
+  "workflow_states": [
+    "simple_publication_workflow|published"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }

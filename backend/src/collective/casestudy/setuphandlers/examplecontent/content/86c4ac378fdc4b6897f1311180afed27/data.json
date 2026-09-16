@@ -31,7 +31,7 @@
         }
       ],
       "facetsTitle": "Filter",
-      "headline": "Providers",
+      "headline": "Plone Friends",
       "listingBodyTemplate": "summary",
       "query": {
         "query": [
@@ -84,6 +84,17 @@
           "hidden": false,
           "multiple": true,
           "title": "Country"
+        },
+        {
+          "@id": "dd5af394-c3bd-4c76-852a-5589106bff75",
+          "advanced": false,
+          "field": {
+            "label": "Provider Verified",
+            "value": "provider_verified"
+          },
+          "hidden": false,
+          "multiple": false,
+          "type": "toggleFacet"
         }
       ],
       "facetsTitle": "Filter",
@@ -123,12 +134,12 @@
           "@id": "24243a76-bf92-495c-87ea-3c7fab0b4102",
           "advanced": false,
           "field": {
-            "label": "Provider Services",
-            "value": "services"
+            "label": "Industry",
+            "value": "industry"
           },
           "hidden": false,
           "multiple": true,
-          "title": "Services"
+          "title": "Industry"
         },
         {
           "@id": "33600778-4d13-487e-8f33-a0ebd0d5ef67",
@@ -158,7 +169,7 @@
             "i": "facets",
             "o": "plone.app.querystring.operation.selection.any",
             "v": [
-              "Provider"
+              "User"
             ]
           }
         ],
@@ -198,7 +209,7 @@
     "locked": false,
     "stealable": true
   },
-  "modified": "2026-09-02T19:37:52+00:00",
+  "modified": "2026-09-16T20:06:08+00:00",
   "nav_title": null,
   "preview_caption_link": null,
   "review_state": "published",
@@ -226,6 +237,9 @@
       }
     ]
   },
+  "workflow_states": [
+    "simple_publication_workflow|published"
+  ],
   "working_copy": null,
   "working_copy_of": null
 }
