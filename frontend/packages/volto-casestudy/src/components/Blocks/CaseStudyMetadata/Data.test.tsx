@@ -26,7 +26,7 @@ vi.mock('react-intl', () => ({
 }));
 
 describe('CaseStudyMetadataDataForm', () => {
-  it('builds the schema with the source field', () => {
+  it('builds the schema with the source and layout fields', () => {
     render(
       <CaseStudyMetadataDataForm
         data={{ '@type': 'case_study_metadata' }}
@@ -36,9 +36,25 @@ describe('CaseStudyMetadataDataForm', () => {
     );
     const schema = (globalThis as any).__lastSchema;
     expect(schema.title).toBe('Case Study Settings');
-    expect(schema.fieldsets[0].fields).toEqual(['case_study_source']);
+    expect(schema.fieldsets[0].fields).toEqual(['case_study_source', 'layout']);
     expect(schema.properties.case_study_source.widget).toBe('object_browser');
     expect(schema.properties.case_study_source.maximum).toBe(1);
+  });
+
+  it('offers full width as the default layout', () => {
+    render(
+      <CaseStudyMetadataDataForm
+        data={{ '@type': 'case_study_metadata' }}
+        block="b"
+        onChangeBlock={vi.fn()}
+      />,
+    );
+    const { layout } = (globalThis as any).__lastSchema.properties;
+    expect(layout.default).toBe('full');
+    expect(layout.choices.map(([value]: [string]) => value)).toEqual([
+      'full',
+      'compact',
+    ]);
   });
 
   it('patches the changed field onto the existing data', () => {

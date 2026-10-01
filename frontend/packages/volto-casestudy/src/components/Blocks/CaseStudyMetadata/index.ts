@@ -3,6 +3,7 @@ import icon from '@plone/volto/icons/list-bullet.svg';
 import CaseStudyMetadataView from './View';
 import CaseStudyMetadataEdit from './Edit';
 import { CaseStudyMetadataSchema } from './schema';
+import type { CaseStudyMetadataLayout } from './layout';
 
 /** One item picked with the `object_browser` widget in `mode: 'link'`. */
 export interface MetadataSource {
@@ -14,6 +15,8 @@ export interface MetadataSource {
 export interface CaseStudyMetadataData extends BlocksFormData {
   /** Empty means "use the current page". */
   case_study_source?: MetadataSource[];
+  /** Unset means `DEFAULT_LAYOUT` from `./layout`. */
+  layout?: CaseStudyMetadataLayout;
 }
 
 const CaseStudyBlockInfo: BlockConfigBase = {

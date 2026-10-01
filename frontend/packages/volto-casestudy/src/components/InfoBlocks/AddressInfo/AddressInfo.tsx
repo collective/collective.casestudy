@@ -1,6 +1,6 @@
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import { Container } from '@plone/components';
+import InfoBox from '@plone-collective/volto-casestudy/components/InfoBlocks/InfoBox/InfoBox';
 import type { Organization } from '@plone-collective/volto-casestudy/types/content';
 import './address-info.scss';
 
@@ -19,8 +19,6 @@ const messages = defineMessages({
 
 export const AddressInfo = ({ content, className }: AddressInfoProps) => {
   const intl = useIntl();
-  const classes = ['address-info'];
-  if (className) classes.push(className);
 
   const address = content?.address || '';
   const address_2 = content?.address_2 || '';
@@ -31,33 +29,27 @@ export const AddressInfo = ({ content, className }: AddressInfoProps) => {
 
   const display =
     address || address_2 || city || state || postalCode || country;
+  if (!display) return null;
 
   return (
-    display && (
-      <Container className={classes.join(' ')}>
-        <h2 className="blockTitle addressTitle">
-          {intl.formatMessage(messages.address)}
-        </h2>
-        <p className="addressWrapper">
-          {address && <span className="addressLine address">{address}</span>}
-          {address_2 && (
-            <span className="addressLine address-2">{address_2}</span>
-          )}
-          {city && <span className="addressInline city">{city}</span>}
-          {state && <span className="addressInline state">{state}</span>}
-          {postalCode && (
-            <span className="addressInline postal-code">{postalCode}</span>
-          )}
-          {country && (
-            <span className="addressLine address">
-              <span className={`country ${country.token}`}>
-                {country.title}
-              </span>
-            </span>
-          )}
-        </p>
-      </Container>
-    )
+    <InfoBox
+      name="address"
+      title={intl.formatMessage(messages.address)}
+      className={className}
+    >
+      {address && <span className="addressLine address">{address}</span>}
+      {address_2 && <span className="addressLine address-2">{address_2}</span>}
+      {city && <span className="addressInline city">{city}</span>}
+      {state && <span className="addressInline state">{state}</span>}
+      {postalCode && (
+        <span className="addressInline postal-code">{postalCode}</span>
+      )}
+      {country && (
+        <span className="addressLine address">
+          <span className={`country ${country.token}`}>{country.title}</span>
+        </span>
+      )}
+    </InfoBox>
   );
 };
 

@@ -37,6 +37,16 @@
   --case-study-image-max-height: 180px;
   --case-study-description-lines: 3;
 
+  /* Case study metadata block. The full layout spans the container, image
+     first and centred rows of info boxes below; compact is the narrow
+     floated aside. The boxes themselves read the --info-block-* tokens. */
+  --casestudy-metadata-gap: 20px;
+  --casestudy-metadata-columns-desktop: 4;
+  --casestudy-metadata-columns-tablet: 2;
+  --casestudy-metadata-columns-mobile: 1;
+  --casestudy-metadata-image-max-height: 600px;
+  --casestudy-metadata-compact-max-width: 450px;
+
   /* Social links, per size modifier */
   --social-links-icon-size-small: 24px;
   --social-links-icon-size-medium: 32px;

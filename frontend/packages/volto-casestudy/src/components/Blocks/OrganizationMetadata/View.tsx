@@ -3,7 +3,7 @@ import { Header, List, Segment } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
 import { getWebsiteUrl } from '@plone-collective/volto-casestudy/helpers/socialLinks';
 import { useMetadataContent } from '@plone-collective/volto-casestudy/hooks/useMetadataContent';
-import { PreviewImage } from '../CaseStudyMetadata/View';
+import PreviewImage from '@plone-collective/volto-casestudy/components/PreviewImage/PreviewImage';
 import type { Organization } from '@plone-collective/volto-casestudy/types/content';
 import type { OrganizationMetadataData } from './index';
 import './organization-metadata.scss';

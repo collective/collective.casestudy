@@ -1,11 +1,12 @@
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import { Container } from '@plone/components';
+import InfoBox from '@plone-collective/volto-casestudy/components/InfoBlocks/InfoBox/InfoBox';
 import type { Organization } from '@plone-collective/volto-casestudy/types/content';
 import './industry-info.scss';
 
 export interface IndustryInfoProps {
-  content: Organization;
+  /** Anything with an `industry` term -- an organization or a case study. */
+  content: Pick<Organization, 'industry'>;
   /** Extra classes for the container. */
   className?: string;
 }
@@ -19,26 +20,19 @@ const messages = defineMessages({
 
 export const IndustryInfo = ({ content, className }: IndustryInfoProps) => {
   const intl = useIntl();
-  const classes = ['industry-info'];
-  if (className) classes.push(className);
-
   const industry = content?.industry;
-
-  const display = industry;
+  if (!industry) return null;
 
   return (
-    display && (
-      <Container className={classes.join(' ')}>
-        <h2 className="blockTitle industryTitle">
-          {intl.formatMessage(messages.industry)}
-        </h2>
-        <p className="industryWrapper">
-          <span className={`industryLine industry ${industry.token}`}>
-            {industry.title}
-          </span>
-        </p>
-      </Container>
-    )
+    <InfoBox
+      name="industry"
+      title={intl.formatMessage(messages.industry)}
+      className={className}
+    >
+      <span className={`industryLine industry ${industry.token}`}>
+        {industry.title}
+      </span>
+    </InfoBox>
   );
 };
 

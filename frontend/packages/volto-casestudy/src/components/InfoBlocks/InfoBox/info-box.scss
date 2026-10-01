@@ -1,0 +1,17 @@
+// The look of a single info box -- border on top, uppercase heading. How the
+// boxes sit next to each other belongs to whoever arranges them:
+// theme/_info-blocks.scss for the organization and provider views, the
+// CaseStudyMetadata block for its own grid.
+
+.info-box {
+  border-top: var(--info-block-border-width) solid
+    var(--info-block-border-color);
+  margin-bottom: var(--info-block-margin-bottom);
+
+  > .blockTitle {
+    padding: 10px 0;
+    font-size: var(--info-block-title-font-size);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
