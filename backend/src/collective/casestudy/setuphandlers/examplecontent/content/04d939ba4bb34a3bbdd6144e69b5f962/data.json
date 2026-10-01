@@ -17,7 +17,7 @@
           "@id": "8527470f-037e-4622-988b-eebedb9cc988",
           "advanced": false,
           "field": {
-            "label": "Case Study Verified",
+            "label": "Verified Case Studies",
             "value": "case_study_verified"
           },
           "hidden": false,
