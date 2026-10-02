@@ -19,206 +19,206 @@ msgstr ""
 #. Default: "About"
 #: components/Views/ProviderView/ProviderView
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #. Default: "Address"
 #: components/InfoBlocks/AddressInfo/AddressInfo
 msgid "Address"
-msgstr ""
+msgstr "Endereço"
 
 #. Default: "Case Study Metadata Block"
 #: components/Blocks/CaseStudyMetadata/Edit
 msgid "Case Study Metadata Block"
-msgstr ""
+msgstr "Caso de Uso: Bloco de metadados"
 
 #. Default: "Case Study Settings"
 #: components/Blocks/CaseStudyMetadata/schema
 msgid "Case Study Settings"
-msgstr ""
+msgstr "Configurações do Caso de Uso"
 
 #. Default: "Compact (floated right)"
 #: components/Blocks/CaseStudyMetadata/schema
 msgid "Compact (floated right)"
-msgstr ""
+msgstr "Compacto (alinhado à direita)"
 
 #. Default: "Contact"
 #: components/InfoBlocks/ContactInfo/ContactInfo
 msgid "Contact"
-msgstr ""
+msgstr "Contato"
 
 #. Default: "Current context page properties"
 #: components/Blocks/CaseStudyMetadata/Edit
 #: components/Blocks/OrganizationMetadata/Edit
 msgid "Current context page properties"
-msgstr ""
+msgstr "Conteúdo atual"
 
 #. Default: "Custom page selection"
 #: components/Blocks/CaseStudyMetadata/Edit
 #: components/Blocks/OrganizationMetadata/Edit
 msgid "Custom page selection"
-msgstr ""
+msgstr "Conteúdo selecionado"
 
 #. Default: "Full width"
 #: components/Blocks/CaseStudyMetadata/schema
 msgid "Full width"
-msgstr ""
+msgstr "Largura total"
 
 #. Default: "Industry"
 #: components/InfoBlocks/IndustryInfo/IndustryInfo
 msgid "Industry"
-msgstr ""
+msgstr "Segmento"
 
 #. Default: "Layout"
 #: components/Blocks/CaseStudyMetadata/schema
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #. Default: "Leave empty to pull metadata from the current page."
 #: components/Blocks/CaseStudyMetadata/schema
 #: components/Blocks/OrganizationMetadata/schema
 msgid "Leave empty to pull metadata from the current page."
-msgstr ""
+msgstr "Deixe vazio para obter os metadados da página atual."
 
 #. Default: "Organization Metadata Block"
 #: components/Blocks/OrganizationMetadata/Edit
 msgid "Organization Metadata Block"
-msgstr ""
+msgstr "Organização: Bloco de metadados"
 
 #. Default: "Organization Settings"
 #: components/Blocks/OrganizationMetadata/schema
 msgid "Organization Settings"
-msgstr ""
+msgstr "Configurações da Organização"
 
 #. Default: "Provider"
 #: components/Views/ProviderView/ProviderView
 msgid "Provider"
-msgstr ""
+msgstr "Prestador"
 
 #. Default: "Services"
 #: components/InfoBlocks/ServicesInfo/ServicesInfo
 msgid "Services"
-msgstr ""
+msgstr "Serviços"
 
 #. Default: "Settings"
 #: components/Blocks/CaseStudyMetadata/schema
 #: components/Blocks/OrganizationMetadata/schema
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #. Default: "Source"
 #: components/Blocks/CaseStudyMetadata/Edit
 #: components/Blocks/OrganizationMetadata/Edit
 msgid "Source"
-msgstr ""
+msgstr "Fonte"
 
 #. Default: "Source Case Study"
 #: components/Blocks/CaseStudyMetadata/schema
 msgid "Source Case Study"
-msgstr ""
+msgstr "Fonte: Caso de Uso"
 
 #. Default: "Source Organization"
 #: components/Blocks/OrganizationMetadata/schema
 msgid "Source Organization"
-msgstr ""
+msgstr "Fonte: Organização"
 
 #. Default: "Organizations"
 #: components/Blocks/CaseStudyMetadata/View
 msgid "case_study_organizations"
-msgstr ""
+msgstr "Organizações"
 
 #. Default: "Providers"
 #: components/Blocks/CaseStudyMetadata/View
 msgid "case_study_providers"
-msgstr ""
+msgstr "Prestadores"
 
 #. Default: "Usage"
 #: components/Blocks/CaseStudyMetadata/View
 msgid "case_study_usage"
-msgstr ""
+msgstr "Uso"
 
 #. Default: "Versions"
 #: components/Blocks/CaseStudyMetadata/View
 msgid "case_study_versions"
-msgstr ""
+msgstr "Versões"
 
 #. Default: "What"
 #: components/Blocks/CaseStudyMetadata/View
 msgid "case_study_what"
-msgstr ""
+msgstr "O quê"
 
 #. Default: "Projects"
 #: components/CaseStudies/CaseStudies
 msgid "organization_case_studies_provided"
-msgstr ""
+msgstr "Projetos"
 
 #. Default: "Case studies"
 #: components/CaseStudies/CaseStudies
 msgid "organization_case_studies_received"
-msgstr ""
+msgstr "Casos de Uso"
 
 #. Default: "What"
 #: components/Blocks/OrganizationMetadata/View
 msgid "organization_what"
-msgstr ""
+msgstr "O quê"
 
 #. Default: "Contact Email"
 #: components/Blocks/OrganizationMetadata/View
 msgid "provider_contact_email"
-msgstr ""
+msgstr "E-mail de contato"
 
 #. Default: "Contact Person"
 #: components/Blocks/OrganizationMetadata/View
 msgid "provider_contact_person"
-msgstr ""
+msgstr "Pessoa de contato"
 
 #. Default: "Contact Phone Number"
 #: components/Blocks/OrganizationMetadata/View
 msgid "provider_contact_phone_number"
-msgstr ""
+msgstr "Telefone de contato"
 
 #. Default: "Country"
 #: components/Blocks/OrganizationMetadata/View
 msgid "provider_country"
-msgstr ""
+msgstr "País"
 
 #. Default: "Organization Size"
 #: components/Blocks/OrganizationMetadata/View
 msgid "provider_organization_size"
-msgstr ""
+msgstr "Tamanho da organização"
 
 #. Default: "Visit external website"
 #: components/Blocks/CaseStudyMetadata/View
 #: components/Blocks/OrganizationMetadata/View
 msgid "visit_external_website"
-msgstr ""
+msgstr "Visitar site externo"
 
 #. Default: "Term"
 #: components/Widgets/VocabularyTermsWidget
 msgid "vocabulary_term"
-msgstr ""
+msgstr "Termo"
 
 #. Default: "Title"
 #: components/Widgets/VocabularyTermsWidget
 msgid "vocabulary_term_title"
-msgstr ""
+msgstr "Título"
 
 #. Default: "Shown to editors and visitors. Safe to change."
 #: components/Widgets/VocabularyTermsWidget
 msgid "vocabulary_term_title_description"
-msgstr ""
+msgstr "Exibido para editores e visitantes. Seguro para alterar."
 
 #. Default: "Token"
 #: components/Widgets/VocabularyTermsWidget
 msgid "vocabulary_term_token"
-msgstr ""
+msgstr "Token"
 
 #. Default: "Stored on the content. Changing it orphans the content already using it."
 #: components/Widgets/VocabularyTermsWidget
 msgid "vocabulary_term_token_description"
-msgstr ""
+msgstr "Armazenado no conteúdo. Alterá-lo deixa órfão o conteúdo que já o utiliza."
 
 #. Default: "Website"
 #: components/Blocks/CaseStudyMetadata/View
 #: components/Blocks/OrganizationMetadata/View
 msgid "website"
-msgstr ""
+msgstr "Site"
