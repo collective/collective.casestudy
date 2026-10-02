@@ -1,29 +1,75 @@
+// Every value comes from a `--casestudy-metadata-*` token in theme/root.css.
+// The look of each section is `InfoBox`'s; only the arrangement lives here.
+
 .casestudy-metadata-block {
-  display: inline-block !important;
-  width: max-content;
-  max-width: 450px;
-  margin-top: 0 !important;
-  margin-bottom: 1em;
-  margin-left: 2em;
+  margin-bottom: var(--casestudy-metadata-gap);
 
-  .preview-image {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  .website-image {
+    margin: 0;
   }
 
-  .organization-list {
+  // Image first at the container's full width, then the boxes in centred
+  // rows: six boxes at four columns read as a row of four and a centred
+  // row of two.
+  &.layout-full {
+    --casestudy-metadata-columns: var(--casestudy-metadata-columns-desktop);
+
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 1em;
-    gap: 0.5em 1em;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--casestudy-metadata-gap);
+
+    .preview-image {
+      width: 100%;
+      max-height: var(--casestudy-metadata-image-max-height);
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .metadata-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--casestudy-metadata-gap);
+    }
+
+    .metadata-box {
+      flex: 0 0
+        calc(
+          (
+              100% - (var(--casestudy-metadata-columns) - 1) *
+                var(--casestudy-metadata-gap)
+            ) / var(--casestudy-metadata-columns)
+        );
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+      --casestudy-metadata-columns: var(--casestudy-metadata-columns-tablet);
+    }
+
+    @media (max-width: 479px) {
+      --casestudy-metadata-columns: var(--casestudy-metadata-columns-mobile);
+    }
   }
 
-  & ~ .block-editor-wrapper,
-  & ~ .block,
-  & ~ .ui.section {
-    display: flow-root !important;
-    clear: none !important;
+  // Narrow aside floated right of the text, sections stacked.
+  &.layout-compact {
+    display: inline-block !important;
+    width: max-content;
+    max-width: var(--casestudy-metadata-compact-max-width);
+    margin-top: 0 !important;
+    margin-left: 2em;
+
+    .website-image {
+      margin-bottom: 1em;
+    }
+
+    & ~ .block-editor-wrapper,
+    & ~ .block,
+    & ~ .ui.section {
+      display: flow-root !important;
+      clear: none !important;
+    }
   }
 }

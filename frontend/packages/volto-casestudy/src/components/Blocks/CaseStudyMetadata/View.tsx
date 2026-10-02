@@ -1,23 +1,21 @@
 import React from 'react';
-import { Header, List, Segment } from 'semantic-ui-react';
+import cx from 'classnames';
+import { List } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
-import { getPreviewImageSource } from '@plone-collective/volto-casestudy/helpers/preview';
 import { useMetadataContent } from '@plone-collective/volto-casestudy/hooks/useMetadataContent';
-import OrganizationLink from '@plone-collective/volto-casestudy/components/OrganizationLink/OrganizationLink';
-import type {
-  CaseStudy,
-  OrganizationSummary,
-  PreviewImageLink,
-  VocabularyTerm,
-} from '@plone-collective/volto-casestudy/types/content';
+import InfoBox from '@plone-collective/volto-casestudy/components/InfoBlocks/InfoBox/InfoBox';
+import IndustryInfo from '@plone-collective/volto-casestudy/components/InfoBlocks/IndustryInfo/IndustryInfo';
+import OrganizationList from '@plone-collective/volto-casestudy/components/OrganizationList/OrganizationList';
+import PreviewImage from '@plone-collective/volto-casestudy/components/PreviewImage/PreviewImage';
+import TermList from '@plone-collective/volto-casestudy/components/TermList/TermList';
+import type { CaseStudy } from '@plone-collective/volto-casestudy/types/content';
 import type { CaseStudyMetadataData } from './index';
+import { LAYOUT_IMAGE_SCALE, resolveLayout } from './layout';
 import './casestudy-metadata.scss';
 
 const messages = defineMessages({
-  industry: { id: 'case_study_industry', defaultMessage: 'Industry' },
   usage: { id: 'case_study_usage', defaultMessage: 'Usage' },
   versions: { id: 'case_study_versions', defaultMessage: 'Versions' },
-  screenshot: { id: 'case_study_screenshot', defaultMessage: 'Screenshot' },
   what: { id: 'case_study_what', defaultMessage: 'What' },
   organizations: {
     id: 'case_study_organizations',
@@ -31,51 +29,8 @@ const messages = defineMessages({
   },
 });
 
-interface PreviewImageProps {
-  link: PreviewImageLink | null;
-  caption: string | null;
-}
-
-export const PreviewImage: React.FC<PreviewImageProps> = ({
-  link,
-  caption,
-}) => {
-  const source = getPreviewImageSource(link);
-  if (!source) return null;
-
-  return (
-    <img
-      src={source.src}
-      alt={caption || ''}
-      height={source.height}
-      width={source.width}
-      className="preview-image"
-    />
-  );
-};
-
-/** Render a list of vocabulary terms as a comma-separated line. */
-const TermList: React.FC<{ terms: VocabularyTerm[] }> = ({ terms }) => (
-  <p>
-    {terms.map((term, index) => (
-      <span key={term.token || index}>
-        {term.title}
-        {index < terms.length - 1 ? ', ' : ''}
-      </span>
-    ))}
-  </p>
-);
-
-/** Render related organizations as a list of links, logo first. */
-const OrganizationList: React.FC<{ items: OrganizationSummary[] }> = ({
-  items,
-}) => (
-  <div className="organization-list">
-    {items.map((item) => (
-      <OrganizationLink key={item['@id']} item={item} showLogo />
-    ))}
-  </div>
-);
+/** Class every section of the block carries, whatever its kind. */
+const BOX = 'metadata-box';
 
 export interface CaseStudyMetadataViewProps {
   data: CaseStudyMetadataData;
@@ -89,67 +44,77 @@ export const CaseStudyMetadataView = ({
   const intl = useIntl();
   const targetPath = data?.case_study_source?.[0]?.['@id'];
   const content = useMetadataContent<CaseStudy>(targetPath, properties);
+  const layout = resolveLayout(data?.layout);
 
   if (!content) return null;
 
   return (
-    <Segment as="aside" floated="right" className="casestudy-metadata-block">
+    <aside
+      className={cx('casestudy-metadata-block', `layout-${layout}`, {
+        'ui segment right floated': layout === 'compact',
+      })}
+    >
       {content.preview_image_link && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.screenshot)}
-          </Header>
-          <div className="website-image">
-            <PreviewImage
-              link={content.preview_image_link}
-              caption={content.preview_caption_link}
-            />
-          </div>
-        </>
+        <figure className="website-image">
+          <PreviewImage
+            link={content.preview_image_link}
+            caption={content.preview_caption_link}
+            scale={LAYOUT_IMAGE_SCALE[layout]}
+          />
+        </figure>
       )}
 
-      {content.organizations?.length > 0 && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.organizations)}
-          </Header>
-          <OrganizationList items={content.organizations} />
-        </>
-      )}
+      <div className="metadata-boxes">
+        {content.organizations?.length > 0 && (
+          <InfoBox
+            name="organizations"
+            title={intl.formatMessage(messages.organizations)}
+            as="div"
+            className={BOX}
+          >
+            <OrganizationList items={content.organizations} />
+          </InfoBox>
+        )}
 
-      {content.industry?.title && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.industry)}
-          </Header>
-          <p>{content.industry.title}</p>
-        </>
-      )}
+        {content.providers?.length > 0 && (
+          <InfoBox
+            name="providers"
+            title={intl.formatMessage(messages.providers)}
+            as="div"
+            className={BOX}
+          >
+            <OrganizationList items={content.providers} />
+          </InfoBox>
+        )}
 
-      {content.usages?.length > 0 && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.usage)}
-          </Header>
-          <TermList terms={content.usages} />
-        </>
-      )}
+        <IndustryInfo content={content} className={BOX} />
 
-      {content.versions?.length > 0 && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.versions)}
-          </Header>
-          <TermList terms={content.versions} />
-        </>
-      )}
+        {content.usages?.length > 0 && (
+          <InfoBox
+            name="usages"
+            title={intl.formatMessage(messages.usage)}
+            className={BOX}
+          >
+            <TermList terms={content.usages} />
+          </InfoBox>
+        )}
 
-      {content.remoteUrl && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.website)}
-          </Header>
-          <p>
+        {content.versions?.length > 0 && (
+          <InfoBox
+            name="versions"
+            title={intl.formatMessage(messages.versions)}
+            className={BOX}
+          >
+            <TermList terms={content.versions} />
+          </InfoBox>
+        )}
+
+        {content.remoteUrl && (
+          <InfoBox
+            name="website"
+            title={intl.formatMessage(messages.website)}
+            className={BOX}
+          >
             <a
               href={content.remoteUrl}
               target="_blank"
@@ -157,28 +122,21 @@ export const CaseStudyMetadataView = ({
             >
               {intl.formatMessage(messages.visitWebsite)}
             </a>
-          </p>
-        </>
-      )}
+          </InfoBox>
+        )}
 
-      {content.providers?.length > 0 && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.providers)}
-          </Header>
-          <OrganizationList items={content.providers} />
-        </>
-      )}
-
-      {content.subjects?.length > 0 && (
-        <>
-          <Header dividing sub>
-            {intl.formatMessage(messages.what)}
-          </Header>
-          <List items={content.subjects} />
-        </>
-      )}
-    </Segment>
+        {content.subjects?.length > 0 && (
+          <InfoBox
+            name="subjects"
+            title={intl.formatMessage(messages.what)}
+            as="div"
+            className={BOX}
+          >
+            <List items={content.subjects} />
+          </InfoBox>
+        )}
+      </div>
+    </aside>
   );
 };
 

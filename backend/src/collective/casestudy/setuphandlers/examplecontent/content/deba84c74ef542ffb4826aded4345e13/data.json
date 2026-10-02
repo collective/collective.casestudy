@@ -7,6 +7,9 @@
     "76866eed-3c95-4722-85dc-439229b8379c": {
       "@type": "title"
     },
+    "e9b5cba4-24eb-4462-9895-ae9c2ad0df71": {
+      "@type": "description"
+    },
     "f7bb6fae-95cd-4e79-8419-efb17a36a7e3": {
       "@type": "case_study_metadata"
     }
@@ -14,6 +17,7 @@
   "blocks_layout": {
     "items": [
       "76866eed-3c95-4722-85dc-439229b8379c",
+      "e9b5cba4-24eb-4462-9895-ae9c2ad0df71",
       "f7bb6fae-95cd-4e79-8419-efb17a36a7e3"
     ]
   },

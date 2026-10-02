@@ -76,7 +76,7 @@ const BLOCK_DATA = { '@type': 'case_study_metadata' };
 
 const withWrapper: Decorator = (Story) => (
   <Wrapper anonymous>
-    <div style={{ width: 720, padding: 24 }}>
+    <div style={{ width: 960, padding: 24 }}>
       <Story />
     </div>
   </Wrapper>
@@ -167,6 +167,28 @@ export const WithOrganizationsAndProviders: Story = {
       providers: [AGENCY],
     },
   },
+};
+
+export const Compact: Story = {
+  args: {
+    data: { ...BLOCK_DATA, layout: 'compact' },
+    properties: {
+      ...baseContent,
+      preview_image_link: PREVIEW_IMAGE,
+      preview_caption_link: 'The new Plone.org home page',
+      organizations: [ACME],
+      providers: [AGENCY],
+    },
+  },
+  render: (args) => (
+    <>
+      <CaseStudyMetadataView {...args} />
+      <p>
+        The compact layout floats beside the text that follows it, as the block
+        did before the full-width layout became the default.
+      </p>
+    </>
+  ),
 };
 
 export const NoContent: Story = {

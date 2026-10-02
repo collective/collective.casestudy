@@ -3,8 +3,11 @@
 //
 // `ProviderInfo` and `OrganizationInfo` render the same three components in
 // the same arrangement and differ only in the class names their markup uses.
-// Keeping the rules here means a change to the block treatment lands in both
-// at once, instead of drifting between two copies of the same file.
+// Keeping the rules here means a change to the arrangement lands in both at
+// once, instead of drifting between two copies of the same file.
+//
+// Only the arrangement lives here; the look of each box (border on top, the
+// title treatment) is `InfoBox`'s, in components/InfoBlocks/InfoBox.
 //
 // Each caller passes its own class names; every value comes from a token in
 // theme/root.css so a site can restyle the blocks without overriding rules.
@@ -19,16 +22,6 @@
 
     .#{$block} {
       flex: 1;
-      border-top: var(--info-block-border-width) solid
-        var(--info-block-border-color);
-      margin-bottom: var(--info-block-margin-bottom);
-
-      .blockTitle {
-        padding: 10px 0;
-        font-size: var(--info-block-title-font-size);
-        font-weight: 500;
-        text-transform: uppercase;
-      }
     }
   }
 }

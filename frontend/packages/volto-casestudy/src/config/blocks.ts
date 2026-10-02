@@ -8,8 +8,7 @@ export default function installBlocks(config: ConfigType) {
 
   config.blocks.initialBlocks = {
     ...config.blocks.initialBlocks,
-    CaseStudy: ['title', 'case_study_metadata'],
-    Organization: ['title', 'organization_metadata'],
+    CaseStudy: ['title', 'description', 'case_study_metadata'],
   };
 
   return config;

@@ -30,16 +30,18 @@ describe('installBlocks', () => {
     expect(config.blocks.blocksConfig.title).toBeTruthy();
   });
 
-  it('gives each content type its own metadata block by default', () => {
+  it('starts a case study with title, description and its metadata', () => {
     const config = installBlocks(makeConfig());
     expect(config.blocks.initialBlocks.CaseStudy).toEqual([
       'title',
+      'description',
       'case_study_metadata',
     ]);
-    expect(config.blocks.initialBlocks.Organization).toEqual([
-      'title',
-      'organization_metadata',
-    ]);
+  });
+
+  it('sets no initial blocks for organizations, which have none', () => {
+    const config = installBlocks(makeConfig());
+    expect(config.blocks.initialBlocks.Organization).toBeUndefined();
   });
 
   it('does not drop initial blocks configured elsewhere', () => {
