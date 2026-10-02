@@ -37,7 +37,7 @@ msgstr "Configurações de Caso de Uso"
 
 #: collective/casestudy/profiles.zcml:22
 msgid "Case Study: Example content"
-msgstr ""
+msgstr "Caso de Uso: Conteúdo de exemplo"
 
 #: collective/casestudy/profiles.zcml:13
 msgid "Case Study: Install"
@@ -53,7 +53,7 @@ msgstr "Informações para contato (Acesso restrito)"
 
 #: collective/casestudy/profiles.zcml:22
 msgid "Create example content to showcase this addon."
-msgstr ""
+msgstr "Cria conteúdo de exemplo para demonstrar este complemento."
 
 #: collective/casestudy/profiles/default/types/CaseStudy.xml
 #: collective/casestudy/profiles/default/types/Provider.xml
