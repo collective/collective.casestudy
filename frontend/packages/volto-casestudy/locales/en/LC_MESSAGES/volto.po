@@ -31,6 +31,11 @@ msgstr ""
 msgid "Case Study Settings"
 msgstr ""
 
+#. Default: "Compact (floated right)"
+#: components/Blocks/CaseStudyMetadata/schema
+msgid "Compact (floated right)"
+msgstr ""
+
 #. Default: "Contact"
 #: components/InfoBlocks/ContactInfo/ContactInfo
 msgid "Contact"
@@ -48,9 +53,19 @@ msgstr ""
 msgid "Custom page selection"
 msgstr ""
 
+#. Default: "Full width"
+#: components/Blocks/CaseStudyMetadata/schema
+msgid "Full width"
+msgstr ""
+
 #. Default: "Industry"
 #: components/InfoBlocks/IndustryInfo/IndustryInfo
 msgid "Industry"
+msgstr ""
+
+#. Default: "Layout"
+#: components/Blocks/CaseStudyMetadata/schema
+msgid "Layout"
 msgstr ""
 
 #. Default: "Leave empty to pull metadata from the current page."
@@ -101,11 +116,6 @@ msgstr ""
 msgid "Source Organization"
 msgstr ""
 
-#. Default: "Industry"
-#: components/Blocks/CaseStudyMetadata/View
-msgid "case_study_industry"
-msgstr ""
-
 #. Default: "Organizations"
 #: components/Blocks/CaseStudyMetadata/View
 msgid "case_study_organizations"
@@ -114,11 +124,6 @@ msgstr ""
 #. Default: "Providers"
 #: components/Blocks/CaseStudyMetadata/View
 msgid "case_study_providers"
-msgstr ""
-
-#. Default: "Screenshot"
-#: components/Blocks/CaseStudyMetadata/View
-msgid "case_study_screenshot"
 msgstr ""
 
 #. Default: "Usage"
