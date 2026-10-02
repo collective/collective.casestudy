@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 2.0.0-alpha.3 (2026-10-02)
+
+
+### Feature
+
+- Translate the frontend to Brazilian Portuguese. @ericof [#38](https://github.com/collective/collective.casestudy/issues/38)
+
 ## 2.0.0-alpha.2 (2026-10-02)
 
 
