@@ -7,6 +7,42 @@
 -->
 
 <!-- towncrier release notes start -->
+## 2.0.0a2 (2026-10-02)
+
+### Backend
+
+
+#### Internal:
+
+- Update the example content: two case studies gain a description block, and the "Case Study Verified" listing is renamed to "Verified Case Studies". @ericof 
+
+
+
+### Frontend
+
+
+#### Feature
+
+- Redesign the Case Study metadata block. By default it now spans the full width of its container, opening with the screenshot and laying the other details out as information boxes in centred rows of up to four. A new `Layout` option keeps the previous narrow aside, floated to the right of the text, as `Compact`. The organization and provider information blocks now share the same `InfoBox` base, and every box carries a class named after its content, such as `versions` or `usages`. @ericof [#36](https://github.com/collective/collective.casestudy/issues/36)
+- Start a new case study with title, description and metadata blocks, and stop adding initial blocks to organizations, which no longer support blocks. @ericof 
+
+
+#### Internal
+
+- Type check the add-on with `make typecheck`, now also run in CI, and fix the four type errors it reported. Tests and stories are type checked too. @ericof [#35](https://github.com/collective/collective.casestudy/issues/35)
+- Update the locale catalogs: add the Case Study metadata block's layout labels and drop the messages it no longer uses. @ericof 
+
+
+
+### Project
+
+
+#### Internal
+
+- Add a frontend type check job to CI; the storybook, image and report jobs wait for it. @ericof [#35](https://github.com/collective/collective.casestudy/issues/35)
+
+
+
 ## 2.0.0a1 (2026-09-16)
 
 ### Backend

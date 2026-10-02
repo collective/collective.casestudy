@@ -1,1 +1,0 @@
-Type check the add-on with `make typecheck`, now also run in CI, and fix the four type errors it reported. Tests and stories are type checked too. @ericof

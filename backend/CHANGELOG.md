@@ -9,6 +9,13 @@
 
 <!-- towncrier release notes start -->
 
+## 2.0.0a2 (2026-10-02)
+
+
+### Internal:
+
+- Update the example content: two case studies gain a description block, and the "Case Study Verified" listing is renamed to "Verified Case Studies". @ericof 
+
 ## 2.0.0a1 (2026-09-16)
 
 
