@@ -19,9 +19,11 @@ vi.mock('@plone/volto/helpers/Loadable/Loadable');
 vi.mock('@plone/volto/components/manage/Form');
 
 beforeAll(async () => {
-  const { __setLoadables } = await import(
+  // `__setLoadables` exists only on Volto's `__mocks__/Loadable`, which the
+  // `vi.mock` above swaps in; the real module's type does not know it.
+  const { __setLoadables } = (await import(
     '@plone/volto/helpers/Loadable/Loadable'
-  );
+  )) as unknown as { __setLoadables: () => Promise<void> };
   await __setLoadables();
 });
 

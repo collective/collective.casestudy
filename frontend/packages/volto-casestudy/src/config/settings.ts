@@ -48,8 +48,12 @@ export default function install(config: ConfigType) {
   // Both workflows of the chain render through Volto's own mapping helpers —
   // the additional `provider_workflow` selector included, since
   // volto-multiworkflow's shadowed Workflow component delegates to them.
+  // `@plone/types` declares the map as `unknown`.
   config.settings.workflowMapping = {
-    ...config.settings.workflowMapping,
+    ...(config.settings.workflowMapping as Record<
+      string,
+      { value: string; color: string }
+    >),
     ...WORKFLOW_MAPPING,
   };
 

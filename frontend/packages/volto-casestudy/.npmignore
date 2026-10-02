@@ -15,3 +15,8 @@ README.md
 # outcome: `getTSConfigPaths` finds no config, and `getAliasesFromTSConfig`
 # contributes zero aliases.
 tsconfig.json
+
+# Type-check-only config and the stand-ins it maps; useless outside the
+# checkout for the same reason.
+tsconfig.typecheck.json
+typings

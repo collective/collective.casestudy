@@ -1,0 +1,20 @@
+// Used by `pnpm typecheck` only. Volto's add-on registry turns the `paths` of
+// `tsconfig.json` (and of no other file) into bundler aliases, so the
+// MaybeWrap stand-in must not appear there: it would replace the real
+// component at runtime. `paths` is not merged by `extends`, so every entry is
+// repeated here.
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@plone-collective/volto-casestudy/*": ["./src/*"],
+      "@plone/volto/components/manage/MaybeWrap/MaybeWrap": [
+        "./typings/volto/MaybeWrap.d.ts"
+      ],
+      "@plone/volto/*": ["../../core/packages/volto/src/*"],
+      "@plonegovbr/volto-social-media/*": [
+        "./node_modules/@plonegovbr/volto-social-media/src/*"
+      ]
+    }
+  }
+}

@@ -23,10 +23,10 @@ const CaseStudyBlockInfo: BlockConfigBase = {
   id: 'case_study_metadata',
   title: 'Case Study Metadata',
   // `@plone/types` declares `Content['subjects']` as the empty tuple `[]`,
-  // so a view whose `properties` is accurately typed is not assignable to
-  // `BlockViewProps`. Cast until that is fixed upstream.
+  // so a view or edit whose `properties` is accurately typed is not assignable
+  // to `BlockViewProps` / `BlockEditProps`. Cast until that is fixed upstream.
   view: CaseStudyMetadataView as unknown as BlockConfigBase['view'],
-  edit: CaseStudyMetadataEdit,
+  edit: CaseStudyMetadataEdit as unknown as BlockConfigBase['edit'],
   blockSchema: CaseStudyMetadataSchema,
   icon: icon,
   group: 'text',

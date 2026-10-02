@@ -1,0 +1,1 @@
+Add a frontend type check job to CI; the storybook, image and report jobs wait for it. @ericof
