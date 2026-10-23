@@ -146,10 +146,10 @@
            prefix="plone.app.querystring.field.facets"
   >
     <value key="title"
-           i18n:translate="label_services"
+           i18n:translate="label_facets"
     >Facet</value>
     <value key="description"
-           i18n:translate="description_qs_services"
+           i18n:translate="description_qs_facets"
     >Filter by type of organization.</value>
     <value key="enabled">True</value>
     <value key="sortable">False</value>
@@ -189,7 +189,7 @@
            prefix="plone.app.querystring.field.services"
   >
     <value key="title"
-           i18n:translate="label_services"
+           i18n:translate="label_provider_services"
     >Provider Services</value>
     <value key="description"
            i18n:translate="description_qs_services"

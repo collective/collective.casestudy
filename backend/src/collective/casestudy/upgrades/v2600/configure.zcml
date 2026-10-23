@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:upgradeSteps
+      profile="collective.casestudy:default"
+      source="2500"
+      destination="2600"
+      >
+    <genericsetup:upgradeDepends
+        title="Update the querystring field labels"
+        description="Gives the Facet and Provider Services filters their own translatable labels."
+        import_steps="plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
+</configure>
