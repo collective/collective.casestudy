@@ -10,10 +10,16 @@ from Products.CMFPlone.Portal import PloneSite
 from pytest_plone import fixtures_factory
 from zope.component.hooks import site as site_wrapper
 
+import os
 import pytest
 
 
 pytest_plugins = ["pytest_plone"]
+
+# The catalogs ship as .po only (.mo files are gitignored and compiled in the
+# image build), and zope.i18n registers a domain only from compiled files. It
+# reads this when the ZCML loads, so set it before any layer is set up.
+os.environ.setdefault("zope_i18n_compile_mo_files", "true")
 
 
 globals().update(
