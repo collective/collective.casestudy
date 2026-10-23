@@ -1,0 +1,1 @@
+Translate the country names in the address form and the country facet into Brazilian Portuguese and Spanish, and list them alphabetically by their translated name. The names come from pycountry's own translations, which `make i18n` now copies into a separate `collective.casestudy.countries` catalog for each language the package supports. @ericof

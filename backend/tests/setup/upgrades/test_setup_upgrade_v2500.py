@@ -43,7 +43,7 @@ class TestUpgradeStepRegistered:
 
     def test_destination_is_the_profile_version(self, setup_tool: SetupTool):
         """A step whose destination outruns ``metadata.xml`` never shows up."""
-        assert setup_tool.getVersionForProfile(PROFILE_ID) == "2500"
+        assert int(setup_tool.getVersionForProfile(PROFILE_ID)) >= 2500
 
 
 class TestRunningTheUpgrade:

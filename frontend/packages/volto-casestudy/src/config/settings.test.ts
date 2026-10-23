@@ -1,11 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import type { ConfigType } from '@plone/registry';
-import installSettings, { CONTROLPANEL_ID } from './settings';
+import installSettings, { CONTENT_ICONS, CONTROLPANEL_ID } from './settings';
 
 /** A registry stub holding just what `installSettings` touches. */
 function makeConfig() {
   return {
-    settings: { controlPanelsIcons: { dexterity_types: 'typesSVG' } },
+    settings: {
+      controlPanelsIcons: { dexterity_types: 'typesSVG' },
+      contentIcons: { Document: 'pageSVG' },
+    },
   } as unknown as ConfigType;
 }
 
@@ -28,5 +31,18 @@ describe('installSettings', () => {
   it('keeps the icons Volto already registered', () => {
     const config = installSettings(makeConfig());
     expect(config.settings.controlPanelsIcons.dexterity_types).toBe('typesSVG');
+  });
+
+  it.each(['CaseStudy', 'Organization'])('gives %s a content icon', (type) => {
+    const config = installSettings(makeConfig());
+    expect(config.settings.contentIcons[type]).toBe(
+      CONTENT_ICONS[type as keyof typeof CONTENT_ICONS],
+    );
+    expect(config.settings.contentIcons[type]).toBeTruthy();
+  });
+
+  it('keeps the content icons Volto already registered', () => {
+    const config = installSettings(makeConfig());
+    expect(config.settings.contentIcons.Document).toBe('pageSVG');
   });
 });

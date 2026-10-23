@@ -1,5 +1,7 @@
 import type { ConfigType } from '@plone/registry';
 import briefcaseSVG from '@plone/volto/icons/briefcase.svg';
+import homeSVG from '@plone/volto/icons/home.svg';
+import showcaseSVG from '@plone/volto/icons/showcase.svg';
 
 /**
  * Configlet id from the backend's `controlpanel.xml`, which is also the last
@@ -7,6 +9,18 @@ import briefcaseSVG from '@plone/volto/icons/briefcase.svg';
  * Volto looks its icon up under.
  */
 export const CONTROLPANEL_ID = 'case_study';
+
+/**
+ * Icons for the content types this add-on installs, keyed by portal type.
+ *
+ * Volto's `getContentIcon` falls back to the generic folder or file icon for
+ * any type missing here, which is what the contents view, the object browser
+ * and the relation widget showed for both types before.
+ */
+export const CONTENT_ICONS = {
+  CaseStudy: showcaseSVG,
+  Organization: homeSVG,
+};
 
 /**
  * Colours for the workflow states and transitions this add-on installs.
@@ -43,6 +57,11 @@ export default function install(config: ConfigType) {
   config.settings.controlPanelsIcons = {
     ...config.settings.controlPanelsIcons,
     [CONTROLPANEL_ID]: briefcaseSVG,
+  };
+
+  config.settings.contentIcons = {
+    ...config.settings.contentIcons,
+    ...CONTENT_ICONS,
   };
 
   // Both workflows of the chain render through Volto's own mapping helpers —
