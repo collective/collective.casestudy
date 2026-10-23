@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 2.0.0-alpha.4 (2026-10-23)
+
+
+### Feature
+
+- Show dedicated icons for case studies and organizations in the contents view, the object browser and relation fields, instead of the generic folder and file icons. @ericof [#40](https://github.com/collective/collective.casestudy/issues/40)
+
 ## 2.0.0-alpha.3 (2026-10-02)
 
 

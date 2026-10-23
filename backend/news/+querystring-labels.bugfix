@@ -1,1 +1,0 @@
-Give the Facet and Provider Services filters their own translations. The Facet filter showed the Services label and description, and the Provider Services filter shared its label with the Services field. Existing sites get the fix by running the upgrade to profile version 2600. @ericof

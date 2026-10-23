@@ -7,6 +7,38 @@
 -->
 
 <!-- towncrier release notes start -->
+## 2.0.0a4 (2026-10-23)
+
+### Backend
+
+
+#### New features:
+
+- Translate the country names in the address form and the country facet into Brazilian Portuguese and Spanish, and list them alphabetically by their translated name. The names come from pycountry's own translations, which `make i18n` now copies into a separate `collective.casestudy.countries` catalog for each language the package supports. @ericof [#41](https://github.com/collective/collective.casestudy/issues/41)
+
+
+#### Bug fixes:
+
+- Give the Facet and Provider Services filters their own translations. The Facet filter showed the Services label and description, and the Provider Services filter shared its label with the Services field. Existing sites get the fix by running the upgrade to profile version 2600. @ericof 
+
+
+
+### Frontend
+
+
+#### Feature
+
+- Show dedicated icons for case studies and organizations in the contents view, the object browser and relation fields, instead of the generic folder and file icons. @ericof [#40](https://github.com/collective/collective.casestudy/issues/40)
+
+
+
+### Project
+
+No significant changes.
+
+
+
+
 ## 2.0.0a3 (2026-10-02)
 
 ### Backend
