@@ -6,7 +6,7 @@
     "email": "ericof@plone.org",
     "use_prerelease_versions": false,
     "plone_version": "6.2.1",
-    "volto_version": "19.3.0",
+    "volto_version": "19.6.1",
     "python_package_name": "collective.casestudy",
     "npm_package_name": "@plone-collective/volto-casestudy",
     "github_organization": "collective",
