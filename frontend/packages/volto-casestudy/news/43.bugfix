@@ -1,1 +1,0 @@
-The Case Study and Organization metadata block forms now pass `onChangeBlock`, `navRoot`, `contentType` and the validation errors to `BlockDataForm`, and read their schema from the block configuration, as the Volto core blocks do. @ericof

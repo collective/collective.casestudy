@@ -8,6 +8,23 @@
 
 <!-- towncrier release notes start -->
 
+## 2.0.0-alpha.5 (2026-10-30)
+
+
+### Bugfix
+
+- The Case Study and Organization metadata block forms now pass `onChangeBlock`, `navRoot`, `contentType` and the validation errors to `BlockDataForm`, and read their schema from the block configuration, as the Volto core blocks do. @ericof [#43](https://github.com/collective/collective.casestudy/issues/43)
+
+
+### Internal
+
+- Upgrade Volto to 19.6.1. @ericof [#43](https://github.com/collective/collective.casestudy/issues/43)
+
+
+### Documentation
+
+- Document the Case Study and Organization metadata blocks for the `@blocks-schema` endpoint of Volto 19.6.0, so agents and developers can write their data correctly. @ericof [#43](https://github.com/collective/collective.casestudy/issues/43)
+
 ## 2.0.0-alpha.4 (2026-10-23)
 
 

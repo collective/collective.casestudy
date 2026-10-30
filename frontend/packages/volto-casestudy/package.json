@@ -1,6 +1,6 @@
 {
   "name": "@plone-collective/volto-casestudy",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "description": "Showcase Plone usage with case studies",
   "main": "src/index.ts",
   "license": "MIT",
