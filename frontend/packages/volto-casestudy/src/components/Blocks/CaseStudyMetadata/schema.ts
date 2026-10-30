@@ -35,7 +35,7 @@ const messages = defineMessages({
 
 export const CaseStudyMetadataSchema = ({
   intl,
-}: BlockSchemaProps): JSONSchema => ({
+}: Pick<BlockSchemaProps, 'intl'>): JSONSchema => ({
   title: intl.formatMessage(messages.blockTitle),
   fieldsets: [
     {

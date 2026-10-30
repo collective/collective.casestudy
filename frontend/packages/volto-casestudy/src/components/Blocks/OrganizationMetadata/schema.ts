@@ -22,7 +22,7 @@ const messages = defineMessages({
 
 export const OrganizationMetadataSchema = ({
   intl,
-}: BlockSchemaProps): JSONSchema => ({
+}: Pick<BlockSchemaProps, 'intl'>): JSONSchema => ({
   title: intl.formatMessage(messages.blockTitle),
   fieldsets: [
     {
