@@ -1,10 +1,18 @@
 import React from 'react';
+import type { BlockEditProps } from '@plone/types';
 import { BlockDataForm } from '@plone/volto/components/manage/Form';
+import config from '@plone/volto/registry';
 import { useIntl } from 'react-intl';
 import { CaseStudyMetadataSchema } from './schema';
 import type { CaseStudyMetadataData } from './index';
 
-export interface CaseStudyMetadataDataProps {
+export interface CaseStudyMetadataDataProps
+  extends Partial<
+    Pick<
+      BlockEditProps,
+      'blocksConfig' | 'blocksErrors' | 'contentType' | 'navRoot'
+    >
+  > {
   data: CaseStudyMetadataData;
   block: string;
   onChangeBlock: (id: string, data: CaseStudyMetadataData) => void;
@@ -13,9 +21,22 @@ export interface CaseStudyMetadataDataProps {
 const CaseStudyMetadataDataForm: React.FC<CaseStudyMetadataDataProps> = (
   props,
 ) => {
-  const { data, block, onChangeBlock } = props;
+  const {
+    data,
+    block,
+    blocksConfig = config.blocks.blocksConfig,
+    blocksErrors,
+    contentType,
+    navRoot,
+    onChangeBlock,
+  } = props;
   const intl = useIntl();
-  const schema = CaseStudyMetadataSchema({ ...props, intl } as any);
+  const blockSchema =
+    blocksConfig?.[data['@type']]?.blockSchema ?? CaseStudyMetadataSchema;
+  const schema =
+    typeof blockSchema === 'function'
+      ? blockSchema({ ...props, intl } as any)
+      : blockSchema;
 
   const handleFieldChange = (id: string, value: unknown) => {
     onChangeBlock(block, { ...data, [id]: value });
@@ -26,8 +47,12 @@ const CaseStudyMetadataDataForm: React.FC<CaseStudyMetadataDataProps> = (
       schema={schema}
       title={schema.title}
       onChangeField={handleFieldChange}
+      onChangeBlock={onChangeBlock}
       formData={data}
       block={block}
+      navRoot={navRoot}
+      contentType={contentType}
+      errors={blocksErrors}
     />
   );
 };

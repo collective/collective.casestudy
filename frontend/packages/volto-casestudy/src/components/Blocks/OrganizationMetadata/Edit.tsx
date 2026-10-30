@@ -3,7 +3,7 @@ import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal'
 import { Message, Icon } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
 import OrganizationMetadataDataForm from './Data';
-import type { OrganizationMetadataData } from './index';
+import type { OrganizationMetadataDataProps } from './Data';
 
 const messages = defineMessages({
   blockName: {
@@ -21,17 +21,15 @@ const messages = defineMessages({
   },
 });
 
-export interface OrganizationMetadataEditProps {
-  data: OrganizationMetadataData;
-  block: string;
+export interface OrganizationMetadataEditProps
+  extends OrganizationMetadataDataProps {
   selected: boolean;
-  onChangeBlock: (id: string, data: OrganizationMetadataData) => void;
 }
 
 const OrganizationMetadataEdit: React.FC<OrganizationMetadataEditProps> = (
   props,
 ) => {
-  const { block, data, onChangeBlock, selected } = props;
+  const { data, selected } = props;
   const intl = useIntl();
   const targetPath = data?.organization_source?.[0]?.['@id'];
 
@@ -61,11 +59,7 @@ const OrganizationMetadataEdit: React.FC<OrganizationMetadataEditProps> = (
       </div>
 
       <SidebarPortal selected={selected}>
-        <OrganizationMetadataDataForm
-          data={data}
-          block={block}
-          onChangeBlock={onChangeBlock}
-        />
+        <OrganizationMetadataDataForm {...props} />
       </SidebarPortal>
     </>
   );
