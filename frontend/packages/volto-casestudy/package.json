@@ -33,7 +33,7 @@
     "@plone-collective/volto-multiworkflow"
   ],
   "dependencies": {
-    "@plonegovbr/volto-social-media": "^3.0.0",
+    "@plonegovbr/volto-social-media": "^3.1.0",
     "@plone-collective/volto-multiworkflow": "^1.0.0-alpha.2",
     "@plone/components": "workspace:*"
   },
