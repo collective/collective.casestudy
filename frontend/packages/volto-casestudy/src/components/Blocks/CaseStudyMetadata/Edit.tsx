@@ -4,8 +4,8 @@ import type { CaseStudy } from '@plone-collective/volto-casestudy/types/content'
 import { Message, Icon } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
 import CaseStudyMetadataDataForm from './Data';
+import type { CaseStudyMetadataDataProps } from './Data';
 import CaseStudyMetadataView from './View';
-import type { CaseStudyMetadataData } from './index';
 
 const messages = defineMessages({
   blockName: {
@@ -23,17 +23,14 @@ const messages = defineMessages({
   },
 });
 
-export interface CaseStudyMetadataEditProps {
-  data: CaseStudyMetadataData;
-  block: string;
+export interface CaseStudyMetadataEditProps extends CaseStudyMetadataDataProps {
   selected: boolean;
   properties?: CaseStudy;
   content?: CaseStudy;
-  onChangeBlock: (id: string, data: CaseStudyMetadataData) => void;
 }
 
 const CaseStudyMetadataEdit: React.FC<CaseStudyMetadataEditProps> = (props) => {
-  const { block, data, onChangeBlock, selected, content, properties } = props;
+  const { data, selected, content, properties } = props;
   const intl = useIntl();
   const targetPath = data?.case_study_source?.[0]?.['@id'];
   const objectData = content ?? properties;
@@ -68,11 +65,7 @@ const CaseStudyMetadataEdit: React.FC<CaseStudyMetadataEditProps> = (props) => {
         </div>
       )}
       <SidebarPortal selected={selected}>
-        <CaseStudyMetadataDataForm
-          data={data}
-          block={block}
-          onChangeBlock={onChangeBlock}
-        />
+        <CaseStudyMetadataDataForm {...props} />
       </SidebarPortal>
     </>
   );

@@ -13,8 +13,18 @@ vi.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => ({
 }));
 
 vi.mock('./Data', () => ({
-  default: ({ block }: { block: string }) => (
-    <div data-testid="data-form" data-block={block} />
+  default: ({
+    block,
+    contentType,
+  }: {
+    block: string;
+    contentType?: string;
+  }) => (
+    <div
+      data-testid="data-form"
+      data-block={block}
+      data-content-type={contentType}
+    />
   ),
 }));
 
@@ -80,5 +90,15 @@ describe('CaseStudyMetadataEdit', () => {
   it('hands the block id to the sidebar form', () => {
     const { getByTestId } = renderEdit({ selected: true });
     expect(getByTestId('data-form').getAttribute('data-block')).toBe('b1');
+  });
+
+  it('hands the editor props to the sidebar form', () => {
+    const { getByTestId } = renderEdit({
+      selected: true,
+      contentType: 'CaseStudy',
+    });
+    expect(getByTestId('data-form').getAttribute('data-content-type')).toBe(
+      'CaseStudy',
+    );
   });
 });
